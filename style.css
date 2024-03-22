@@ -1,0 +1,39 @@
+.top-bar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:focus {
+    outline: none;
+}
+
+#home-btn {
+    background-color: #2196F3;
+}
+
+#news-btn {
+    background-color: #f44336;
+}
+
+#versions-btn {
+    background-color: #ff9800;
+}
+
+#contact-btn {
+    background-color: #9b59b6;
+}

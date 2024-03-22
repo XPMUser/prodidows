@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Versions List</title>
+</head>
+<body>
+    <h1>Versions List</h1>
+    <button onclick="showBetaWarning()">1.16.5</button>
+    
+    <div id="betaWarning" style="display: none;">
+        <p>Warning: This version is in beta so expect bugs/glitches/unfinished stuff and etc</p>
+        <button onclick="proceedToVersion()">Yes</button>
+        <button onclick="hideBetaWarning()">No</button>
+    </div>
+    
+    <script>
+        function showBetaWarning() {
+            document.getElementById("betaWarning").style.display = "block";
+        }
+        
+        function hideBetaWarning() {
+            document.getElementById("betaWarning").style.display = "none";
+        }
+        
+        function proceedToVersion() {
+            // Add your link redirection logic here
+        }
+    </script>
+</body>
+</html>

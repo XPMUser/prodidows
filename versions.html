@@ -4,76 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Versions List</title>
+    <title>Version Selector</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        
-        h1 {
-            color: #333;
-        }
-        
-        button {
+        .button {
             padding: 10px 20px;
-            margin: 10px;
-            background-color: #007bff;
-            color: white;
+            margin: 5px;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
-        }
-        
-        button:hover {
-            background-color: #0056b3;
-        }
-        
-        #betaWarning {
-            display: none;
-            background-color: #f8d7da;
-            border: 1px solid #f5c6cb;
             border-radius: 5px;
-            padding: 10px;
-            margin-top: 20px;
             text-align: center;
+            text-decoration: none;
+            display: inline-block;
         }
-        
-        p {
-            color: #721c24;
+        .button-green {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .button-green:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <h1>Versions List</h1>
-    <button onclick="showBetaWarning()">1.16.5</button>
-    <button onclick="proceedToVersion()">1.10.0</button>
-    
-    <div id="betaWarning">
-        <p>Warning: This version is in beta so expect bugs/glitches/unfinished stuff and etc</p>
-        <button onclick="proceedToVersion()">Yes</button>
-        <button onclick="hideBetaWarning()">No</button>
-    </div>
-    
-    <script>
-        function showBetaWarning() {
-            document.getElementById("betaWarning").style.display = "block";
-        }
-        
-        function hideBetaWarning() {
-            document.getElementById("betaWarning").style.display = "none";
-        }
-        
-        function proceedToVersion() {
-            window.location.href = "https://toonigy.github.io/versions/1-16-5/";
-        }
-    </script>
+    <a href="https://toonigy.github.io/versions/1-10-0/" class="button">1.10.0</a>
+    <a href="https://toonigy.github.io/versions/1-30-0/" class="button">1.30.0</a>
+    <a href="https://toonigy.github.io/versions/1-16-5/" class="button">1.16.5</a>
+    <a href="https://toonigy.github.io/versions/1-50-0/" class="button">1.50.0</a>
+    <a href="https://toonigy.github.io/mods.html" class="button button-green" style="float: right;">MODS</a>
 </body>
 </html>

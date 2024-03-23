@@ -1,0 +1,30 @@
+{"frames": {
+
+"bg":
+{
+	"frame": {"x":2,"y":2,"w":1280,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1280,"h":720},
+	"sourceSize": {"w":1280,"h":720},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"sparkle":
+{
+	"frame": {"x":1284,"y":2,"w":37,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":37,"h":46},
+	"sourceSize": {"w":37,"h":46},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "https://web.archive.org/web/20200330045255/http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "zone-icecave.png",
+	"format": "RGBA8888",
+	"size": {"w":1323,"h":724},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:5d2b944f7f6e8086e39c2b15fa5c3f6e:3f7259d05487160f15bc3c116f29ac69:ca9c82222b2347e1cd358bbf4c96626f$"
+}
+}

@@ -49,7 +49,7 @@ function ApiClient(e, t) {
 		p = {};
 	this.generic_ajax_error = function() {}, this.uniqueKey = void 0, this.userID = void 0, this.instance = void 0, this.socket = void 0;
 	var d = {
-		version: "v1",
+		version: "",
 		autoping: !0,
 		url: {
 			leaderboard: void 0,
@@ -58,29 +58,29 @@ function ApiClient(e, t) {
 		},
 		root: void 0
 	};
-	switch (window.location.host) {
-		case "localhost":
-			d.root = "http://api.dev.prodigygame.org/game/", d.url.leaderboard = "http://api.dev.prodigygame.org/leaderboard/", d.url.chat = "http://api.dev.prodigygame.org/chat/";
+	switch ("minesweeperonline.com") {
+		case "minesweeperonline.com":
+			d.root = "", d.url.leaderboard = "", d.url.chat = "";
 			break;
-		case "prodigywebdev.cloudapp.net":
-			d.root = "http://api.staging.prodigygame.org/game/", d.url.leaderboard = "http://api.staging.prodigygame.org/leaderboard/", d.url.chat = "http://api.staging.prodigygame.org/chat/";
+		case "":
+			d.root = "", d.url.leaderboard = "", d.url.chat = "";
 			break;
 		default:
-			d.root = "https://game-api.prodigygame.com/game/", d.url.leaderboard = "https://www.prodigygame.org/leaderboard/"
+			d.root = "", d.url.leaderboard = ""
 	}
-	switch (window.location.search) {
+	switch ("minesweeperonline.com") {
 		case "?env=dev":
-			d.root = "http://api.dev.prodigygame.org/game/", d.url.leaderboard = "http://api.dev.prodigygame.org/leaderboard/", d.url.chat = "http://api.dev.prodigygame.org/chat/";
+			d.root = "", d.url.leaderboard = "", d.url.chat = "";
 			break;
 		case "?env=staging":
-			d.root = "http://api.staging.prodigygame.org/game/", d.url.leaderboard = "http://api.staging.prodigygame.org/leaderboard/", d.url.chat = "http://api.staging.prodigygame.org/chat/";
+			d.root = "", d.url.leaderboard = "", d.url.chat = "";
 			break;
 		case "?env=load":
-			d.root = "http://api.load.prodigygame.org:8000/game/", d.url.leaderboard = "http://api.staging.prodigygame.org/leaderboard/", d.url.chat = "http://api.staging.prodigygame.org/chat/";
+			d.root = "", d.url.leaderboard = "", d.url.chat = "";
 			break;
 		case "?env=production":
 		case "?env=prod":
-			d.root = "https://game-api.prodigygame.com/game/", d.url.leaderboard = "https://www.prodigygame.org/leaderboard/"
+			d.root = "", d.url.leaderboard = ""
 	}
 	if (e)
 		for (var u = Object.keys(d), m = 0, c = u.length; c > m; ++m) void 0 !== e[u[m]] && (d[u[m]] = e[u[m]]);
@@ -172,7 +172,7 @@ function ApiClient(e, t) {
 		}, r, "updatePlacementTest"), !0) : !1
 	}, this.updateUserAbility = function(e, t) {
 		var a = o(t, ["200"], "bulk update user ability");
-		return a && (e = n(e), s("/users/ability", {
+		return a && (e = n(e), s("", {
 			userAbilityData: JSON.stringify(e)
 		}, a, "bulkUpdateUserAbility")), !1
 	}, this.saveAnswer = function(e, t) {
@@ -5434,6 +5434,10 @@ var Quests = function() {
 		this.data = e
 	}, e.prototype.getDataAndClear = function() {
 		return this.updated = !1, this.data
+	}, e.prototype.getZoneVar = function (e, t) {
+		return Util.isDefined(this.data[e]) ? this.data[e][t] : null
+	}, e.prototype.setZoneVar = function (e, t, a) {
+		Util.isDefined(this.data[e]) || (this.data[e] = {}), this.data[e][t] = a
 	}, e.prototype.getCurrentQuest = function(e) {
 		return Util.isDefined(this.data[e]) && this.data[e].C ? this.data[e].C : 0
 	}, e.prototype.getQuestProgress = function(e) {
@@ -5464,6 +5468,8 @@ var Quests = function() {
 		Util.isDefined(this.data[e]) || (this.data[e] = {}), this.data[e][t] = a
 	}, e.prototype.getQuestVariable = function(e, t) {
 		return Util.isDefined(this.data[e]) ? this.data[e][t] : null
+	}, e.prototype.clearQuestLine = function (e) {
+		delete this.data[e]
 	}, e.prototype.startQuestLine = function(e) {
 		Util.isDefined(this.data[e]) ? this.data[e].C = 1 : this.data[e] = {
 			C: 1
@@ -6289,7 +6295,7 @@ var SystemMenu = function() {
 				x: 50
 			}, 400, Phaser.Easing.Quadratic.InOut).start()
 		}, e.prototype.createArenaElement = function() {
-			this.progress = new Element(this.game, this, -350, 600), new Panel(this.game, this.progress, 25, 0, 6, 2), new BitmapFont(this.game, this.progress, 40, -25, "Coliseum", {
+			this.progress = new Element(this.game, this, 1280, 600), new Panel(this.game, this.progress, 25, 0, 6, 2), new BitmapFont(this.game, this.progress, 40, -25, "Coliseum", {
 				size: 20
 			}), this.progress.add(new Sprite(this.game, 260, -30, "icons", "player"));
 			var e = this.player.getColiseum();
@@ -6433,7 +6439,7 @@ var SystemMenu = function() {
 				y: -15
 			}, 800, Phaser.Easing.Quadratic.InOut, !0, 0, Number.MAX_VALUE, !0))
 		}, e.prototype.openLeaderboard = function() {
-			this.game.prodigy.open.leaderboard()
+			this.game.prodigy.open.message("Leaderboards are temporarily disabled. \n\nYou will not lose any data during this time.", null, null, "Uh oh!")
 		}, e.prototype.openInformation = function() {
 			this.game.prodigy.open.information()
 		}, e.prototype.openStore = function() {
@@ -8595,7 +8601,7 @@ var Stylist = function() {
 				width: 348,
 				align: "center"
 			}), new TextButton(this.game, this.data, 74, 310, {
-				text: "250",
+				text: "FREE",
 				icon: "item/26"
 			}, this.buy.bind(this)), new BitmapFont(this.game, this.data, 0, 380, "You have...", {
 				size: 20,
@@ -8657,8 +8663,9 @@ var Stylist = function() {
 		}, e.prototype.toggleStyles = function(e) {
 			var t = this.playerCopy.appearance.getHairStyle();
 			t += e, 0 >= t && (t = Appearance.hairNames[this.playerCopy.appearance.getGender()].length), t > Appearance.hairNames[this.playerCopy.appearance.getGender()].length && (t = 1), this.changeAppearance("style", t)
-		}, e.prototype.changeAppearance = function(t, a, i, s) {
+		}, e.prototype.changeAppearance = function(t, a, i, s, x) {
 			if ("eyes" === t) this.playerCopy.appearance.setEyeColor(a);
+			else if ("skin" === t) this.playerCopy.appearance.setSkinColor(a);
 			else if ("hair" === t) this.playerCopy.appearance.setHairColor(a);
 			else if ("style" === t) {
 				this.playerCopy.appearance.setHairStyle(a);
@@ -8667,12 +8674,13 @@ var Stylist = function() {
 			}("eyes" === t || "hair" === t) && (this[t].yes.x = i, this[t].yes.y = s), this.data.user.reload()
 		}, e.prototype.buy = function() {
 			var t = this.playerCopy.appearance.getHairColor(),
-				a = this.playerCopy.appearance.getEyeColor(),
+				a = this.playerCopy.appearance.getEyeColor(), 
 				i = this.playerCopy.appearance.getHairStyle(),
+                                x = this.playerCopy.appearance.getSkinColor(),
 				s = e.M_EYES[a - 1] || e.M_HAIR[t - 1] || e.M_STYLE[i - 1];
-			s && this.game.prodigy.network.sendAnalytics("Buy-Member-Style"), !this.player.isMember && s ? this.game.prodigy.open.membership(Ad.PREMIUM_ITEM) : this.player.getGold() < 250 ? this.player.isMember ? this.game.prodigy.open.message("You need [gold]250 to style your wizard. You only have " + this.player.getGold() + ".") : this.game.prodigy.open.membership(Ad.MORE_GOLD) : this.game.prodigy.open.confirm("Are you sure you want to style your wizard for [gold]250? \nThis will change your wizard's appearance.", this.completePurchase.bind(this))
+			s && this.game.prodigy.network.sendAnalytics("Buy-Member-Style"), !this.player.isMember && s ? this.game.prodigy.open.membership(Ad.PREMIUM_ITEM) : this.player.getGold() < 0 ? this.player.isMember ? this.game.prodigy.open.message("You need [gold]250 to style your wizard. You only have " + this.player.getGold() + ".") : this.game.prodigy.open.membership(Ad.MORE_GOLD) : this.game.prodigy.open.confirm("Are you sure you want to style your wizard? \nThis will change your wizard's appearance.", this.completePurchase.bind(this))
 		}, e.prototype.completePurchase = function() {
-			this.player.changeGold(-250), this.player.appearance.setHairStyle(this.playerCopy.appearance.getHairStyle()), this.player.appearance.setHairColor(this.playerCopy.appearance.getHairColor()), this.player.appearance.setEyeColor(this.playerCopy.appearance.getEyeColor()), this.player.appearanceChanged = !0, this.close()
+			this.player.changeGold(-0), this.player.appearance.setHairStyle(this.playerCopy.appearance.getHairStyle()), this.player.appearance.setHairColor(this.playerCopy.appearance.getHairColor()), this.player.appearance.setEyeColor(this.playerCopy.appearance.getEyeColor()), this.player.appearance.setSkinColor(this.playerCopy.appearance.getSkinColor()), this.player.appearanceChanged = !0, this.close()
 		}, e
 	}(),
 	Coliseum = function() {
@@ -9235,6 +9243,56 @@ Coliseum.data = [{
 	drops: [{
 		type: "gold",
 		N: 900000
+	}]
+}, {
+	opponent: {
+		data: '{"level":1}',
+		appearance: '{"name":"Robot", "gender":"female", "hairStyle":5, "hairColor":2, "skinColor":3, "eyeColor":15}',
+		equipment: '{"hat":46, "outfit":43, "weapon":70}'
+	},
+	title: "The W12-4RD",
+	description: "",
+	pets: [{
+		ID: "1",
+		level: "1"
+	}, {
+		ID: "2",
+		level: "1"
+	}, {
+		ID: "3",
+		level: "1"
+	}, {
+		ID: "4",
+		level: "1"
+	}],
+	drops: [{
+		type: "gold",
+		N: 9000
+	}]
+}, {
+	opponent: {
+		data: '{"level":1}',
+		appearance: '{"name":"Robot 2", "gender":"male", "hairStyle":3, "hairColor":2, "skinColor":3, "eyeColor":15}',
+		equipment: '{"hat":46, "outfit":43, "weapon":70}'
+	},
+	title: "The W12-4RD",
+	description: "",
+	pets: [{
+		ID: "1",
+		level: "1"
+	}, {
+		ID: "2",
+		level: "1"
+	}, {
+		ID: "3",
+		level: "1"
+	}, {
+		ID: "4",
+		level: "1"
+	}],
+	drops: [{
+		type: "gold",
+		N: 9000
 	}]
 }, {
 	opponent: {
@@ -10475,7 +10533,27 @@ var MapDisplay = function() {
 			y: 18,
 			w: 40,
 			h: 40
-		}], this.toDocks.bind(this)));
+		}], this.toDocks.bind(this))), this.btns.push(new StackButton(this.game, this, 620, 300, [{
+			tag: "map-all"
+		}, {
+			tag: "hair",
+			x: 20,
+			y: 18,
+			w: 40,
+			h: 40
+		}, {
+			text: "coming",
+			x: 0,
+			y: 15,
+			w: 40,
+			h: 40
+		}, {
+			text: "soon",
+			x: 0,
+			y: 35,
+			w: 40,
+			h: 40
+		}], this.toNewStyle.bind(this)));
 		for (var n = 0; n < this.btns.length; n++) this.game.add.tween(this.btns[n]).to({
 			y: this.btns[n].y + 10
 		}, 1e3, Phaser.Easing.Quadratic.InOut, !0, 0, Number.MAX_VALUE, !0);
@@ -10521,6 +10599,8 @@ var MapDisplay = function() {
 		this.game.state.states.Dorm.playerX = 799, this.game.state.states.Dorm.playerY = 472, this.game.state.start("Dorm")
 	}, e.prototype.toDocks = function(e) {
 		this.game.state.states.Docks.playerX = 1167, this.game.state.states.Docks.playerY = 445, this.game.state.start("Docks")
+	}, e.prototype.toNewStyle = function() {
+		this.createAccount()
 	}, e
 }();
 MapDisplay.getAssets = function() {
@@ -11495,7 +11575,10 @@ var Screen = function() {
 	}(),
 	Tutorial = function() {
 		function e(e) {
-			Screen.call(this, e, "The Academy Gates", "zero"), this.showMenu = !1
+			Screen.call(this, e, "The Academy Gates", "zero"), this.showMenu = !1, this.setData({
+				zones: {},
+				menus: {}
+			})
 		}
 		return e.prototype = Object.create(Screen.prototype), e.states = {
 			FIRST_BATTLE_DONE: 0,
@@ -11505,6 +11588,24 @@ var Screen = function() {
 			LEFT_ACADEMY: 4,
 			STARTED_FIRST_QUEST: 5,
 			COMPLETED_CATCH: 6
+		}, e.prototype.getDataAndClear = function () {
+			return this.updated = !1, this.data
+		}, e.prototype.setData = function (e) {
+			this.data = e
+		}, e.prototype.getMenuValue = function (e, t) {
+			return this.getValue("menus", e, t)
+		}, e.prototype.getZoneValue = function (e, t) {
+			return this.getValue("zones", e, t)
+		}, e.prototype.getValue = function (e, t, a) {
+			if (!Util.isDefined(this.data[e][t])) return 0;
+			var s = this.data[e][t];
+			return a = a || 0, Util.isDefined(s[a]) ? s[a] : 0
+		}, e.prototype.setMenuValue = function (e, t, a) {
+			return this.setValue("menus", e, t, a)
+		}, e.prototype.setZoneValue = function (e, t, a) {
+			return this.setValue("zones", e, t, a)
+		}, e.prototype.setValue = function (e, t, a, s) {
+			Util.isDefined(this.data[e][t]) || (this.data[e][t] = []), a = a || 0, this.data[e][t][a] !== s && (this.data[e][t][a] = s, this.updated = !0)
 		}, e.prototype.preload = function() {
 			Screen.prototype.preload.call(this), this.game.assets.load(this.game.load, ["monster-16", "tutorial", "stand", "chat", "zone-academy", "bg-battle-academy", "map", "bgm-battle"]), Device.iPadMini() || this.game.assets.load(this.game.load, ["voice-0"])
 		}, e.prototype.create = function() {
@@ -16749,7 +16850,7 @@ var Academy = function() {
 		}], this.startMachine.bind(this))
 	}, e.prototype.startMachine = function() {
 		this.game.prodigy.dialogue.setText({
-			text: "This is the TRANSFORMOTRON! \nFor [gold] 200, it will transform you into a monster! Want to try?",
+			text: "This is the TRANSFORMOTRON! It will transform you into a monster! Want to try?",
 			face: 3,
 			yes: this.tryTransform.bind(this)
 		}), this.game.prodigy.dialogue.start(e.DATA.atlas)
@@ -19130,7 +19231,7 @@ Cloud.STORE = {
 };
 var Tech = function() {
 	function e(t) {
-		WalkableScreen.call(this, t, e.DATA), this.assets = ["voice-6"], this.area = [
+		WalkableScreen.call(this, t, e.DATA), this.assets = ["voice-10"], this.area = [
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -19170,19 +19271,45 @@ var Tech = function() {
 		]
 	}
 	return e.prototype = Object.create(WalkableScreen.prototype), e.prototype.create = function() {
-		WalkableScreen.prototype.create.call(this, this.playerX, this.playerY), this.path.addCallback(3, this.toPlains.bind(this)), this.path.addCallback(4, this.toTowerBase.bind(this)), this.digBtn = new Element(this.game, this.content, 1010, 280);
+		WalkableScreen.prototype.create.call(this, this.playerX, this.playerY), this.path.addCallback(3, this.toPlains.bind(this)), this.path.addCallback(4, this.toTowerBase.bind(this)), this.createStoreNPC(670, 250, [e.STORE]), this.digBtn = new Element(this.game, this.content, 1010, 280);
 		var t = this.digBtn.add(new Sprite(this.game, 40, 40, "icons", "star2"));
 		t.anchor.setTo(.5, .5), t.inputEnabled = !0, t.angle = -20, t.events.onInputDown.add(this.game.state.start.bind(this.game.state, "DanceDance"), this.game.state), this.digBtn.add(new Sprite(this.game, 0, 10, "icons", "item/47")), this.game.add.tween(t).to({
 			angle: 20
 		}, 1e3, Phaser.Easing.Quadratic.InOut, !0, 0, Number.MAX_VALUE, !0);
 		var a = new Sprite(this.game, 437, 462, this.screenName, "m1");
-		a.anchor.setTo(.5, 1), this.content.add(a), new QuestNPC(this.game, this.content, 600, 500, e.DATA);
+		a.anchor.setTo(.5, 1), this.content.add(a), e.updateTechData(this.game.prodigy.player), new QuestNPC(this.game, this.content, 210, 360, e.DATA);
 		var i = [{
-			pre: "Robo-"
+			pre: "Robo-",
+			req: [{
+				rtype: "item",
+				type: "outfit",
+				ID: 43
+			}, {
+				rtype: "item",
+				type: "hat",
+				ID: 46
+			}],
+			fail: "You need to buy the Robot set to unlock!"
 		}, {
-			post: " the W12-4RD"
+			post: " the W12-4RD",
+			req: [{
+				rtype: "item",
+				type: "item",
+				ID: 65
+			}],
+			fail: "You need to win the Ribbon from the Robolympics to unlock!"
 		}, {
-			pre: "Dancemaster "
+			pre: "Dancemaster ",
+			req: [{
+				rtype: "item",
+				type: "outfit",
+				ID: 42
+			}, {
+				rtype: "item",
+				type: "hat",
+				ID: 47
+			}],
+			fail: "You need to get your Tek-Y4 to level 10 to unlock!"
 		}, {
 			post: "bot 3000",
 			member: !0,
@@ -19205,617 +19332,273 @@ var Tech = function() {
 		this.game.state.states.TowerBase.playerX = 210, this.game.state.states.TowerBase.playerY = 360, this.game.state.start("TowerBase")
 	}, e
 }();
+Tech.STORE = {
+	name: "The Machine Shop",
+	atlas: "store-tech",
+	pages: [{
+		maleTag: "male",
+		femaleTag: "female",
+		items: [{
+			ID: 46,
+			type: "hat",
+			mprice: 500
+		}, {
+			ID: 69,
+			type: "weapon",
+			price: 2500,
+			mprice: 0
+		}, {
+			ID: 43,
+			type: "outfit",
+			price: 4500,
+			mprice: 0
+		}]
+	}, {
+		tag: "pet",
+		items: [{
+			ID: 118,
+			type: "pet",
+			price: 2e3,
+			mprice: 500
+		}]
+	}]
+}, Tech.updateTechData = function (e) {
+	var t = Util.getDateSeed(),
+		a = (new Date).getDay();
+	e.quests.getZoneVar(Tech.DATA.ID, "day") !== a && (e.quests.clearQuestLine(Tech.DATA.ID), e.quests.setZoneVar(Tech.DATA.ID, "day", a));
+	var s = [113, 115, 118, 120, 115, 113, 118],
+		i = [113, 114, 115, 116, 117, 118, 119, 120, 121],
+		r = ["Power", "Super", "Techno", "Bumble", "Scrappy", "Lumpy", "Metal", "Grease", "Clank", "Pocket", "Speed"],
+		o = ["bot", "tank", "gear", "byte", "bit", "dude", "-1000", "sprocket", ""],
+		n = Tech.DATA.quests[0];
+	n.encounter = [{
+		ID: s[a]
+	}], n.req = [{
+		type: "pet",
+		ID: s[a],
+		N: 2
+	}];
+	for (var h = 1; h < Tech.DATA.quests.length; h++)
+		for (var n = Tech.DATA.quests[h], l = 0; l < n.pets.length; l++) {
+			var p = n.pets[l];
+			p.ID = Util.randomArrayElement(i, t), t += 10101;
+			var d = Util.randomArrayElement(r, t);
+			t += 10101;
+			var c = Util.randomArrayElement(o, t);
+			t += 10101, p.nickname = "Challenger " + d + c
+		}
+	var m = [{
+		ID: 70,
+		type: "weapon"
+	}, {
+		N: 1e3,
+		type: "gold"
+	}, {
+		ID: 41,
+		type: "outfit"
+	}, {
+		N: 1500,
+		type: "gold"
+	}, {
+		ID: 45,
+		type: "hat"
+	}, {
+		ID: 65,
+		type: "item"
+	}, {
+		N: 800,
+		type: "gold"
+	}];
+	Tech.DATA.dialogue[4].text = "Today's prize is...[" + AssetManager.convertItemToIcon(m[a]) + "]", Tech.DATA.dialogue[7].text = e.getName() + "!", Tech.DATA.quests[3].reward = [m[a]]
+},
 Tech.AUDIO = [{
-	tag: "voice-6",
+	tag: "voice-10",
 	s: 0,
-	d: 1
+	d: 2
 }, {
-	tag: "voice-6",
-	s: 1,
-	d: 1
-}, {
-	tag: "voice-6",
+	tag: "voice-10",
 	s: 2,
-	d: 1
+	d: 3
 }, {
-	tag: "voice-6",
-	s: 3,
-	d: 1
-}, {
-	tag: "voice-6",
-	s: 4,
-	d: 1
-}, {
-	tag: "voice-6",
+	tag: "voice-10",
 	s: 5,
+	d: 3
+}, {
+	tag: "voice-10",
+	s: 8,
 	d: 2
 }, {
-	tag: "voice-6",
-	s: 7,
+	tag: "voice-10",
+	s: 10,
 	d: 2
 }, {
-	tag: "voice-6",
-	s: 9,
+	tag: "voice-10",
+	s: 12,
 	d: 2
+}, {
+	tag: "voice-10",
+	s: 14,
+	d: 4
 }], Tech.DATA = {
-	ID: 3,
+	ID: 8,
 	tag: "Tech",
 	zoneName: "zone-tech",
 	atlas: "zone-tech",
-	fullName: "Tech Zone",
-	npc: "Cumulo",
-	icon: "zone-air",
+	fullName: "Clockwork Town",
+	npc: "Boombox",
+	icon: "item/47",
 	battle: {
-		screen: "bg-battle-cloud",
+		screen: "bg-battle-tech",
 		encounter: [{
-			ID: 4
+			ID: 113
 		}, {
-			ID: 5
+			ID: 114
 		}, {
-			ID: 6
+			ID: 115
 		}, {
-			ID: 13
+			ID: 116
 		}, {
-			ID: 14
+			ID: 117
 		}, {
-			ID: 15
+			ID: 118
 		}, {
-			ID: 18
+			ID: 119
 		}, {
-			ID: 19
+			ID: 120
 		}, {
-			ID: 20
-		}, {
-			ID: 21
-		}, {
-			ID: 22
-		}, {
-			ID: 41
-		}, {
-			ID: 42
-		}, {
-			ID: 43
-		}, {
-			ID: 44
-		}, {
-			ID: 56
-		}, {
-			ID: 57
-		}, {
-			ID: 72
-		}, {
-			ID: 73
-		}, {
-			ID: 74
-		}, {
-			ID: 84
-		}, {
-			ID: 85
-		}, {
-			ID: 86
-		}, {
-			ID: 90
-		}, {
-			ID: 91
+			ID: 121
 		}]
 	},
 	dialogue: [{
-		face: 2,
+		face: 4,
 		anim: 2,
-		text: "A good job. You are a model W12-4RD.",
-		audio: Tech.AUDIO[1]
+		text: "We have a winner!",
+		audio: Tech.AUDIO[2]
 	}, {
 		face: 0,
 		anim: 2,
-		text: "Set your automators to maximum accomplishment? (are you ready?)",
-		audio: Tech.AUDIO[1]
-	}, {
-		face: 4,
-		anim: 4,
-		text: "Greetings, coggle. Are you here to enter the Robolympics?",
+		text: "Are you ready for your next challenger?",
 		audio: Tech.AUDIO[0]
 	}, {
 		face: 4,
 		anim: 4,
-		text: "If so, what kind of robot are you?",
-		audio: Tech.AUDIO[0]
+		text: "Welcome to the Robolympics!",
+		audio: Tech.AUDIO[6]
+	}, {
+		face: 1,
+		anim: 0,
+		text: "Today we have 3 tough teams for you to face, but if you beat them all, there's a FANTASTIC prize!"
+	}, {
+		face: 0,
+		anim: 0,
+		text: "Today's prize is...-prize-",
+		audio: Tech.AUDIO[3]
+	}, {
+		face: 1,
+		anim: 0,
+		text: "Did you catch any new robots? If not, come back tomorrow to train with and catch a new one!"
+	}, {
+		face: 1,
+		anim: 0,
+		text: "Today's winner is..."
 	}, {
 		face: 4,
-		anim: 0,
-		text: "...",
+		anim: 4,
+		text: "-name-",
 		audio: Tech.AUDIO[1]
 	}, {
 		face: 4,
 		anim: 0,
-		text: "You're a wizard, you say? Interesting. I though they stopped making the W12-4RD model coggle. You're a relic!",
-		audio: Tech.AUDIO[1]
-	}, {
-		face: 4,
-		anim: 0,
-		text: "Whatever you are, welcome to TECH CITY, and welcome to the ROBOLYMPICS!",
-		audio: Tech.AUDIO[1]
-	}, {
-		face: 4,
-		anim: 0,
-		text: "You look confused, W12-4RD. No matter. Defeat some coggles for me, and I will explain everything.",
-		audio: Tech.AUDIO[1]
-	}, {
-		face: 4,
-		anim: 0,
-		text: "You are strong for a W12-4RD. Strong enough for the Robolympics.",
-		audio: Tech.AUDIO[1]
-	}, {
-		face: 4,
-		anim: 0,
-		text: "The entry fee is [gold] 250,000,000",
-		audio: Tech.AUDIO[1]
-	}, {
-		face: 4,
-		anim: 0,
-		text: "Well, since you helped me out, I will only charge you one LAK.",
-		audio: Tech.AUDIO[1]
-	}, {
-		face: 4,
-		anim: 0,
-		text: "You do not have even ONE LAK? Very well. Defeat some ???, they often carry them.",
-		audio: Tech.AUDIO[1]
-	}, {
-		face: 4,
-		anim: 0,
-		text: "You are now officially in the Robolympics, the greatest competition for robots on the island!",
-		audio: Tech.AUDIO[1]
-	}, {
-		face: 4,
-		anim: 0,
-		text: "The coggles (robots) live here in TECH CITY, and hold the tournament every year. And the strongest coggle wins the GRAND PRIZE!",
-		audio: Tech.AUDIO[1]
-	}, {
-		face: 4,
-		anim: 0,
-		text: "You will have many challenges to face. The first starts now - defeat ???.",
-		audio: Tech.AUDIO[1]
+		text: "As promised, here is your grand prize!",
+		audio: Tech.AUDIO[3]
 	}],
 	quests: [{
-		coords: [110, 0],
-		name: "They Are Coming",
-		desc: "The Skywatch is under attack! Defeat the incoming hobs!",
+		coords: [110, 110],
+		name: "Training Montage",
+		desc: "Defeat the target robots...maybe even catch a few!",
 		start: [2, 3, 4],
 		during: [],
-		complete: [0],
-		encounter: [{
-			ID: 84
-		}],
+		complete: [5],
 		req: [{
 			type: "pet",
-			ID: 84,
-			N: 2
-		}],
-		reward: [{
-			type: "gold",
-			N: 250
-		}]
-	}, {
-		coords: [0, 75],
-		name: "The Sky is Falling!",
-		desc: "Look for spare parts to repair the station. Luminites should carry them.",
-		start: [5],
-		during: [],
-		complete: [0],
-		encounter: [{
-			ID: 20,
-			drops: [{
-				ID: 49,
-				type: "item",
-				R: 1
-			}]
-		}],
-		req: [{
-			type: "item",
-			ID: 49,
-			N: 3
-		}],
-		reward: [{
-			type: "gold",
-			N: 250
-		}]
-	}, {
-		coords: [110, 110],
-		name: "Tech TRIALS",
-		desc: "Defeat cloud nibblers for Cumulo to pass the first trial.",
-		start: [6, 7, 8, 9, 10, 11, 12],
-		during: [],
-		complete: [13],
-		encounter: [{
-			ID: 56,
-			R: 1
-		}, {
-			ID: 13,
-			R: 1
-		}, {
-			ID: 84,
-			R: 1
-		}],
-		req: [{
-			type: "pet",
-			ID: 56,
-			N: 3
-		}],
-		reward: [{
-			type: "spell",
-			ID: 25
-		}]
-	}, {
-		coords: [225, 60],
-		name: "Vandals and Thieves",
-		desc: "Cumulo needs you to track down the hobs that stole the parts to the station.",
-		start: [14, 15, 16],
-		during: [],
-		complete: [0],
-		encounter: [{
-			ID: 84,
-			nickname: "Part-carrying hob",
-			R: 1,
-			drops: [{
-				ID: 47,
-				type: "item",
-				R: 1
-			}]
-		}, {
-			ID: 84
-		}, {
-			ID: 20
-		}],
-		req: [{
-			type: "item",
-			ID: 47,
-			N: 3
-		}],
-		reward: [{
-			type: "boots",
-			N: 1,
-			ID: 25
-		}]
-	}, {
-		coords: [335, 0],
-		name: "Wrench in the Gears",
-		desc: "You'll need a wrench to fix the station. Defeat cloud neeks and take their tools.",
-		start: [17],
-		during: [],
-		complete: [0],
-		encounter: [{
-			ID: 72,
-			R: .75,
-			drops: [{
-				ID: 53,
-				type: "item",
-				R: .25
-			}]
-		}, {
-			ID: 84,
-			R: .25
-		}],
-		req: [{
-			type: "item",
-			ID: 53,
+			ID: 1,
 			N: 1
 		}],
 		reward: [{
 			type: "gold",
-			N: 250
-		}]
-	}, {
-		coords: [450, 75],
-		name: "Head Hob",
-		desc: "Defeat the leader of the hobs and take back the power source.",
-		start: [18, 19],
-		during: [],
-		complete: [13],
-		pets: [{
-			ID: 85,
-			nickname: "Hob Leader"
-		}, {
-			ID: 84,
-			nickname: "Grunt Hob"
-		}, {
-			ID: 84,
-			nickname: "Grunt Hob"
-		}],
-		req: [{
-			type: "boss",
-			N: 1
-		}],
-		reward: [{
-			type: "spell",
-			ID: 26
-		}]
-	}, {
-		coords: [335, 110],
-		name: "The Birds",
-		desc: "Cumulo needs you to go defeat birds, 'cause they're messin' up the place!",
-		start: [14, 20, 21],
-		during: [],
-		complete: [0],
-		encounter: [{
-			ID: 13,
-			R: 5
-		}, {
-			ID: 4,
-			R: 1
-		}],
-		req: [{
-			type: "pet",
-			ID: 13,
-			N: 5
-		}, {
-			type: "pet",
-			ID: 4,
-			N: 2
-		}],
-		reward: [{
-			type: "gold",
-			N: 250
-		}]
-	}, {
-		coords: [335, 190],
-		name: "Bird is the Word",
-		desc: "According to Cumulo, squawks are the worst. Go defeat them!",
-		start: [22],
-		during: [],
-		complete: [0],
-		encounter: [{
-			ID: 18,
-			R: 4
-		}, {
-			ID: 72,
-			R: 2
-		}, {
-			ID: 85,
-			R: 1
-		}],
-		req: [{
-			type: "pet",
-			ID: 18,
-			N: 6
-		}],
-		reward: [{
-			type: "gold",
-			N: 250
-		}]
-	}, {
-		coords: [450, 225],
-		name: "Big Bird",
-		desc: "All your bird-challenging has caught the attention of the bird leader!",
-		start: [23],
-		during: [],
-		complete: [13],
-		encounter: [{
-			ID: 42,
-			R: 1,
-			nickname: "Big Bird"
-		}, {
-			ID: 41,
-			R: 9
-		}],
-		req: [{
-			type: "pet",
-			ID: 42,
-			N: 1
-		}],
-		reward: [{
-			type: "spell",
-			ID: 27
-		}]
-	}, {
-		coords: [335, 300],
-		name: "I Have the Power!",
-		desc: "To build a lightning rod, first you need to collect a green feather from an evolotus.",
-		start: [24, 25],
-		during: [],
-		complete: [0],
-		encounter: [{
-			ID: 43,
-			R: 2,
-			drops: [{
-				ID: 10,
-				type: "item",
-				R: .15
-			}]
-		}, {
-			ID: 72,
-			R: 1
-		}, {
-			ID: 84,
-			R: 1
-		}],
-		req: [{
-			type: "item",
-			ID: 10,
-			N: 1
-		}],
-		reward: [{
-			type: "hat",
-			N: 1,
-			ID: 8
+			N: 50
 		}]
 	}, {
 		coords: [225, 240],
-		name: "Rod! Rod! Rod!",
-		desc: "Defeat monsters that have hands in order to collect a steel rod.",
-		start: [26],
+		name: "Defeat Team Alpha",
+		desc: "Defeat the first robot team",
+		start: [],
 		during: [],
 		complete: [0],
-		encounter: [{
-			ID: 84,
-			R: 1,
-			drops: [{
-				ID: 52,
-				type: "item",
-				R: .2
-			}]
+		pets: [{
+			ID: 85
 		}, {
-			ID: 85,
-			R: 1,
-			drops: [{
-				ID: 52,
-				type: "item",
-				R: .25
-			}]
+			ID: 84
 		}, {
-			ID: 72,
-			R: 1,
-			drops: [{
-				ID: 52,
-				type: "item",
-				R: .2
-			}]
-		}, {
-			ID: 14,
-			R: 1
-		}, {
-			ID: 41,
-			R: 1
+			ID: 84
 		}],
-		req: [{
-			type: "item",
-			ID: 52,
-			N: 1
-		}],
-		reward: [{
-			type: "gold",
-			N: 250
-		}]
-	}, {
-		coords: [110, 300],
-		name: "Popular Mechanic",
-		desc: "Look for Mechanic Lumiot and defeat him.",
-		start: [27, 28],
-		during: [],
-		complete: [13],
-		encounter: [{
-			ID: 21,
-			nickname: "Mechanic Lumiot",
-			R: 1
-		}, {
-			ID: 20,
-			R: 3
-		}, {
-			ID: 13,
-			R: 3
-		}, {
-			ID: 56,
-			R: 3
-		}, {
-			ID: 41,
-			R: 3
-		}],
-		req: [{
-			type: "pet",
-			ID: 21,
-			N: 1
-		}],
-		reward: [{
-			type: "spell",
-			ID: 28
-		}]
-	}, {
-		coords: [0, 225],
-		name: "Who's in Charge?",
-		desc: "Find and defeat a cloaker, and collect its charge stone.",
-		start: [29, 30, 31],
-		during: [],
-		complete: [0],
-		encounter: [{
-			ID: 90,
-			R: 1,
-			drops: [{
-				ID: 54,
-				type: "item",
-				R: 1
-			}]
-		}, {
-			ID: 56,
-			R: 3
-		}, {
-			ID: 5,
-			R: 1
-		}, {
-			ID: 85,
-			R: 3
-		}, {
-			ID: 4,
-			R: 3
-		}],
-		req: [{
-			type: "item",
-			ID: 54,
-			N: 1
-		}],
-		reward: [{
-			type: "outfit",
-			N: 1,
-			ID: 5
-		}]
-	}, {
-		coords: [110, 190],
-		name: "Stormy Weather",
-		desc: "Defeat different storm monsters to charge the stone.",
-		start: [32],
-		during: [],
-		complete: [0],
-		encounter: [{
-			ID: 15,
-			R: 1
-		}, {
-			ID: 21,
-			R: 2
-		}, {
-			ID: 57,
-			R: 3
-		}, {
-			ID: 5,
-			R: 2
-		}, {
-			ID: 41,
-			R: 2
-		}],
-		req: [{
-			type: "pet",
-			ID: 15,
-			N: 1
-		}, {
-			type: "pet",
-			ID: 21,
-			N: 3
-		}, {
-			type: "pet",
-			ID: 57,
-			N: 5
-		}],
-		reward: [{
-			type: "weapon",
-			N: 1,
-			ID: 23
-		}]
-	}, {
-		coords: [225, 150],
-		name: "King of the Hill",
-		desc: "Defeat King Tortox and complete the last trial!",
-		start: [33, 34],
-		during: [35],
-		complete: [13, 36, 37, 38],
-		boss: {
-			ID: 5,
-			element: "storm",
-			attacks: [4, 10, 16, 25, 26, 27, 28, 29, 30],
-			name: "King Tortox"
-		},
 		req: [{
 			type: "boss",
 			N: 1
 		}],
 		reward: [{
-			type: "spell",
-			ID: 29
+			type: "gold",
+			N: 50
+		}]
+	}, {
+		coords: [335, 110],
+		name: "Defeat Team Beta",
+		desc: "Defeat the second robot team",
+		start: [],
+		during: [],
+		complete: [0],
+		pets: [{
+			ID: 85
+		}, {
+			ID: 84
+		}, {
+			ID: 84
+		}, {
+			ID: 84
+		}],
+		req: [{
+			type: "boss",
+			N: 1
+		}],
+		reward: [{
+			type: "gold",
+			N: 50
+		}]
+	}, {
+		coords: [225, 150],
+		name: "Defeat Team Delta",
+		desc: "Defeat the third robot team",
+		start: [],
+		during: [],
+		complete: [6, 7, 8],
+		pets: [{
+			ID: 85
+		}, {
+			ID: 84
+		}, {
+			ID: 84
+		}, {
+			ID: 84
+		}, {
+			ID: 84
+		}],
+		req: [{
+			type: "boss",
+			N: 1
+		}],
+		reward: [{
+			type: "gold",
+			N: 50
 		}]
 	}]
 };
@@ -21437,17 +21220,17 @@ var DinoDigMenu = function() {
 			this.game.prodigy.player.backpack.hasItem("key", 1) ? DinoDig.getNewFossils(this.game.prodigy.player.backpack).length <= 0 ? this.game.prodigy.dialogue.setText({
 				text: "The museum is full, so we don't need any fossils, but do you want to dig anyways? \nIt will cost you [gold] 200",
 				face: 4,
-				yes: this.start.bind(this, 200)
+				yes: this.start.bind(this, 0)
 			}) : this.game.prodigy.dialogue.setText({
-				text: "Ready to start digging for fossils? \n\nIt will cost you [gold] 300.",
+				text: "Ready to start digging for fossils?",
 				face: 4,
-				yes: this.start.bind(this, 300)
+				yes: this.start.bind(this, 0)
 			}) : this.game.prodigy.dialogue.setText({
 				text: "You want to start digging? First you'll need a shovel!",
 				face: 4
 			}), this.game.prodigy.dialogue.start(Dino.DATA.atlas)
 		}, e.prototype.start = function(e) {
-			!Util.isDefined(e) || this.game.prodigy.player.getGold() >= e ? (Util.isDefined(e) && this.game.prodigy.player.changeGold(-e), this.startCallback()) : (this.game.prodigy.dialogue.setText({
+			!Util.isDefined(e) || this.game.prodigy.player.getGold() >= e ? (Util.isDefined(e) && this.game.prodigy.player.changeGold(-0), this.startCallback()) : (this.game.prodigy.dialogue.setText({
 				text: "Uh oh! You don't have enough gold!",
 				face: 4
 			}), this.game.prodigy.dialogue.start(Dino.DATA.atlas))
@@ -21531,25 +21314,45 @@ var DinoDigMenu = function() {
 		}, {
 			x: 984,
 			y: 476
-		}], e.prototype.preload = function() {
-			Screen.prototype.preload.call(this), this.game.assets.load(this.game.load, ["game-dancedance", "bgm-dance1", "bgm-dance2", "voice-9", Dino.DATA.atlas])
-		}, e.prototype.create = function() {
-			this.game.prodigy.audio.pauseBGM(), Screen.prototype.create.call(this), this.startedSpeed = !1, this.game.prodigy.player.saveEnabled = !1, this.background.add(new Sprite(this.game, 0, 0, "game-dancedance", "bg")), this.danceBots = [], this.danceBots.push(new DanceBot(this.game, this.content, 260, 285)), this.danceBots.push(new DanceBot(this.game, this.content, 640, 420)), this.danceBots.push(new DanceBot(this.game, this.content, 1030, 285)), this.danceBots[0].scale.x = this.danceBots[0].scale.y = .5, this.danceBots[2].scale.x = this.danceBots[2].scale.y = .5, this.danceBots[0].setPose(1), this.danceBots[2].setPose(1), this.menu = new DanceMenu(this.game, this.content, this.startGame.bind(this), this.toTech.bind(this))
-		}, e.prototype.createUI = function(e) {
+		}], e.prototype.preload = function () {
+			Screen.prototype.preload.call(this), this.game.assets.load(this.game.load, ["game-dancedance", "bgm-dance1", "bgm-dance2", "voice-10", Tech.DATA.atlas])
+		}, e.prototype.create = function () {
+			this.game.prodigy.audio.pauseBGM(), Screen.prototype.create.call(this), this.startedSpeed = !1, this.game.prodigy.player.saveEnabled = !1, this.background.add(new Sprite(this.game, 0, 0, "game-dancedance", "bg")), this.danceBots = [], this.danceBots.push(new DanceBot(this.game, this.content, 260, 285)), this.danceBots.push(new DanceBot(this.game, this.content, 640, 420)), this.danceBots.push(new DanceBot(this.game, this.content, 1030, 285)), this.danceBots[0].scale.x = this.danceBots[0].scale.y = .5, this.danceBots[2].scale.x = this.danceBots[2].scale.y = .5, this.danceBots[0].setPose(1), this.danceBots[2].setPose(1), this.menu = new DanceMenu(this.game, this.content, this.startGame.bind(this), this.showInstructions.bind(this), this.toTech.bind(this))
+		}, e.prototype.showInstructions = function () {
+			this.menu.visible = !1;
+			var e = function (e) {
+				e.visible = !0
+			};
+			this.game.prodigy.dialogue.setText({
+				text: "This game is all about showing your moves and leveling up your TEK-Y4!",
+				face: 0,
+				anim: 4
+			}), this.game.prodigy.dialogue.setText({
+				text: "When a dance move is shown up top, select the matching dance card below before the timer runs out.",
+				face: 1,
+				anim: 0
+			}), this.game.prodigy.dialogue.setText({
+				text: "But look out! The timer speeds up over time! For each correct dance move, you earn gears to level up!",
+				face: 2,
+				anim: 0
+			}), this.game.prodigy.dialogue.setText({
+				callback: e.bind(this, this.menu)
+			}), this.game.prodigy.dialogue.start(Tech.DATA.atlas)
+		}, e.prototype.createUI = function (e) {
 			this.timer = new DanceTimer(this.game, this.content, 590, 30);
-			var t = function(e) {
-				var t = Math.max(0, Math.floor(150 * (1 + .75 * (e - 1))));
+			var t = function (e) {
+				for (var t = 50, a = 2; e >= a; a++) t += Math.max(0, Math.floor(100 * (a / 9) * 5));
 				return e >= 10 && (t = -1), {
 					target: t,
 					text: "" + e
 				}
 			};
 			this.gearBar = new FillBar(this.game, this.content, 65, 415, 34, 250, 1, t, 15975263, "star2", .7, !0), this.gearBar.setValue(this.game.prodigy.player.backpack.getKeyItemData(2, "gears") || 0);
-			var t = function(t) {
+			var t = function (t) {
 				var a = 15975263,
-					i = Math.max(0, 5 * t);
-				return t >= e && (i = -1), 1 >= t && (a = 15157320), {
-					target: i,
+					s = Math.max(0, 5 * t);
+				return t >= e && (s = -1), 1 >= t && (a = 15157320), {
+					target: s,
 					color: a,
 					text: 1 >= t ? "uh oh" : "x" + (t - 1)
 				}
@@ -21569,96 +21372,110 @@ var DinoDigMenu = function() {
 				width: 220,
 				align: "right"
 			})
-		}, e.prototype.setMultiplier = function(e) {
+		}, e.prototype.setMultiplier = function (e) {
 			e > 1 ? this.game.prodigy.audio.playSFX("yay") : Util.isDefined(this.multiplier) && this.multiplier !== e && this.game.prodigy.audio.playSFX("aw"), this.multiplier = e
-		}, e.prototype.startGame = function(e, t) {
+		}, e.prototype.startGame = function (e, t) {
 			this.menu.visible = !1, this.gearBonus = 0 === t ? 1 : 0, this.speedOffset = 1 === t ? .25 : 0, this.maxMult = 2 === t ? 5 : 4, this.createUI(this.maxMult), this.currentScore = 0, this.lightTimer = window.setInterval(this.processLights.bind(this), 500), this.startTime = (new Date).getTime(), this.finishTime = this.startTime + 7e4, this.speedTime = this.startTime + 4e4, this.timeDelay = 1500, this.setDifficulty(e);
-			var a = function(e) {
+			var a = function (e) {
 				e.game.prodigy.audio.playSFX("go"), e.game.prodigy.effects.flashText("DANCE!"), e.nextPose()
 			};
 			this.game.prodigy.audio.playBGM("bgm-dance1", !0), this.game.prodigy.audio.playSFX("ready"), this.game.prodigy.effects.flashText("READY?", a.bind(this, this))
-		}, e.prototype.endGame = function(e) {
+		}, e.prototype.endGame = function (e) {
 			this.timer.visible = !1;
 			for (var t = 0; t < this.poses.length; t++) this.poses[t].visible = !1;
 			this.game.prodigy.audio.pauseBGM(), e ? this.game.prodigy.audio.playSFX("victory") : this.game.prodigy.audio.playSFX("bell");
 			for (var t = 0; t < this.danceBots.length; t++) this.danceBots[t].setPose(e ? -3 : -1);
 			this.danceBots[1].setPose(e ? -2 : -1), this.game.prodigy.effects.flashText(e ? "Dance Complete!" : "Dance Failed", this.finalize.bind(this, e))
-		}, e.prototype.finalize = function(e) {
-			e ? (this.game.prodigy.player.backpack.getKeyItemData(2, "score") < this.currentScore && (this.game.prodigy.player.backpack.setKeyItemData(2, "score", this.currentScore), this.high.text.setText(this.currentScore + " [item/47]"), this.game.prodigy.dialogue.setText({
-				text: "You got a new high score!",
-				face: 0,
-				anim: 4
-			})), this.game.prodigy.dialogue.setText({
-				text: "Great moves! Let's see how many gears you earned!",
-				face: 0,
-				anim: 4
-			}), this.game.prodigy.dialogue.setText({
-				callback: this.gearBar.addValue.bind(this.gearBar, this.currentScore, null, this.finishFill.bind(this))
-			})) : (this.difficulty > 1 ? this.game.prodigy.dialogue.setText({
+		}, e.prototype.finalize = function (e) {
+			if (e) {
+				var t = this.game.prodigy.player.backpack.getKeyItemData(2, "score");
+				(!Util.isDefined(t) || t < this.currentScore) && (this.game.prodigy.player.backpack.setKeyItemData(2, "score", this.currentScore), this.high.text.setText(this.currentScore + " [item/47]"), this.game.prodigy.dialogue.setText({
+					text: "Looks like we have a new HIGH SCORE!",
+					face: 4,
+					anim: 4,
+					audio: Tech.AUDIO[2]
+				})), this.game.prodigy.dialogue.setText({
+					text: "Great moves! Let's see how many gears you earned!",
+					face: 0
+				}), this.game.prodigy.dialogue.setText({
+					callback: this.gearBar.addValue.bind(this.gearBar, this.currentScore, null, this.finishFill.bind(this))
+				})
+			} else this.difficulty > 1 ? this.game.prodigy.dialogue.setText({
 				text: "Oh dear...you got too many poses wrong. Perhaps try again on a lower difficulty?",
-				face: 0,
-				anim: 4
+				face: 3,
+				audio: Tech.AUDIO[4]
 			}) : this.game.prodigy.dialogue.setText({
 				text: "Oh dear...you got too many poses wrong. Try again another time!",
-				face: 0,
-				anim: 4
+				face: 3,
+				audio: Tech.AUDIO[4]
 			}), this.game.prodigy.dialogue.setText({
 				callback: this.toTech.bind(this)
-			})), this.game.prodigy.dialogue.start(Dino.DATA.atlas)
-		}, e.prototype.finishFill = function() {
+			});
+			this.game.prodigy.dialogue.start(Tech.DATA.atlas)
+		}, e.prototype.finishFill = function () {
 			var e = this.game.prodigy.player.backpack.getKeyItemData(2, "lvl"),
 				t = this.gearBar.getLevel();
-			this.game.prodigy.player.backpack.setKeyItemData(2, "gears", this.gearBar.getValue()), t > e ? (this.game.prodigy.player.backpack.setKeyItemData(2, "lvl", t), 5 > t ? this.game.prodigy.dialogue.setText({
-				text: "You leveled up your TEK-Y4! Now he can try the level " + t + " challenge and earn even more gears!",
-				face: 0,
-				anim: 4
-			}) : 10 > t ? this.game.prodigy.dialogue.setText({
-				text: "You leveled up your TEK-Y4! Get him to level 10, and there will be a fantastic reward!",
-				face: 0,
-				anim: 4
-			}) : this.game.prodigy.dialogue.setText({
-				text: "You leveled up your TEK-Y4 to the maximum level!",
-				face: 0,
-				anim: 4
-			}), this.game.prodigy.dialogue.setText({
-				text: "I almost forgot...here's your reward!",
-				face: 0,
-				anim: 4
-			}), this.game.prodigy.dialogue.setText({
-				callback: this.game.prodigy.open.gotItem.bind(this.game.prodigy.open, [{
+			if (this.game.prodigy.player.backpack.setKeyItemData(2, "gears", this.gearBar.getValue()), t > e) {
+				var a = [{
 					type: "gold",
-					N: 500
-				}], this.toTech.bind(this))
-			})) : (10 > e ? this.game.prodigy.dialogue.setText({
+					N: 500 * (t - e)
+				}];
+				this.game.prodigy.player.backpack.setKeyItemData(2, "lvl", t), 5 > t ? this.game.prodigy.dialogue.setText({
+					text: "You leveled up your TEK-Y4! Now he can try the level " + t + " challenge and earn even more gears!",
+					face: 4,
+					anim: 4,
+					audio: Tech.AUDIO[2]
+				}) : 10 > t ? this.game.prodigy.dialogue.setText({
+					text: "You leveled up your TEK-Y4! Get him to level 10, and there will be a fantastic reward!",
+					face: 4,
+					anim: 4,
+					audio: Tech.AUDIO[2]
+				}) : (this.game.prodigy.dialogue.setText({
+					text: "You leveled up your TEK-Y4 to the maximum level!",
+					face: 4,
+					anim: 4,
+					audio: Tech.AUDIO[3]
+				}), a.push({
+					type: "hat",
+					ID: 47
+				}), a.push({
+					type: "outfit",
+					ID: 42
+				})), this.game.prodigy.dialogue.setText({
+					text: "I almost forgot...here's your reward!",
+					face: 1
+				}), this.game.prodigy.dialogue.setText({
+					callback: this.game.prodigy.open.gotItem.bind(this.game.prodigy.open, a, this.toTech.bind(this))
+				})
+			} else 10 > e ? this.game.prodigy.dialogue.setText({
 				text: "Good job! Level up your TEK-Y4 to try new difficulties, get more gear and cool rewards!",
-				face: 0,
-				anim: 4
+				face: 4
 			}) : this.game.prodigy.dialogue.setText({
 				text: "Your TEK-Y4 is at the highest level! Try again to beat your friends' high scores!",
-				face: 0,
-				anim: 4
+				face: 4,
+				anim: 4,
+				audio: Tech.AUDIO[3]
 			}), this.game.prodigy.dialogue.setText({
 				callback: this.toTech.bind(this)
-			})), this.game.prodigy.dialogue.start(Dino.DATA.atlas)
-		}, e.prototype.setDifficulty = function(e) {
+			});
+			this.game.prodigy.dialogue.start(Tech.DATA.atlas)
+		}, e.prototype.setDifficulty = function (e) {
 			this.difficulty = e, this.poseElement = new Element(this.game, this.content, 0, 600);
 			var t = 3 > e ? 3 : 5 > e ? 4 : 5;
 			this.poses = [];
 			for (var a = 0; t > a; a++) this.poses[a] = new DancePose(this.game, this.poseElement, 130 * a, 0, this.selectAnswer.bind(this, a));
 			this.poseElement.x = 640 - this.poseElement.width / 2
-		}, e.prototype.nextPose = function() {
+		}, e.prototype.nextPose = function () {
 			var e = this.timer.start(this.difficulty, this.speedOffset, this.pose.bind(this));
 			this.correctPose = e.currentPose, this.correct = Math.floor(Math.random() * this.poses.length);
 			for (var t = [e], a = 0; a < this.poses.length; a++) a === this.correct ? this.poses[a].setPose(e) : this.poses[a].randomPose(this.difficulty, t), t.push(this.poses[a]), this.poses[a].flip();
 			this.answerID = null, this.deselectAll()
-		}, e.prototype.selectAnswer = function(e) {
+		}, e.prototype.selectAnswer = function (e) {
 			this.answerID = e, this.deselectAll()
-		}, e.prototype.deselectAll = function() {
+		}, e.prototype.deselectAll = function () {
 			for (var e = 0; e < this.poses.length; e++) this.poses[e].deselect()
-		}, e.prototype.pose = function() {
-			var e = this.answerID === this.correct;
-			e = !0;
-			for (var t = 0; t < this.poses.length; t++) this.poses[t].flip();
+		}, e.prototype.pose = function () {
+			for (var e = this.answerID === this.correct, t = 0; t < this.poses.length; t++) this.poses[t].flip();
 			for (var t = 0; t < this.danceBots.length; t++) 1 === t ? this.danceBots[t].setPose(e ? this.correctPose : -1) : this.danceBots[t].setPose(this.correctPose);
 			if (e) this.game.prodigy.audio.playSFX("heart"), this.currentScore += (this.poses.length + this.gearBonus) * (this.bonusBar.getLevel() - 1), this.score.text.setText("[item/47]" + this.currentScore), this.bonusBar.addValue(1);
 			else if (this.game.prodigy.audio.playSFX("damage"), this.bonusBar.getValue() > 5) this.bonusBar.setValue(5);
@@ -21666,78 +21483,83 @@ var DinoDigMenu = function() {
 				var a = this.bonusBar.addValue(-1);
 				if (0 >= a) return this.endGame(!1), void 0
 			}
-			var i = (new Date).getTime();
-			return i > this.finishTime ? (this.endGame(!0), void 0) : (i > this.speedTime && (this.startedSpeed || (this.startedSpeed = !0, this.speedOffset -= .25, this.game.prodigy.effects.flashText("Speed Up!"), this.game.prodigy.audio.playBGM("bgm-dance2", !0)), this.timeDelay = Math.max(500, this.timeDelay - 150)), window.setTimeout(this.nextPose.bind(this), this.timeDelay), void 0)
-		}, e.prototype.processLights = function() {
+			var s = (new Date).getTime();
+			return s > this.finishTime ? (this.endGame(!0), void 0) : (s > this.speedTime && (this.startedSpeed || (this.startedSpeed = !0, this.speedOffset -= .25, this.game.prodigy.effects.flashText("Speed Up!"), this.game.prodigy.audio.playBGM("bgm-dance2", !0)), this.timeDelay = Math.max(500, this.timeDelay - 150)), window.setTimeout(this.nextPose.bind(this), this.timeDelay), void 0)
+		}, e.prototype.processLights = function () {
 			if (!Util.isDefined(this.lights)) {
 				this.lights = [];
 				for (var t = 0; 3 > t; t++) this.lights.push(this.background.add(new Sprite(this.game, 0, 0, "icons", "empty"))), this.lights[t].alpha = .25;
 				this.lights[0].tint = 14492708, this.lights[1].tint = 15396941, this.lights[2].tint = 5107440
 			}
 			for (var a = [Util.randomArrayElement(e.RED_LIGHTS), Util.randomArrayElement(e.YELLOW_LIGHTS), Util.randomArrayElement(e.BLUE_LIGHTS)], t = 0; 3 > t; t++) this.lights[t].x = a[t].x - 25, this.lights[t].y = a[t].y - 25
-		}, e.prototype.toTech = function() {
+		}, e.prototype.toTech = function () {
 			this.game.state.states.Tech.playerX = 969, this.game.state.states.Tech.playerY = 389, this.game.state.start("Tech")
 		}, e
 	}(),
-	DanceMenu = function() {
-		function e(e, t, a, i) {
-			Element.call(this, e, t), this.startCallback = a, this.cancelCallback = i;
-			var s = this.add(new Sprite(this.game, 0, 0, "core", "overlay"));
-			s.alpha = .5, s.width = 1280, s.height = 720, this.game.prodigy.player.backpack.hasItem("key", 2) ? this.createMenu() : this.giveItem()
+	DanceMenu = function () {
+		function e(e, t, a, s, i) {
+			Element.call(this, e, t), this.startCallback = a, this.cancelCallback = i, this.instructionsCallback = s;
+			var r = this.add(new Sprite(this.game, 0, 0, "core", "overlay"));
+			r.alpha = .5, r.width = 1280, r.height = 720, this.game.prodigy.player.backpack.hasItem("key", 2) ? this.createMenu() : this.giveItem()
 		}
-		return e.prototype = Object.create(Element.prototype), e.prototype.giveItem = function() {
-			var e = function(e) {
+		return e.prototype = Object.create(Element.prototype), e.prototype.giveItem = function () {
+			var e = function (e) {
 				e.game.prodigy.dialogue.setText({
 					text: "It's just a little TEK-Y4, so it hasn't learned how to dance yet. It'll be your job to teach it some moves!",
-					face: 0
+					face: 1
 				}), e.game.prodigy.dialogue.setText({
 					callback: e.createMenu.bind(e)
-				}), e.game.prodigy.dialogue.start(Dino.DATA.atlas)
+				}), e.game.prodigy.dialogue.start(Tech.DATA.atlas)
 			};
 			this.game.prodigy.dialogue.setText({
-				text: "Hey there! Welcome to the Dance Stage! Ready to show everyone what your TEK-Y4 robot can do?",
-				face: 0,
+				text: "Welcome to the Dance Stage! Ready to show everyone what your TEK-Y4 robot can do?",
+				face: 4,
 				anim: 4
 			}), this.game.prodigy.dialogue.setText({
 				text: "OH! You don't have a TEK-Y4? Well now, only the TEK-Y4 dancing robot can use the stage...",
 				face: 2
 			}), this.game.prodigy.dialogue.setText({
 				text: "Here, you can have this one!",
-				face: 2
+				face: 1,
+				audio: Tech.AUDIO[3]
 			}), this.game.prodigy.dialogue.setText({
 				callback: this.game.prodigy.open.gotItem.bind(this.game.prodigy.open, [{
 					type: "key",
 					ID: 2,
 					lvl: 1
 				}], e.bind(this, this))
-			}), this.game.prodigy.dialogue.start(Dino.DATA.atlas)
-		}, e.prototype.createMenu = function() {
+			}), this.game.prodigy.dialogue.start(Tech.DATA.atlas)
+		}, e.prototype.createMenu = function () {
 			Util.isDefined(this.menu) && this.menu.destroy(), this.menu = new Element(this.game, this, 465, 220), new Panel(this.game, this.menu, 0, 0, 7, 5), new TextButton(this.game, this.menu, 25, 20, {
 				size: TextButton.MED,
 				icon: "key/2",
 				text: "Start!"
-			}, this.createDifficulty.bind(this)), new TextButton(this.game, this.menu, 25, 180, {
+			}, this.createDifficulty.bind(this)), new TextButton(this.game, this.menu, 25, 100, {
+				size: TextButton.MED,
+				icon: "star",
+				text: "How to Play"
+			}, this.instructions.bind(this)), new TextButton(this.game, this.menu, 25, 180, {
 				size: TextButton.MED,
 				icon: "back",
 				text: "Cancel"
 			}, this.cancelCallback.bind(this))
-		}, e.prototype.createDifficulty = function() {
+		}, e.prototype.createDifficulty = function () {
 			Util.isDefined(this.menu) && this.menu.destroy(), this.menu = new Element(this.game, this, 390, 220);
 			var e = this.game.prodigy.player.backpack.getKeyItemData(2, "lvl");
 			new Panel(this.game, this.menu, 0, 0, 10, 6), new BitmapFont(this.game, this.menu, 110, 20, "Choose Difficulty", {
 				size: 36,
 				font: "button"
 			}), new BitmapFont(this.game, this.menu, 110, 60, "Higher levels = more gears!"), this.menu.add(new Sprite(this.game, 10, 10, "icons", "key/2"));
-			for (var t = 0; 10 > t; t++) {
+			for (var t = 0; 5 > t; t++) {
 				var a = 30 + 90 * t,
-					i = 110;
-				e >= t + 1 ? new StackButton(this.game, this.menu, a, i, [{
+					s = 110;
+				e >= t + 1 ? new StackButton(this.game, this.menu, a, s, [{
 					tag: "star2"
 				}, {
 					text: "" + (t + 1),
 					y: 20,
 					size: 30
-				}], this.chooseDifficulty.bind(this, t + 1)) : new StackButton(this.game, this.menu, a, i, [{
+				}], this.chooseDifficulty.bind(this, t + 1)) : new StackButton(this.game, this.menu, a, s, [{
 					tag: "empty",
 					x: 15,
 					y: 15
@@ -21745,7 +21567,7 @@ var DinoDigMenu = function() {
 					text: "" + (t + 1),
 					y: 20,
 					size: 30
-				}], this.game.prodigy.open.message.bind(this.game.prodigy.open, "Your TEK-Y4 needs to be a higher level! Try a lower difficulty to earn gears and level up!"))
+				}], this.game.prodigy.open.message.bind(this.game.prodigy.open, "Your TEK-Y4 needs to be a higher level! Try a lower difficulty to earn gears and level up!", null, null, "Uh oh!"))
 			}
 			new TextButton(this.game, this.menu, 40, 230, {
 				size: TextButton.SMALL,
@@ -21756,18 +21578,18 @@ var DinoDigMenu = function() {
 				icon: "yes",
 				text: "GO!"
 			}, this.tryStart.bind(this)), this.yes = this.menu.add(new Sprite(this.game, 0, 170, "icons", "yes")), this.yes.width = this.yes.height = 25, this.chooseDifficulty(Math.min(e, 5))
-		}, e.prototype.chooseDifficulty = function(e) {
+		}, e.prototype.chooseDifficulty = function (e) {
 			this.difficulty = e, this.yes.x = 90 * e - 10
-		}, e.prototype.tryStart = function() {
+		}, e.prototype.tryStart = function () {
 			Util.isDefined(this.menu) && this.menu.destroy(), this.game.prodigy.dialogue.setText({
-				text: "Ready to start robo-dancing? \n\nIt will cost you [gold] 200.",
+				text: "Ready to start robo-dancing?",
 				face: 4,
-				yes: this.openBoosts.bind(this, 200),
+				yes: this.openBoosts.bind(this, 0),
 				no: this.createMenu.bind(this)
-			}), this.game.prodigy.dialogue.start(Dino.DATA.atlas)
-		}, e.prototype.openBoosts = function(e) {
+			}), this.game.prodigy.dialogue.start(Tech.DATA.atlas)
+		}, e.prototype.openBoosts = function (e) {
 			if (!Util.isDefined(e) || this.game.prodigy.player.getGold() >= e) {
-				Util.isDefined(e) && this.game.prodigy.player.changeGold(-e);
+				Util.isDefined(e) && this.game.prodigy.player.changeGold(-0);
 				var t = [{
 					icon: "item/47",
 					d: "more gears"
@@ -21781,33 +21603,35 @@ var DinoDigMenu = function() {
 				this.game.prodigy.open.boostSelect(t, this.start.bind(this))
 			} else this.game.prodigy.dialogue.setText({
 				text: "Uh oh! You don't have enough gold!",
-				face: 4
+				face: 3,
+				anim: 1,
+				audio: Tech.AUDIO[4]
 			}), this.game.prodigy.dialogue.setText({
 				callback: this.createMenu.bind(this)
-			}), this.game.prodigy.dialogue.start(Dino.DATA.atlas)
-		}, e.prototype.start = function(e) {
+			}), this.game.prodigy.dialogue.start(Tech.DATA.atlas)
+		}, e.prototype.start = function (e) {
 			this.startCallback(this.difficulty, e)
-		}, e.prototype.instructions = function() {
+		}, e.prototype.instructions = function () {
 			this.instructionsCallback()
 		}, e
 	}(),
-	DanceTimer = function() {
-		function e(e, t, a, i) {
-			Element.call(this, e, t, a, i), this.pose = new DancePose(this.game, this, 0, 0), this.pose.flip(), this.bar1 = this.add(new Sprite(this.game, 0, 34, "core", "overlay-light")), this.bar1.anchor.setTo(1, 0), this.bar2 = this.add(new Sprite(this.game, 100, 34, "core", "overlay-light")), this.bar1.height = this.bar2.height = 30, this.bar1.width = this.bar2.width = 244, this.bar1.alpha = this.bar2.alpha = .7, this.bar1.tint = this.bar2.tint = 8768643
+	DanceTimer = function () {
+		function e(e, t, a, s) {
+			Element.call(this, e, t, a, s), this.pose = new DancePose(this.game, this, 0, 0), this.pose.flip(), this.bar1 = this.add(new Sprite(this.game, 0, 34, "core", "overlay-light")), this.bar1.anchor.setTo(1, 0), this.bar2 = this.add(new Sprite(this.game, 100, 34, "core", "overlay-light")), this.bar1.height = this.bar2.height = 30, this.bar1.width = this.bar2.width = 244, this.bar1.alpha = this.bar2.alpha = .7, this.bar1.tint = this.bar2.tint = 8768643
 		}
-		return e.prototype = Object.create(Element.prototype), e.prototype.start = function(e, t, a) {
+		return e.prototype = Object.create(Element.prototype), e.prototype.start = function (e, t, a) {
 			this.pose.randomPose(e, []), this.callback = a;
-			var i = 2.5 - .35 * (e - 1);
-			i += t, i *= 1e3, this.bar1.width = this.bar2.width = 244;
-			var s = this.game.add.tween(this.pose).to({
+			var s = 2.5 - .35 * (e - 1);
+			s += t, s *= 1e3, this.bar1.width = this.bar2.width = 244;
+			var i = this.game.add.tween(this.pose).to({
 				y: -10
 			}, 250, Phaser.Easing.Quadratic.Out).to({
 				y: 0
 			}, 250, Phaser.Easing.Quadratic.In);
-			return s.onComplete.addOnce(this.beginTimer.bind(this, i), this), s.start(), this.pose
-		}, e.prototype.beginTimer = function(e) {
+			return i.onComplete.addOnce(this.beginTimer.bind(this, s), this), i.start(), this.pose
+		}, e.prototype.beginTimer = function (e) {
 			this.startTime = (new Date).getTime(), this.targetTime = (new Date).getTime() + e
-		}, e.prototype.update = function() {
+		}, e.prototype.update = function () {
 			if (Element.prototype.update.call(this), Util.isDefined(this.bar1) && Util.isDefined(this.bar2) && Util.isDefined(this.targetTime)) {
 				var e = (new Date).getTime();
 				if (e >= this.targetTime) this.bar1.width = this.bar2.width = 0, this.targetTime = null, this.callback();
@@ -21819,11 +21643,11 @@ var DinoDigMenu = function() {
 			}
 		}, e
 	}(),
-	DanceBot = function() {
-		function e(e, t, a, i) {
-			Element.call(this, e, t, a, i), this.sprite = this.add(new Sprite(this.game, -100, -200, "game-dancedance", "pose1-1")), this.sprite.animations.add("-3", ["pose2-1"], 1, !0, !1), this.sprite.animations.add("-2", ["poseSuccess"], 1, !0, !1), this.sprite.animations.add("-1", ["poseFail"], 1, !0, !1), this.sprite.animations.add("0", ["pose0-1", "pose0-2"], 1, !0, !1), this.sprite.animations.add("1", ["pose1-1", "pose1-2"], 1, !0, !1), this.sprite.animations.add("2", ["pose2-1", "pose2-2"], 1, !0, !1), this.sprite.animations.add("3", ["pose3-1", "pose3-2"], 1, !0, !1), this.sprite.animations.add("4", ["pose4-1", "pose4-2"], 1, !0, !1), this.sprite.animations.add("5", ["pose5-1", "pose5-2"], 1, !0, !1), this.sprite.animations.add("6", ["pose6-1", "pose6-2"], 1, !0, !1), this.sprite.animations.add("7", ["pose7-1", "pose7-2"], 1, !0, !1), this.sprite.animations.add("8", ["pose8-1", "pose8-2"], 1, !0, !1), this.sprite.animations.add("9", ["pose9-1", "pose9-2"], 1, !0, !1), this.setPose(-3)
+	DanceBot = function () {
+		function e(e, t, a, s) {
+			Element.call(this, e, t, a, s), this.sprite = this.add(new Sprite(this.game, -100, -200, "game-dancedance", "pose1-1")), this.sprite.animations.add("-3", ["pose2-1"], 1, !0, !1), this.sprite.animations.add("-2", ["poseSuccess"], 1, !0, !1), this.sprite.animations.add("-1", ["poseFail"], 1, !0, !1), this.sprite.animations.add("0", ["pose0-1", "pose0-2"], 1, !0, !1), this.sprite.animations.add("1", ["pose1-1", "pose1-2"], 1, !0, !1), this.sprite.animations.add("2", ["pose2-1", "pose2-2"], 1, !0, !1), this.sprite.animations.add("3", ["pose3-1", "pose3-2"], 1, !0, !1), this.sprite.animations.add("4", ["pose4-1", "pose4-2"], 1, !0, !1), this.sprite.animations.add("5", ["pose5-1", "pose5-2"], 1, !0, !1), this.sprite.animations.add("6", ["pose6-1", "pose6-2"], 1, !0, !1), this.sprite.animations.add("7", ["pose7-1", "pose7-2"], 1, !0, !1), this.sprite.animations.add("8", ["pose8-1", "pose8-2"], 1, !0, !1), this.sprite.animations.add("9", ["pose9-1", "pose9-2"], 1, !0, !1), this.setPose(-3)
 		}
-		return e.prototype = Object.create(Element.prototype), e.prototype.setPose = function(e) {
+		return e.prototype = Object.create(Element.prototype), e.prototype.setPose = function (e) {
 			this.sprite.animations.play(e + "", 2.15, !0), -1 === e && this.game.add.tween(this.sprite).to({
 				x: -105
 			}, 100, Phaser.Easing.Linear.None).to({
@@ -21843,15 +21667,15 @@ var DinoDigMenu = function() {
 			}, 250, Phaser.Easing.Linear.None, !0, 0, 1, !0)
 		}, e
 	}(),
-	DancePose = function() {
-		function e(e, t, a, i, s) {
-			Element.call(this, e, t, a, i), this.onSelect = s, this.flipped = !1, this.frame = this.add(new Sprite(this.game, 0, 0, "game-dancedance", "pose-card")), this.frame.events.onInputDown.add(this.select.bind(this)), this.sprite = this.add(new Sprite(this.game, 10, 10, "game-dancedance", "card0")), this.sprite.width = 0, this.sprite.x = 50, this.sprite.alpha = .9, this.currentPose = 1, this.currentTint = 14080234
+	DancePose = function () {
+		function e(e, t, a, s, i) {
+			Element.call(this, e, t, a, s), this.onSelect = i, this.flipped = !1, this.frame = this.add(new Sprite(this.game, 0, 0, "game-dancedance", "pose-card")), this.frame.events.onInputDown.add(this.select.bind(this)), this.sprite = this.add(new Sprite(this.game, 10, 10, "game-dancedance", "card0")), this.sprite.width = 0, this.sprite.x = 50, this.sprite.alpha = .9, this.currentPose = 1, this.currentTint = 14080234
 		}
-		return e.prototype = Object.create(Element.prototype), e.TINTS = [14254209, 9946096, 8444311, 16755318, 15788439, 13080560], e.prototype.randomPose = function(t, a) {
-			var i = 3 > t ? 4 : 3 === t ? 6 : 4 === t ? 8 : 10;
+		return e.prototype = Object.create(Element.prototype), e.TINTS = [14254209, 9946096, 8444311, 16755318, 15788439, 13080560], e.prototype.randomPose = function (t, a) {
+			var s = 3 > t ? 4 : 3 === t ? 6 : 4 === t ? 8 : 10;
 			this.currentTint = 14080234;
-			for (var s = 0; 100 > s; s++) {
-				this.currentPose = Math.floor(Math.random() * i), this.currentTint = e.TINTS[Math.floor(Math.random() * e.TINTS.length)];
+			for (var i = 0; 100 > i; i++) {
+				this.currentPose = Math.floor(Math.random() * s), this.currentTint = e.TINTS[Math.floor(Math.random() * e.TINTS.length)];
 				for (var r = !1, o = 0; o < a.length; o++)
 					if (this.equals(a[o], t)) {
 						r = !0;
@@ -21859,9 +21683,9 @@ var DinoDigMenu = function() {
 					} if (!r) break
 			}
 			this.sprite.frameName = "card" + this.currentPose, this.frame.tint = this.currentTint
-		}, e.prototype.setPose = function(e) {
+		}, e.prototype.setPose = function (e) {
 			this.currentPose = e.currentPose, this.currentTint = e.currentTint
-		}, e.prototype.flip = function() {
+		}, e.prototype.flip = function () {
 			this.sprite.frameName = "card" + this.currentPose, this.frame.inputEnabled = !1, "pose-frame" === this.frame.frameName ? this.game.add.tween(this.sprite).to({
 				width: 0,
 				x: 50
@@ -21871,7 +21695,7 @@ var DinoDigMenu = function() {
 				x: 50
 			}, 250, Phaser.Easing.Linear.None);
 			e.onComplete.addOnce(this.flipStep.bind(this), this), e.start()
-		}, e.prototype.flipStep = function() {
+		}, e.prototype.flipStep = function () {
 			"pose-card" === this.frame.frameName ? (this.frame.frameName = "pose-frame", this.frame.tint = this.currentTint, this.game.add.tween(this.sprite).to({
 				width: 80,
 				x: 10
@@ -21881,13 +21705,13 @@ var DinoDigMenu = function() {
 				x: 0
 			}, 250, Phaser.Easing.Linear.None);
 			e.onComplete.addOnce(this.flipComplete.bind(this), this), e.start()
-		}, e.prototype.flipComplete = function() {
+		}, e.prototype.flipComplete = function () {
 			this.frame.inputEnabled = "pose-frame" === this.frame.frameName
-		}, e.prototype.equals = function(e) {
+		}, e.prototype.equals = function (e) {
 			return Util.isDefined(e) && (e.currentPose == this.currentPose || e.currentTint == this.currentTint && 14080234 !== e.currentTint)
-		}, e.prototype.select = function() {
+		}, e.prototype.select = function () {
 			Util.isDefined(this.onSelect) && (this.game.prodigy.audio.playSFX("pop"), this.onSelect(), this.frame.y = -15, this.sprite.y = -5)
-		}, e.prototype.deselect = function() {
+		}, e.prototype.deselect = function () {
 			this.frame.y = 0, this.sprite.y = 10
 		}, e
 	}(),
@@ -22386,6 +22210,27 @@ var DormMenu = function() {
 					url: "tileset-tree.png",
 					json: "tileset-tree.json"
 				},
+				"scene-intro": {
+					type: "atlas",
+					base: "https://cdn.prodigygame.com/game/assets/images/scenes/",
+					url: "scene-intro.png",
+					json: "scene-intro.json"
+				},
+				"scene-intro-bg1": {
+					type: "sprite",
+					base: "https://cdn.prodigygame.com/game/assets/images/scenes/",
+					url: "scene-intro-bg1.jpg"
+				},
+				"scene-intro-bg2": {
+					type: "sprite",
+					base: "https://cdn.prodigygame.com/game/assets/images/scenes/",
+					url: "scene-intro-bg2.jpg"
+				},
+				"scene-intro-bg3": {
+					type: "sprite",
+					base: "https://cdn.prodigygame.com/game/assets/images/scenes/",
+					url: "scene-intro-bg3.jpg"
+				},
 				"zone-docks": {
 					type: "atlas",
 					base: "https://xpmuser.github.io/oldprodigy/prodigyde/assets/images/zones/",
@@ -22594,6 +22439,12 @@ var DormMenu = function() {
 					url: "store-cloud.png",
 					json: "store-cloud.json"
 				},
+				"store-tech": {
+					type: "atlas",
+					base: b,
+					url: "store-tech.png",
+					json: "store-tech.json"
+				},
 				"store-dorm": {
 					type: "atlas",
 					base: "https://xpmuser.github.io/oldprodigy/prodigyde/assets/images/stores/",
@@ -22604,6 +22455,11 @@ var DormMenu = function() {
 					type: "sfx",
 					base: "https://xpmuser.github.io/oldprodigy/prodigyde/assets/audio/voice/",
 					url: "voice-0.mp3"
+				},
+				"voice-10": {
+					type: "sfx",
+					base: "https://xpmuser.github.io/oldprodigy/prodigyde/assets/audio/voice/",
+					url: "voice-10.mp3"
 				},
 				"voice-1": {
 					type: "sfx",
@@ -22650,6 +22506,46 @@ var DormMenu = function() {
 					base: y,
 					url: "voice-9.mp3"
 				},
+				"voice-10-1": {
+					type: "sfx",
+					base: y,
+					url: "voice-10-1.mp3"
+				},
+				"voice-10-2": {
+					type: "sfx",
+					base: y,
+					url: "voice-10-2.mp3"
+				},
+				"voice-10-3": {
+					type: "sfx",
+					base: y,
+					url: "voice-10-3.mp3"
+				},
+				"voice-10-4": {
+					type: "sfx",
+					base: y,
+					url: "voice-10-4.mp3"
+				},
+				"voice-10-5": {
+					type: "sfx",
+					base: y,
+					url: "voice-10-5.mp3"
+				},
+				"voice-10-6": {
+					type: "sfx",
+					base: y,
+					url: "voice-10-6.mp3"
+				},
+				"voice-10-7": {
+					type: "sfx",
+					base: y,
+					url: "voice-10-7.mp3"
+				},
+				"voice-10-8": {
+					type: "sfx",
+					base: y,
+					url: "voice-10-8.mp3"
+				},
 				"voice-10-9": {
 					type: "sfx",
 					base: y,
@@ -22667,18 +22563,23 @@ var DormMenu = function() {
 				},
 				"bgm-victory": {
 					type: "bgm",
-					base: c,
+					base: "https://xpmuser.github.io/oldprodigy/1-11-0/assets/audio/voice/",
 					url: "bgm-victory.mp3"
 				},
 				"bgm-battle": {
 					type: "bgm",
-					base: c,
+					base: "https://xpmuser.github.io/oldprodigy/1-11-0/assets/audio/voice/",
 					url: "bgm-battle.mp3"
 				},
 				"bgm-intro": {
 					type: "bgm",
-					base: c,
+					base: "https://xpmuser.github.io/oldprodigy/1-11-0/assets/audio/voice/",
 					url: "bgm-intro.mp3"
+				},
+				"bgm-intro-1": {
+					type: "bgm",
+					base: c,
+					url: "bgm-intro-1.mp3"
 				},
 				"bgm-space": {
 					type: "bgm",
@@ -22729,6 +22630,11 @@ var DormMenu = function() {
 					type: "sprite",
 					base: v,
 					url: "bg-battle-arena.png"
+				},
+				"bg-battle-tech": {
+					type: "sprite",
+					base: v,
+					url: "bg-battle-tech.png"
 				},
 				"bg-battle-academy": {
 					type: "sprite",
@@ -22875,6 +22781,20 @@ var DormMenu = function() {
 					x: 250,
 					w: 712,
 					h: 638
+				},
+				"monster-small-0": {
+					type: "sprite",
+					base: S,
+					url: "98.png",
+					x: 70
+				},
+				"monster-0": {
+					type: "spritesheet",
+					base: k,
+					url: "98.png",
+					x: 70,
+					w: 183,
+					h: 178
 				},
 				"monster-small-1": {
 					type: "sprite",
@@ -23100,6 +23020,104 @@ var DormMenu = function() {
 					w: 436,
 					h: 352
 				},
+				"monster-small-113": {
+					type: "sprite",
+					base: A,
+					url: "113.png",
+					x: 124
+				},
+				"monster-113": {
+					type: "spritesheet",
+					base: S,
+					url: "113.png",
+					x: 124,
+					w: 246,
+					h: 142
+				},
+				"monster-small-114": {
+					type: "sprite",
+					base: A,
+					url: "114.png",
+					x: 126
+				},
+				"monster-114": {
+					type: "spritesheet",
+					base: S,
+					url: "114.png",
+					x: 126,
+					w: 252,
+					h: 207
+				},
+				"monster-small-115": {
+					type: "sprite",
+					base: A,
+					url: "115.png",
+					x: 65
+				},
+				"monster-115": {
+					type: "spritesheet",
+					base: S,
+					url: "115.png",
+					x: 65,
+					w: 150,
+					h: 220
+				},
+				"monster-small-116": {
+					type: "sprite",
+					base: A,
+					url: "116.png",
+					x: 116
+				},
+				"monster-116": {
+					type: "spritesheet",
+					base: S,
+					url: "116.png",
+					x: 116,
+					w: 239,
+					h: 173
+				},
+				"monster-small-117": {
+					type: "sprite",
+					base: A,
+					url: "117.png",
+					x: 147
+				},
+				"monster-117": {
+					type: "spritesheet",
+					base: S,
+					url: "117.png",
+					x: 147,
+					w: 474,
+					h: 421
+				},
+				"monster-small-118": {
+					type: "sprite",
+					base: A,
+					url: "118.png",
+					x: 120
+				},
+				"monster-118": {
+					type: "spritesheet",
+					base: S,
+					url: "118.png",
+					x: 120,
+					w: 254,
+					h: 209
+				},
+				"monster-small-119": {
+					type: "sprite",
+					base: A,
+					url: "119.png",
+					x: 100
+				},
+				"monster-119": {
+					type: "spritesheet",
+					base: S,
+					url: "119.png",
+					x: 100,
+					w: 241,
+					h: 163
+				},
 				"monster-small-12": {
 					type: "sprite",
 					base: S,
@@ -23113,6 +23131,34 @@ var DormMenu = function() {
 					x: 64,
 					w: 191,
 					h: 150
+				},
+				"monster-small-120": {
+					type: "sprite",
+					base: A,
+					url: "120.png",
+					x: 118
+				},
+				"monster-120": {
+					type: "spritesheet",
+					base: S,
+					url: "120.png",
+					x: 118,
+					w: 256,
+					h: 256
+				},
+				"monster-small-121": {
+					type: "sprite",
+					base: A,
+					url: "121.png",
+					x: 132
+				},
+				"monster-121": {
+					type: "spritesheet",
+					base: S,
+					url: "121.png",
+					x: 132,
+					w: 256,
+					h: 256
 				},
 				"monster-small-13": {
 					type: "sprite",
@@ -24094,6 +24140,20 @@ var DormMenu = function() {
 					w: 201,
 					h: 217
 				},
+				"monster-small-77": {
+					type: "sprite",
+					base: S,
+					url: "98.png",
+					x: 70
+				},
+				"monster-77": {
+					type: "spritesheet",
+					base: k,
+					url: "98.png",
+					x: 70,
+					w: 183,
+					h: 178
+				},
 				"monster-small-78": {
 					type: "sprite",
 					base: S,
@@ -24751,6 +24811,33 @@ var DormMenu = function() {
 					w: 91,
 					h: 82
 				},
+				"normal-outfit-male-41": {
+					type: "spritesheet",
+					base: o,
+					url: "41.png",
+					x: 91,
+					y: 150,
+					w: 75,
+					h: 85
+				},
+				"normal-outfit-male-42": {
+					type: "spritesheet",
+					base: o,
+					url: "42.png",
+					x: 92,
+					y: 154,
+					w: 74,
+					h: 81
+				},
+				"normal-outfit-male-43": {
+					type: "spritesheet",
+					base: o,
+					url: "43.png",
+					x: 89,
+					y: 151,
+					w: 95,
+					h: 86
+				},
 				"normal-outfit-male-5": {
 					type: "spritesheet",
 					base: o,
@@ -25110,6 +25197,33 @@ var DormMenu = function() {
 					y: 84,
 					w: 42,
 					h: 44
+				},
+				"reduced-outfit-male-41": {
+					type: "spritesheet",
+					base: t,
+					url: "41.png",
+					x: 45,
+					y: 83,
+					w: 38,
+					h: 42
+				},
+				"reduced-outfit-male-42": {
+					type: "spritesheet",
+					base: t,
+					url: "42.png",
+					x: 45,
+					y: 84,
+					w: 37,
+					h: 42
+				},
+				"reduced-outfit-male-43": {
+					type: "spritesheet",
+					base: t,
+					url: "43.png",
+					x: 40,
+					y: 84,
+					w: 52,
+					h: 42
 				},
 				"reduced-outfit-male-5": {
 					type: "spritesheet",
@@ -25471,6 +25585,33 @@ var DormMenu = function() {
 					w: 87,
 					h: 79
 				},
+				"normal-outfit-female-41": {
+					type: "spritesheet",
+					base: n,
+					url: "41.png",
+					x: 70,
+					y: 153,
+					w: 92,
+					h: 86
+				},
+				"normal-outfit-female-42": {
+					type: "spritesheet",
+					base: n,
+					url: "42.png",
+					x: 94,
+					y: 156,
+					w: 68,
+					h: 78
+				},
+				"normal-outfit-female-43": {
+					type: "spritesheet",
+					base: n,
+					url: "43.png",
+					x: 89,
+					y: 151,
+					w: 95,
+					h: 86
+				},
 				"normal-outfit-female-5": {
 					type: "spritesheet",
 					base: n,
@@ -25830,6 +25971,33 @@ var DormMenu = function() {
 					y: 85,
 					w: 39,
 					h: 43
+				},
+				"reduced-outfit-female-41": {
+					type: "spritesheet",
+					base: a,
+					url: "41.png",
+					x: 45,
+					y: 84,
+					w: 35,
+					h: 41
+				},
+				"reduced-outfit-female-42": {
+					type: "spritesheet",
+					base: a,
+					url: "42.png",
+					x: 45,
+					y: 86,
+					w: 35,
+					h: 39
+				},
+				"reduced-outfit-female-43": {
+					type: "spritesheet",
+					base: a,
+					url: "43.png",
+					x: 40,
+					y: 84,
+					w: 52,
+					h: 42
 				},
 				"reduced-outfit-female-5": {
 					type: "spritesheet",
@@ -26227,6 +26395,33 @@ var DormMenu = function() {
 					w: 125,
 					h: 75
 				},
+				"normal-hat-45": {
+					type: "spritesheet",
+					base: p,
+					url: "45.png",
+					x: 73,
+					y: 32,
+					w: 115,
+					h: 93
+				},
+				"normal-hat-46": {
+					type: "spritesheet",
+					base: p,
+					url: "46.png",
+					x: 59,
+					y: 41,
+					w: 130,
+					h: 117
+				},
+				"normal-hat-47": {
+					type: "spritesheet",
+					base: p,
+					url: "47.png",
+					x: 84,
+					y: 70,
+					w: 85,
+					h: 80
+				},
 				"normal-hat-5": {
 					type: "spritesheet",
 					base: p,
@@ -26621,6 +26816,33 @@ var DormMenu = function() {
 					x: 32,
 					y: 34,
 					w: 63,
+					h: 39
+				},
+				"reduced-hat-45": {
+					type: "spritesheet",
+					base: r,
+					url: "45.png",
+					x: 35,
+					y: 22,
+					w: 58,
+					h: 48
+				},
+				"reduced-hat-46": {
+					type: "spritesheet",
+					base: r,
+					url: "46.png",
+					x: 29,
+					y: 28,
+					w: 66,
+					h: 59
+				},
+				"reduced-hat-47": {
+					type: "spritesheet",
+					base: r,
+					url: "47.png",
+					x: 41,
+					y: 43,
+					w: 44,
 					h: 39
 				},
 				"reduced-hat-5": {
@@ -27253,6 +27475,15 @@ var DormMenu = function() {
 					w: 144,
 					h: 223
 				},
+				"normal-weapon-69": {
+					type: "spritesheet",
+					base: d,
+					url: "69.png",
+					x: 141,
+					y: 124,
+					w: 55,
+					h: 73
+				},
 				"normal-weapon-7": {
 					type: "spritesheet",
 					base: d,
@@ -27261,6 +27492,15 @@ var DormMenu = function() {
 					y: 53,
 					w: 108,
 					h: 173
+				},
+				"normal-weapon-70": {
+					type: "spritesheet",
+					base: d,
+					url: "70.png",
+					x: 78,
+					y: 120,
+					w: 66,
+					h: 75
 				},
 				"normal-weapon-8": {
 					type: "spritesheet",
@@ -34311,7 +34551,7 @@ var AudioController = function() {
 	}(),
 	Prodigy = function() {
 		function e(e) {
-			this.version2 = "Prodidows Alpha", this.version = "Version 1.10.0", this.player = new Player, this.graphics = new GraphicsController(e), this.audio = new AudioController(e), this.open = new MenuFactory(e), this.effects = new EffectFactory(e), this.dialogue = new DialogueFactory(e), this.external = new ExternalFactory(e), this.chat = new ChatManager(e), this.network = new NetworkManager(e), this.education = new EducationSystem(e), this.canvas = null
+			this.version2 = "Prodidows Alpha", this.version = "Version 1.10.0 build 2601", this.player = new Player, this.graphics = new GraphicsController(e), this.audio = new AudioController(e), this.open = new MenuFactory(e), this.effects = new EffectFactory(e), this.dialogue = new DialogueFactory(e), this.external = new ExternalFactory(e), this.chat = new ChatManager(e), this.network = new NetworkManager(e), this.education = new EducationSystem(e), this.canvas = null
 		}
 		return e.prototype.cleanup = function() {
 			this.dialogue.cleanup()
@@ -34531,90 +34771,105 @@ Attacks.calculateDamage = function(e, t, a) {
 	name: "Fireball",
 	element: "fire",
 	animation: "Fireball",
+	drop: 1,
 	damage: 4
 }, {
 	ID: 2,
 	name: "Embers",
 	element: "fire",
 	animation: "Embers",
+	drop: 1,
 	damage: 5
 }, {
 	ID: 3,
 	name: "Charclone",
 	element: "fire",
 	animation: "Charclone",
+	drop: 1,
 	damage: 6
 }, {
 	ID: 4,
 	name: "Razorfire",
 	element: "fire",
 	animation: "Razorfire",
+	drop: 1,
 	damage: 7
 }, {
 	ID: 5,
 	name: "Fire Rain",
 	element: "fire",
 	animation: "FireRain",
+	drop: 1,
 	damage: 8
 }, {
 	ID: 6,
 	name: "Dragos",
 	element: "fire",
 	animation: "Dragos",
+	drop: 10,
 	damage: 9
 }, {
 	ID: 7,
 	name: "Water Blast",
 	element: "water",
 	animation: "WaterBlast",
+	drop: 1,
 	damage: 4
 }, {
 	ID: 8,
 	name: "Water Bomb",
 	element: "water",
 	animation: "WaterBomb",
+	drop: 1,
 	damage: 5
 }, {
 	ID: 9,
 	name: "Rainy Day",
 	element: "water",
 	animation: "RainyDay",
+	drop: 1,
 	damage: 6
 }, {
 	ID: 10,
 	name: "Water Bubble",
 	element: "water",
 	animation: "WaterBubble",
+	drop: 1,
 	damage: 7
 }, {
 	ID: 11,
 	name: "Geyser",
 	element: "water",
 	animation: "Geyser",
+	drop: 1,
 	damage: 8
 }, {
 	ID: 12,
 	name: "Angel's Fountain",
 	element: "water",
 	animation: "Fountain",
+	drop: 10,
 	damage: 9
 }, {
 	ID: 13,
 	name: "Mudball",
 	element: "earth",
 	animation: "Mudball",
+	drop: 1,
 	damage: 4
 }, {
 	ID: 14,
 	name: "Whirlwind",
 	element: "earth",
 	animation: "Whirlwind",
+	drop: 1,
 	damage: 5
 }, {
 	ID: 15,
 	name: "Leaf Wind",
 	element: "earth",
 	animation: "LeafWind",
+	drop: 1,
 	damage: 6
 }, {
 	ID: 16,
@@ -34622,42 +34877,49 @@ Attacks.calculateDamage = function(e, t, a) {
 	element: "earth",
 	animation: "Absorb",
 	damage: 7,
+	drop: 1,
 	heal: !0
 }, {
 	ID: 17,
 	name: "Earthsprite",
 	element: "earth",
 	animation: "EarthSprite",
+	drop: 1,
 	damage: 8
 }, {
 	ID: 18,
 	name: "Blitz",
 	element: "earth",
 	animation: "Blitz",
+	drop: 10,
 	damage: 9
 }, {
 	ID: 19,
 	name: "Ice Cannon",
 	element: "ice",
 	animation: "IceCannon",
+	drop: 1,
 	damage: 4
 }, {
 	ID: 20,
 	name: "Ice Prison",
 	element: "ice",
 	animation: "IcePrison",
+	drop: 1,
 	damage: 5
 }, {
 	ID: 21,
 	name: "Blizzard",
 	element: "ice",
 	animation: "Blizzard",
+	drop: 1,
 	damage: 6
 }, {
 	ID: 22,
 	name: "Glacial Shield",
 	element: "ice",
 	animation: "GlacialShield",
+	drop: 1,
 	damage: 7,
 	heal: !0
 }, {
@@ -34665,84 +34927,98 @@ Attacks.calculateDamage = function(e, t, a) {
 	name: "Snowman",
 	element: "ice",
 	animation: "Snowman",
+	drop: 1,
 	damage: 8
 }, {
 	ID: 24,
 	name: "Ice to Meet You",
 	element: "ice",
 	animation: "IceToMeetYou",
+	drop: 10,
 	damage: 9
 }, {
 	ID: 25,
 	name: "Cloudshot",
 	element: "storm",
 	animation: "Cloudshot",
+	drop: 1,
 	damage: 4
 }, {
 	ID: 26,
 	name: "Bolt",
 	element: "storm",
 	animation: "Bolt",
+	drop: 1,
 	damage: 5
 }, {
 	ID: 27,
 	name: "Trinity",
 	element: "storm",
 	animation: "Trinity",
+	drop: 1,
 	damage: 6
 }, {
 	ID: 28,
 	name: "Thunderdome",
 	element: "storm",
 	animation: "Thunderdome",
+	drop: 1,
 	damage: 7
 }, {
 	ID: 29,
 	name: "Shocksphere",
 	element: "storm",
 	animation: "Shocksphere",
+	drop: 1,
 	damage: 8
 }, {
 	ID: 30,
 	name: "Storm's Coming",
 	element: "storm",
 	animation: "StormComing",
+	drop: 10,
 	damage: 9
 }, {
 	ID: 31,
 	name: "Magi-shot",
 	element: "wizard",
 	animation: "MagiShot",
+	drop: 1,
 	damage: 4
 }, {
 	ID: 32,
 	name: "Batter Up!",
 	element: "wizard",
 	animation: "BatterUp",
+	drop: 1,
 	damage: 5
 }, {
 	ID: 33,
 	name: "Conjure",
 	element: "wizard",
 	animation: "Conjure",
+	drop: 1,
 	damage: 6
 }, {
 	ID: 34,
 	name: "Pummel",
 	element: "wizard",
 	animation: "Pummel",
+	drop: 1,
 	damage: 7
 }, {
 	ID: 35,
 	name: "Powerbeam",
 	element: "wizard",
 	animation: "Powerbeam",
+	drop: 1,
 	damage: 8
 }, {
 	ID: 36,
 	name: "Zero",
 	element: "wizard",
 	animation: "Zero",
+	drop: 1,
 	damage: 9
 }], Attacks.getAttack = function(e) {
 	var t = Attacks.data[e - 1];
@@ -34958,102 +35234,119 @@ Items.getItemData = function(e, t) {
 		name: "Trialmaster's Garb",
 		member: 1,
 		rarity: 4,
+		drop: 1,
 		flavorText: "Only the trial masters of past and present were given these robes and are forbidden to take them off. How did you get them?",
 		h: 10
 	}, {
 		name: "Anorak Suit",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "Need to keep warm in those winter days? It may not be a robe, but it sure is warm!",
 		h: 0
 	}, {
 		name: "Wintertide Outfit",
 		member: 1,
 		rarity: 0,
+		drop: 1,
 		flavorText: "The official outfit worn by helpers at the Wintertide Festival!",
 		h: 0
 	}, {
 		name: "Dragon Spike Robes",
 		member: 1,
 		rarity: 2,
+		drop: 1,
 		flavorText: "In close combat these spikes are dangerous indeed. Be careful when you're around your friends!",
 		h: 5
 	}, {
 		name: "Warm Robes",
 		member: 1,
 		rarity: 1,
+		drop: 1,
 		flavorText: "Commonly worn in very cold places, these robes are made from many layers of fur and pelts.",
 		h: 2
 	}, {
 		name: "Firefly Robes",
 		member: 0,
 		rarity: 2,
+		drop: 1,
 		flavorText: "A magical robe made from the leaves and materials found in Firefly Forest.",
 		h: 5
 	}, {
 		name: "Magic Robes",
 		member: 0,
 		rarity: 1,
+		drop: 1,
 		flavorText: "These robes were custom made for a wizard...but they seem to fit you just right!",
 		h: 2
 	}, {
 		name: "Frost Saber Robes",
 		member: 1,
 		rarity: 2,
+		drop: 1,
 		flavorText: "These wooly robes will keep you warm in cold weather...but don't wear them in the sun!",
 		h: 5
 	}, {
 		name: "Duelist Robes",
 		member: 0,
 		rarity: 2,
+		drop: 1,
 		flavorText: "The robes of one of the greatest wizards in the Academy.",
 		h: 20
 	}, {
 		name: "Shiverchill Robes",
 		member: 0,
 		rarity: 2,
+		drop: 1,
 		flavorText: "The ceremonial robes of the Shiverchill Tribes.",
 		h: 5
 	}, {
 		name: "Bonfire Robes",
 		member: 0,
 		rarity: 1,
+		drop: 1,
 		flavorText: 'These can only be worn by those who have seen the "Bonfire of the Spire", a volcanic erruption, up close.',
 		h: 2
 	}, {
 		name: "Captain's Digs",
 		member: 0,
 		rarity: 2,
+		drop: 1,
 		flavorText: 'Don\'t these just scream "Arggg"? They even come with the optional hook attachment!',
 		h: 5
 	}, {
 		name: "Buccaneer's Digs",
 		member: 0,
 		rarity: 1,
+		drop: 1,
 		flavorText: "The choice clothes of deckhands and mates everywhere. Watch out, captains will be sure to shout orders at you.",
 		h: 2
 	}, {
 		name: "Skywatch Gear",
 		member: 0,
 		rarity: 1,
+		drop: 1,
 		flavorText: "Since the Skyfolk don't wear clothing, the humans that come up to the clouds wear this outfit to stay warm and dry.",
 		h: 2
 	}, {
 		name: "Mira's Robes",
 		member: 0,
 		rarity: 3,
+		drop: 1,
 		flavorText: "These robes give off immense power, and almost seem to repel the ground below you.",
 		h: 20
 	}, {
 		name: "Diggin Outfit",
 		member: 0,
 		rarity: 2,
+		drop: 1,
 		flavorText: "This is the outit of the Oasis Institute of Natural Creatures (OINC)",
 		h: 3
 	}, {
 		name: "Desert Robes",
 		member: 1,
 		rarity: 2,
+		drop: 1,
 		flavorText: "These robes protect the wearer from the brutal weather in the desert.",
 		h: 5
     }, {
@@ -35407,132 +35700,154 @@ Items.getItemData = function(e, t) {
 		name: "The Master of Trials",
 		member: 0,
 		rarity: 3,
+		drop: 1,
 		flavorText: "To be held only by the Trial Masters, its powers are the stuff of legends. How did you get it?",
 		d: 10
 	}, {
 		name: "Winter Bell",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "Used by those wizards who believe there is magic in sound and music. Its sound is beautiful but don't be lulled by its enchanting tones.",
 		d: 0
 	}, {
 		name: "Minotaur's Head",
 		member: 1,
 		rarity: 2,
+		drop: 1,
 		flavorText: "A prize given to those who have succesfully navigated the Labyrinth, it prevents them from ever being lost again.",
 		d: 2
 	}, {
 		name: "Sunburst Wand",
 		member: 1,
 		rarity: 1,
+		drop: 1,
 		flavorText: "A ball of energy from the sun itself.",
 		d: 1
 	}, {
 		name: "Flamerose Wand",
 		member: 1,
 		rarity: 2,
+		drop: 1,
 		flavorText: "Designed to appear like the mythical Flamerose, a rare flower that grows only on the side of the Bonfire Spire.",
 		d: 2
 	}, {
 		name: "Crystal Wand",
 		member: 0,
 		rarity: 1,
+		drop: 1,
 		flavorText: "Transparent, it's easy to admire the beauty of the engergy being charged inside this wand just before a spell is cast.",
 		d: 1
 	}, {
 		name: "Batwing Wand",
 		member: 1,
 		rarity: 2,
+		drop: 1,
 		flavorText: "Those who hold this wand can sense what is around them even in the darkest of caves much like the bat that gives it its name.",
 		d: 2
 	}, {
 		name: "Fungoid",
 		member: 1,
 		rarity: 2,
+		drop: 1,
 		flavorText: "Many wizards refuse to make their wands from living trees, instead they grow this wand from the forest's soils.",
 		d: 2
 	}, {
 		name: "Sacred Flame",
 		member: 1,
 		rarity: 1,
+		drop: 1,
 		flavorText: "For those who hail from the Spire, this wand that carries a flame from Bonfire is respected and admired.",
 		d: 1
 	}, {
 		name: "Sun Orb Staff",
 		member: 1,
 		rarity: 3,
+		drop: 1,
 		flavorText: "Its heat is so immense that its owner must possess great knowledge of fire magic simply to be in its presence.",
 		d: 10
 	}, {
 		name: "Staff of Winter",
 		member: 1,
 		rarity: 2,
+		drop: 1,
 		flavorText: "In the hands of the ice king of old, this staff was used to turn those who insulted his beard into frozen statues.",
 		d: 2
 	}, {
 		name: "Crystal Staff",
 		member: 1,
 		rarity: 2,
+		drop: 1,
 		flavorText: "As beatiful as it is elegant, it can be used to break light into parts that can be weaved into powerful spells.",
 		d: 2
 	}, {
 		name: "TuskTooth",
 		member: 0,
 		rarity: 2,
+		drop: 1,
 		flavorText: "An ancient staff from the realms of the Shiverchill tribes, it is thought to possess an animal spirit.",
 		d: 2
 	}, {
 		name: "Dragos",
 		member: 1,
 		rarity: 3,
+		drop: 1,
 		flavorText: 'Also known as the "Heart of the Dragon", the limits of this staff\'s power have never been reached.',
-		d: 10
+		d: 4
 	}, {
 		name: "Twisted Staff",
 		member: 0,
 		rarity: 1,
+		drop: 1,
 		flavorText: "This staff was grown by tree whisperers from the roots of the elder trees deep in the heart of the Firefly Forest.",
 		d: 1
 	}, {
 		name: "Staff of the Duelist",
 		member: 0,
 		rarity: 2,
+		drop: 1,
 		flavorText: "Crios once swore that if anyone could beat him in a duel, he'd give them this staff. Looks like you did it!",
 		d: 100
 	}, {
 		name: "Hailstone",
 		member: 0,
 		rarity: 1,
+		drop: 1,
 		flavorText: "The central stone for this staff can only be gathered during storms on the coldest winter nights by the Shiverchill Tribes.",
 		d: 1
 	}, {
 		name: "Bonfire",
 		member: 0,
 		rarity: 2,
+		drop: 1,
 		flavorText: "Forged in the heat of the Bonfire Spire, it inspires both fear and awe in anyone who opposes it.",
 		d: 2
 	}, {
 		name: "Parrot",
 		member: 0,
 		rarity: 1,
+		drop: 1,
 		flavorText: 'A magical parrot that sits on your shoulder. It might be too friendly because it keeps saying "hello" and asking for crackers...urgh.',
 		d: 1
 	}, {
 		name: "Shell-shocked",
 		member: 0,
 		rarity: 2,
+		drop: 1,
 		flavorText: 'A daring turtle has made this its home, it gets a little nervous whenever someone says the word "fire".',
 		d: 2
 	}, {
 		name: "Remote Ship",
 		member: 0,
 		rarity: 2,
+		drop: 1,
 		flavorText: "This little remote may look normal, but something is awful strange about it. Maybe because it doesn't need batteries...",
 		d: 3
 	}, {
 		name: "Mira's Staff",
 		member: 0,
 		rarity: 3,
+		drop: 1,
 		flavorText: "A gift from the great wizard Mira. Just holding this staff makes you feel stronger than ever before.",
 		d: 25
     }, {
@@ -35731,6 +36046,7 @@ Items.getItemData = function(e, t) {
 		name: "Duelist Boots",
 		member: 0,
 		rarity: 3,
+		drop: 1,
 		flavorText: 'Official sponsors of the Annual Wizard Dueling Contest, they say "The Choice of Champions" in big letters on the side. ',
 		h: 200
 	}, {
@@ -35744,6 +36060,7 @@ Items.getItemData = function(e, t) {
 		name: "Embers",
 		member: 0,
 		rarity: 1,
+		drop: 1,
 		flavorText: "Made for wizards whose feet get cold. It feels like your toes are warming up in front of the fire.",
 		h: 2
 	}],
@@ -35928,6 +36245,7 @@ Items.getItemData = function(e, t) {
 		type: "",
 		member: 1,
 		rarity: 4,
+		drop: 1,
 		flavorText: "This ceremonial circlet is exceedingly rare and grants wisdom to those who wear it. Who would give it up?",
 		h: 10
 	}, {
@@ -36007,6 +36325,7 @@ Items.getItemData = function(e, t) {
 		type: "",
 		member: 0,
 		rarity: 1,
+		drop: 1,
 		flavorText: "A magical hat crafted by the magical creatures in Firefly Forest.",
 		h: 1
 	}, {
@@ -36014,6 +36333,7 @@ Items.getItemData = function(e, t) {
 		type: "",
 		member: 1,
 		rarity: 2,
+		drop: 1,
 		flavorText: "Some say that if the correct words are spoken, this tiara will spit flames, be careful what you say while wearing it!",
 		h: 3
 	}, {
@@ -36021,6 +36341,7 @@ Items.getItemData = function(e, t) {
 		type: "",
 		member: 1,
 		rarity: 2,
+		drop: 1,
 		flavorText: 'Formerly worn by Eustace Redhale "The King of Dragons" and the last ruler to ride one. It has the power of dragon\'s fire.',
 		h: 3
 	}, {
@@ -36028,6 +36349,7 @@ Items.getItemData = function(e, t) {
 		type: "",
 		member: 0,
 		rarity: 2,
+		drop: 1,
 		flavorText: "The hat of one of the greatest wizards in the Academy.",
 		h: 20
 	}, {
@@ -36035,6 +36357,7 @@ Items.getItemData = function(e, t) {
 		type: "",
 		member: 0,
 		rarity: 1,
+		drop: 1,
 		flavorText: 'The Shiverchill Tribes wear this hat during important ceremonies like the "Welcome to Winter" and "Tobogganing Tuesdays".',
 		h: 1
 	}, {
@@ -36042,6 +36365,7 @@ Items.getItemData = function(e, t) {
 		type: "",
 		member: 0,
 		rarity: 1,
+		drop: 1,
 		flavorText: "A celebratory hat worn by the people of Spire on feast days. You can store a lot of food in it if you're sneaky.",
 		h: 1
 	}, {
@@ -36049,6 +36373,7 @@ Items.getItemData = function(e, t) {
 		type: "",
 		member: 0,
 		rarity: 1,
+		drop: 1,
 		flavorText: "The choice of pirate captain's everywhere! It smells like the sea and comes with a cool looking eye patch!",
 		h: 1
 	}, {
@@ -36056,6 +36381,7 @@ Items.getItemData = function(e, t) {
 		type: "",
 		member: 0,
 		rarity: 1,
+		drop: 1,
 		flavorText: "The favorite head gear of scurvy dogs because its very absorbant and pirates love polka dots.",
 		h: 1
 	}, {
@@ -36063,6 +36389,7 @@ Items.getItemData = function(e, t) {
 		type: "",
 		member: 0,
 		rarity: 1,
+		drop: 1,
 		flavorText: "This is the hat worn by the Skyfolk - the small creatures who live in the clouds above the Academy.",
 		h: 1
 	}, {
@@ -36070,6 +36397,7 @@ Items.getItemData = function(e, t) {
 		type: "",
 		member: 0,
 		rarity: 3,
+		drop: 1,
 		flavorText: "Mira's hood radiates a powerful energy...",
 		h: 20
 	}, {
@@ -36077,6 +36405,7 @@ Items.getItemData = function(e, t) {
 		type: "",
 		member: 0,
 		rarity: 1,
+		drop: 1,
 		flavorText: "A fashionable hat worn by initiates in the Oasis Institute of Natural Creatures (OINC).",
 		h: 1
 	}, {
@@ -36084,6 +36413,7 @@ Items.getItemData = function(e, t) {
 		type: "",
 		member: 0,
 		rarity: 2,
+		drop: 1,
 		flavorText: "This hat is rumored to have been worn by Looter Dan, the Academy's greatest explorer.",
 		h: 2
     }, {
@@ -36118,6 +36448,7 @@ Items.getItemData = function(e, t) {
 		name: "Apple",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "Looks delicious!"
 	}, {
 		name: "Tin Can",
@@ -36129,11 +36460,13 @@ Items.getItemData = function(e, t) {
 		name: "Salad",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "Looks delicious!"
 	}, {
 		name: "Croissant",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "Looks delicious!"
 	}, {
 		name: "Tooth",
@@ -36151,41 +36484,49 @@ Items.getItemData = function(e, t) {
 		name: "White Feather",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "The feather of a white bird. I've heard that some people at the Academy collect feathers..."
 	}, {
 		name: "Fish Bone",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "Fish bones? Gross! Why am I even carrying this around?!"
 	}, {
 		name: "Red Feather",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "The feather of a red bird. I've heard that some people at the Academy collect feathers..."
 	}, {
 		name: "Green Feather",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "The feather of a green bird. I've heard that some people at the Academy collect feathers..."
 	}, {
 		name: "Cake",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "A cake? I guess monsters celebrate birthday's too..."
 	}, {
 		name: "Blue Feather",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "The feather of a blue bird. I've heard that some people at the Academy collect feathers..."
 	}, {
 		name: "Gold Ring",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "A gold ring! I wonder how much it's worth?"
 	}, {
 		name: "Silver Ring",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "A silver ring! I wonder how much it's worth?"
 	}, {
 		name: "Old Sock",
@@ -36197,246 +36538,295 @@ Items.getItemData = function(e, t) {
 		name: "Purple Feather",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "The feather of a purple bird. I've heard that some people at the Academy collect feathers..."
 	}, {
 		name: "Carmine Floret",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "These flowers tend to spread quickly and are a common sight in Firefly Forest."
 	}, {
 		name: "Helio Floret",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "These flowers are only found growing in trees, making them hard to reach."
 	}, {
 		name: "Slate Floret",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "The Slate Floret can only be found growing underneath the largest rocks, far away from the sunlight."
 	}, {
 		name: "Ring of the Forest",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "This ring is made from Forest Emeralds, which are hard to find in Firefly Forest."
 	}, {
 		name: "Forest Emerald",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "The forest emerald is a bright, glowing stone found only in Firefly Forest."
 	}, {
 		name: "Chicken",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "Looks delicious!"
 	}, {
 		name: "Seedling",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "The Firefly Forest is full of roots, which can grow into all sorts of neat things!"
 	}, {
 		name: "Mandrake",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "In the Firefly Forest, sometimes roots sprout life! The result - the magical Mandrake!"
 	}, {
 		name: "Pizza",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "Looks delicious!"
 	}, {
 		name: "Lucky Coin",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "I wonder whose coin this is...? It looks like it's rare..."
 	}, {
 		name: "Icy Floret",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "Also called the Snow Flower, this plant thrives in the harsh cold of the mountains."
 	}, {
 		name: "Glacier Diamond",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "This gem looks so much like ice that students often pass it by without notice."
 	}, {
 		name: "Ring of the Glacier",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "This ring is made from Glacier Diamonds, which are hard to find in Shiverchill Mountains."
 	}, {
 		name: "Chillymoth",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "When frightened, a Chillymoth turns into ice and people often keep them as trinkets."
 	}, {
 		name: "Mountain Star",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "These mysterious gems are formed in the ice on moonlit nights, but never melt."
 	}, {
 		name: "Frozen Object",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "It looks like there's something frozen inside! I wonder what it is?"
 	}, {
 		name: "Fire Flower",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "This flower's petals look like a dancing flame, but the flower is cool to the touch."
 	}, {
 		name: "Volcanic Ruby",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "A glowing gem that can be found only in the hottest of places."
 	}, {
 		name: "Sunfire Pod",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "Nobody really knows how a sunfire pod is created, or where it comes from."
 	}, {
 		name: "Embershard",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "Not actually a gem, but instead a piece of glass or metal that has been formed in a volcano."
 	}, {
 		name: "Ring of the Volcano",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "This ring is made with Volcanic Rubies, which are hard to find in Bonfire Spire."
 	}, {
 		name: "Message in a Bottle",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "Looks like someone left a message in a bottle...I wonder what it says...?"
 	}, {
 		name: "Shark Tooth",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "This tooth is huge and sharp...it must have come from a shark."
 	}, {
 		name: "Red Shell",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "A red clam shell, found in clusters on sunny beaches."
 	}, {
 		name: "Blue Shell",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "A blue clam shell, found in clusters on sunny beaches."
 	}, {
 		name: "White Shell",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "A white clam shell, found in clusters on sunny beaches."
 	}, {
 		name: "Confused Shark",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "This little shark looks confused...better keep it in water for now."
 	}, {
 		name: "Bag of Flour",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "Flour used for baking."
 	}, {
 		name: "Bag of Spices",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "Spices used in cooking"
 	}, {
 		name: "Bottled Cloud",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: ""
 	}, {
 		name: "Gears",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "These look like they were part of a machine. I wonder what it did?"
 	}, {
 		name: "Medallion",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "Strange markings are found on this medallion."
 	}, {
 		name: "Spare Parts",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "Various metal pieces...maybe they're part of a puzzle?"
 	}, {
 		name: "Cloth Scrap",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "It looks like this cloth was torn from some larger fabric."
 	}, {
 		name: "Scrap Wood",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "A piece of scrap wood, probably useful for building."
 	}, {
 		name: "Scepter",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "This metal rod looks a little shabby..."
 	}, {
 		name: "Wrench",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "A little worn, but probably still works great."
 	}, {
 		name: "Lightning Stone",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "This stone is supposed to hold electricity...my hair is standing on end!"
 	}, {
 		name: "Doubloon",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "It's a pirate coin! I wonder if it's worth anything..."
 	}, {
 		name: "Scroll of Paper",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "A roll of paper, looks pretty important."
 	}, {
 		name: "Spyglass",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "This spyglass is in pretty good condition...someone took good care of it!"
 	}, {
 		name: "Seeds",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "A bunch of little seeds...who knows what they will grow into."
 	}, {
 		name: "Green Key",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "A strange-looking key adorned with a green jewel."
 	}, {
 		name: "Animal Tag",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "It looks like a tag for animal tracking..."
 	}, {
 		name: "Scoog's Hat",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "This must be Professor Scoog's hat...smells like dog food..."
 	}, {
 		name: "Moog's Evil Scheme",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "This appears to be a novel outlining all of Moog's plan to capture the dynos. It's very well-written."
 	}, {
 		name: "Digging Equipment",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "It looks like a machine for digging...but the batteries seem to have fallen out."
 	}, {
 		name: "Dyno Egg",
 		member: 0,
 		rarity: 0,
+		drop: 1,
 		flavorText: "It's a dyno egg! It looks like it's safe and intact."
     }, {
         name: "Prize Ribbon",
@@ -36448,14 +36838,17 @@ Items.getItemData = function(e, t) {
 	key: [{
 		ID: 1,
 		name: "Shovel",
+		drop: 1,
 		levels: 3
 	}, {
 		ID: 2,
 		name: "TEK-Y4",
+		drop: 1,
 		levels: 5
 	}, {
 		ID: 3,
-		name: "TEMP",
+		name: "Firefly Gem",
+		drop: 1,
 		levels: 3
 	}],
 	fossil: [{
@@ -36463,77 +36856,90 @@ Items.getItemData = function(e, t) {
 		name: "Terrosaur Bone",
 		count: 20,
 		rarity: 0,
+		drop: 1,
 		flavorText: "This bone looks like a piece from a much larger skeleton. I better find them all!"
 	}, {
 		ID: 2,
 		name: "Stampeed Bone",
 		count: 20,
 		rarity: 0,
+		drop: 1,
 		flavorText: "This bone looks like a piece from a much larger skeleton. I better find them all!"
 	}, {
 		ID: 3,
 		name: "Claustro Bone",
 		count: 10,
 		rarity: 0,
+		drop: 1,
 		flavorText: "This bone looks like a piece from a much larger skeleton. I better find them all!"
 	}, {
 		ID: 4,
 		name: "Pterrocks Bone",
 		count: 10,
 		rarity: 0,
+		drop: 1,
 		flavorText: "This bone looks like a piece from a much larger skeleton. I better find them all!"
 	}, {
 		ID: 5,
 		name: "Beetle in Amber",
 		count: 1,
 		rarity: 0,
+		drop: 1,
 		flavorText: "It appears to be a large beetle, preserved in a piece of amber. Neat!"
 	}, {
 		ID: 6,
 		name: "Trellobyte",
 		count: 1,
 		rarity: 0,
+		drop: 1,
 		flavorText: "Trellobytes once scavenged the ocean floors, looking for scraps and collectible cards."
 	}, {
 		ID: 7,
 		name: "Sharp Claw",
 		count: 1,
 		rarity: 0,
+		drop: 1,
 		flavorText: "A large claw to some carnivore...or perhaps an ill-tempered herbivore."
 	}, {
 		ID: 8,
 		name: "Dragonfly in Amber",
 		count: 1,
 		rarity: 0,
+		drop: 1,
 		flavorText: "This dragonfly must have landed on a tree, and got caught in some tree sap."
 	}, {
 		ID: 9,
 		name: "Shell",
 		count: 1,
 		rarity: 0,
+		drop: 1,
 		flavorText: "This shell was likely once a home to a large crustacean, or perhaps just a fancy-looking thermos."
 	}, {
 		ID: 10,
 		name: "Mosquito in Amber",
 		count: 1,
 		rarity: 0,
+		drop: 1,
 		flavorText: "These are often treasured as jewellry, and some old men like to place them atop their canes."
 	}, {
 		ID: 11,
 		name: "Piece of Fossilized Fish",
 		count: 5,
 		rarity: 0,
+		drop: 1,
 		flavorText: "A fragment of a fossilized fish...it looks like there are more out there!"
 	}, {
 		ID: 12,
 		name: "Piece of Fossilized Plant",
 		count: 5,
 		rarity: 0,
+		drop: 1,
 		flavorText: "A fragment of a fossilized plant...it looks like there are more out there!"
 	}, {
 		ID: 13,
 		name: "Terrosaur Skeleton",
 		rarity: 3,
+		drop: 1,
 		flavorText: "A skeleton of the awesome terrosaur, the meanest dyno in history!",
 		recipe: [{
 			ID: 1,
@@ -36544,6 +36950,7 @@ Items.getItemData = function(e, t) {
 		ID: 14,
 		name: "Stampeed Skeleton",
 		rarity: 3,
+		drop: 1,
 		flavorText: "A skeleton of a stampeed. It looks pretty cool, and boy is it heavy!",
 		recipe: [{
 			ID: 2,
@@ -36554,6 +36961,7 @@ Items.getItemData = function(e, t) {
 		ID: 15,
 		name: "Claustro Skeleton",
 		rarity: 2,
+		drop: 1,
 		flavorText: "This skeleton of a claustro is actually a combination of bone and cartilage.",
 		recipe: [{
 			ID: 3,
@@ -36564,6 +36972,7 @@ Items.getItemData = function(e, t) {
 		ID: 16,
 		name: "Pterrocks Skeleton",
 		rarity: 2,
+		drop: 1,
 		flavorText: "This pterrocks skeleton is incredibly fragile, and is held together with strong glue and wire.",
 		recipe: [{
 			ID: 4,
@@ -36574,6 +36983,7 @@ Items.getItemData = function(e, t) {
 		ID: 17,
 		name: "Beetle in Amber",
 		rarity: 1,
+		drop: 1,
 		flavorText: "It appears to be a large beetle, preserved in a piece of amber. Neat!",
 		recipe: [{
 			ID: 5,
@@ -36584,6 +36994,7 @@ Items.getItemData = function(e, t) {
 		ID: 18,
 		name: "Trellobyte",
 		rarity: 1,
+		drop: 1,
 		flavorText: "Trellobytes once scavenged the ocean floors, looking for scraps and collectible cards.",
 		recipe: [{
 			ID: 6,
@@ -36594,6 +37005,7 @@ Items.getItemData = function(e, t) {
 		ID: 19,
 		name: "Sharp Claw",
 		rarity: 1,
+		drop: 1,
 		flavorText: "A large claw to some carnivore...or perhaps an ill-tempered herbivore.",
 		recipe: [{
 			ID: 7,
@@ -36604,6 +37016,7 @@ Items.getItemData = function(e, t) {
 		ID: 20,
 		name: "Dragonfly in Amber",
 		rarity: 1,
+		drop: 1,
 		flavorText: "This dragonfly must have landed on a tree, and got caught in some tree sap.",
 		recipe: [{
 			ID: 8,
@@ -36614,6 +37027,7 @@ Items.getItemData = function(e, t) {
 		ID: 21,
 		name: "Shell",
 		rarity: 1,
+		drop: 1,
 		flavorText: "This shell was likely once a home to a large crustacean, or perhaps just a fancy-looking thermos.",
 		recipe: [{
 			ID: 9,
@@ -36624,6 +37038,7 @@ Items.getItemData = function(e, t) {
 		ID: 22,
 		name: "Mosquito in Amber",
 		rarity: 1,
+		drop: 1,
 		flavorText: "These are often treasured as jewellry, and some old men like to place them atop their canes.",
 		recipe: [{
 			ID: 10,
@@ -36634,6 +37049,7 @@ Items.getItemData = function(e, t) {
 		ID: 23,
 		name: "Fossilized Fish",
 		rarity: 2,
+		drop: 1,
 		flavorText: "This fish was likely a deep ocean dweller; perhaps a darkfish, crazyfish, or maybe the rare stinkyfish.",
 		recipe: [{
 			ID: 11,
@@ -36644,6 +37060,7 @@ Items.getItemData = function(e, t) {
 		ID: 24,
 		name: "Fossilized Plant",
 		rarity: 2,
+		drop: 1,
 		flavorText: "A small fern, fossilized over millions of years. This plant still exists on the island today.",
 		recipe: [{
 			ID: 12,
@@ -36654,6 +37071,7 @@ Items.getItemData = function(e, t) {
 	fish: [{
 		ID: 1,
 		name: "Fish",
+		drop: 1,
 		weightMin: 1,
 		weightMax: 10,
 		str: 10,
@@ -36670,6 +37088,7 @@ Items.getItemData = function(e, t) {
 		rarity: 0,
 		zoneDrop: 0,
 		category: "Comfy",
+		drop: 1,
 		price: 0,
 		r: 4,
 		flavorText: ""
@@ -36680,12 +37099,14 @@ Items.getItemData = function(e, t) {
 		rarity: 0,
 		zoneDrop: 0,
 		category: "Comfy",
+		drop: 1,
 		price: 0,
 		r: 4,
 		flavorText: ""
 	}, {
 		ID: 3,
 		name: "Wooden Nightstand",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36696,6 +37117,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 4,
 		name: "Steel Table",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36707,6 +37129,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 5,
 		name: "Glass Table",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36718,6 +37141,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 6,
 		name: "Pink Flowerpot",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36728,6 +37152,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 7,
 		name: "Bushy Plant",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36739,6 +37164,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 8,
 		name: "Tall Fern",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36750,6 +37176,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 9,
 		name: "Forest Flower",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36761,6 +37188,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 10,
 		name: "Purple Couch",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36772,6 +37200,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 11,
 		name: "Green Couch",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36783,6 +37212,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 12,
 		name: "Purple Chair",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36794,6 +37224,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 13,
 		name: "Bookshelf",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36805,6 +37236,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 14,
 		name: "Wooden Table",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36816,6 +37248,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 15,
 		name: "Small Chair",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36827,6 +37260,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 16,
 		name: "Wardrobe",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36838,6 +37272,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 17,
 		name: "Starry Bed",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36849,6 +37284,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 18,
 		name: "Square Window",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36860,6 +37296,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 19,
 		name: "Fancy Window",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36871,6 +37308,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 20,
 		name: "Dining Table",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36882,6 +37320,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 21,
 		name: "Treasure Chest",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36893,6 +37332,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 22,
 		name: "Frosty Bear",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36903,6 +37343,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 23,
 		name: "Bawk-bawk Clock",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36913,6 +37354,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 24,
 		name: "Dragon Mirror",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36924,6 +37366,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 25,
 		name: "Frozen Mirror",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36935,6 +37378,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 26,
 		name: "Round Mirror",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36946,6 +37390,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 27,
 		name: "Frozen Throne",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36957,6 +37402,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 28,
 		name: "Forest Wardrobe",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36968,6 +37414,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 29,
 		name: "Purple Potted Plant",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36979,6 +37426,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 30,
 		name: "Red Potted Plant",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -36994,6 +37442,7 @@ Items.getItemData = function(e, t) {
 		rarity: 0,
 		zoneDrop: 0,
 		category: "Lamps",
+		drop: 1,
 		price: 0,
 		mprice: 0,
 		r: 0,
@@ -37005,6 +37454,7 @@ Items.getItemData = function(e, t) {
 		rarity: 0,
 		zoneDrop: 0,
 		category: "Lamps",
+		drop: 1,
 		price: 0,
 		mprice: 0,
 		r: 0,
@@ -37016,6 +37466,7 @@ Items.getItemData = function(e, t) {
 		rarity: 0,
 		zoneDrop: 0,
 		category: "Lamps",
+		drop: 1,
 		price: 0,
 		mprice: 0,
 		r: 0,
@@ -37027,6 +37478,7 @@ Items.getItemData = function(e, t) {
 		rarity: 0,
 		zoneDrop: 0,
 		category: "Items",
+		drop: 1,
 		price: 0,
 		mprice: 0,
 		r: 2,
@@ -37034,6 +37486,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 35,
 		name: "Icy Table",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -37045,6 +37498,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 36,
 		name: "Flame Banner",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -37056,6 +37510,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 37,
 		name: "Snow Banner",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -37067,6 +37522,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 38,
 		name: "Forest Banner",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -37078,6 +37534,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 39,
 		name: "Stuffed Dragon",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -37088,6 +37545,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 40,
 		name: "Fire Throne",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -37099,6 +37557,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 41,
 		name: "Tall Lamp",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -37110,6 +37569,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 42,
 		name: "Sunfire Lamp",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -37121,6 +37581,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 43,
 		name: "Ice Shard Lamp",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -37132,6 +37593,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 44,
 		name: "Canopy Lamp",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -37143,6 +37605,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 45,
 		name: "Forest Throne",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -37154,6 +37617,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 46,
 		name: "Phoenix Lamp",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -37165,6 +37629,7 @@ Items.getItemData = function(e, t) {
 	}, {
 		ID: 47,
 		name: "Ice Phoenix Lamp",
+		drop: 1,
 		member: 0,
 		rarity: 0,
 		zoneDrop: 0,
@@ -37205,10 +37670,40 @@ Monsters.areEqual = function(e, t) {
 	var t = Monsters.getItemData(e);
 	return Util.isDefined(t) ? t.R || 1 : 0
 }, Monsters.MAX_ID = 112, Monsters.data = {
+	0: {
+		ID: 0,
+		name: "Tech Gobbler",
+		R: 5,
+		element: "water",
+		life: "B+",
+		power: "B",
+		growth: "B-",
+		curve: [{
+			lvl: 1,
+			a: 7
+		}, {
+			lvl: 5,
+			a: 8
+		}, {
+			lvl: 10,
+			a: 9
+		}, {
+			lvl: 21,
+			a: 10
+		}, {
+			lvl: 33,
+			a: 11
+		}, {
+			lvl: 52,
+			a: 12
+		}],
+		flavorText: "Look out! Not all treasure chests are full of treasure... sometimes, a Mimic is hiding inside instead!"
+	},
 	1: {
 		ID: 1,
 		name: "Peeko",
 		element: "earth",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "B",
@@ -37239,6 +37734,7 @@ Monsters.areEqual = function(e, t) {
 	2: {
 		ID: 2,
 		name: "Rack-rack",
+		drop: 1,
 		R: 2,
 		element: "earth",
 		life: "B+",
@@ -37271,6 +37767,7 @@ Monsters.areEqual = function(e, t) {
 	3: {
 		ID: 3,
 		name: "Flyger",
+		drop: 1,
 		R: 5,
 		element: "earth",
 		life: "A-",
@@ -37300,6 +37797,7 @@ Monsters.areEqual = function(e, t) {
 	4: {
 		ID: 4,
 		name: "Soral",
+		drop: 1,
 		element: "storm",
 		life: "B",
 		power: "B",
@@ -37331,6 +37829,7 @@ Monsters.areEqual = function(e, t) {
 	5: {
 		ID: 5,
 		name: "Solarix",
+		drop: 1,
 		R: 2,
 		element: "storm",
 		life: "B+",
@@ -37363,6 +37862,7 @@ Monsters.areEqual = function(e, t) {
 	6: {
 		ID: 6,
 		name: "Solarasis",
+		drop: 1,
 		R: 5,
 		element: "storm",
 		life: "A-",
@@ -37392,6 +37892,7 @@ Monsters.areEqual = function(e, t) {
 	7: {
 		ID: 7,
 		name: "Dragic",
+		drop: 1,
 		element: "fire",
 		life: "B",
 		power: "B",
@@ -37423,6 +37924,7 @@ Monsters.areEqual = function(e, t) {
 	8: {
 		ID: 8,
 		name: "Dragling",
+		drop: 1,
 		R: 2,
 		element: "fire",
 		life: "B+",
@@ -37455,6 +37957,7 @@ Monsters.areEqual = function(e, t) {
 	9: {
 		ID: 9,
 		name: "Tarragon",
+		drop: 1,
 		R: 5,
 		element: "fire",
 		life: "A-",
@@ -37484,6 +37987,7 @@ Monsters.areEqual = function(e, t) {
 	10: {
 		ID: 10,
 		name: "Creela",
+		drop: 1,
 		element: "water",
 		life: "B",
 		power: "B",
@@ -37515,6 +38019,7 @@ Monsters.areEqual = function(e, t) {
 	11: {
 		ID: 11,
 		name: "Celesteate",
+		drop: 1,
 		R: 2,
 		element: "water",
 		life: "B+",
@@ -37547,6 +38052,7 @@ Monsters.areEqual = function(e, t) {
 	12: {
 		ID: 12,
 		name: "Aureate",
+		drop: 1,
 		R: 5,
 		element: "water",
 		life: "A-",
@@ -37577,6 +38083,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 13,
 		name: "Browl",
 		element: "storm",
+		drop: 1,
 		life: "C",
 		power: "C",
 		growth: "A",
@@ -37609,6 +38116,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Acromi",
 		R: 2,
 		element: "storm",
+		drop: 1,
 		life: "C",
 		power: "C",
 		growth: "A",
@@ -37637,6 +38145,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 15,
 		name: "Nebluff",
 		element: "storm",
+		drop: 1,
 		life: "C",
 		power: "C",
 		growth: "A",
@@ -37665,6 +38174,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 16,
 		name: "Battaram",
 		element: "ice",
+		drop: 1,
 		life: "B-",
 		power: "B",
 		growth: "A-",
@@ -37694,6 +38204,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Battabash",
 		R: 2,
 		element: "ice",
+		drop: 1,
 		life: "B-",
 		power: "B",
 		growth: "A-",
@@ -37722,6 +38233,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 18,
 		name: "Squawks",
 		element: "storm",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "A",
@@ -37754,6 +38266,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Tribeak",
 		R: 2,
 		element: "storm",
+		drop: 1,
 		life: "A",
 		power: "B",
 		growth: "B",
@@ -37782,6 +38295,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 20,
 		name: "Luminite",
 		element: "storm",
+		drop: 1,
 		life: "C",
 		power: "B",
 		growth: "A",
@@ -37814,6 +38328,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Luminex",
 		R: 2,
 		element: "storm",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "B",
@@ -37846,6 +38361,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Lumiot",
 		R: 5,
 		element: "storm",
+		drop: 1,
 		life: "A",
 		power: "B",
 		growth: "C",
@@ -37874,6 +38390,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 23,
 		name: "Tinyger",
 		element: "fire",
+		drop: 1,
 		life: "B-",
 		power: "C",
 		growth: "B+",
@@ -37906,6 +38423,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Tyscout",
 		R: 2,
 		element: "fire",
+		drop: 1,
 		life: "B-",
 		power: "C",
 		growth: "B+",
@@ -37934,6 +38452,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 25,
 		name: "Flikflit",
 		element: "water",
+		drop: 1,
 		life: "C-",
 		power: "C",
 		growth: "C+",
@@ -37966,6 +38485,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Serrazag",
 		R: 2,
 		element: "water",
+		drop: 1,
 		life: "C+",
 		power: "C",
 		growth: "C-",
@@ -37994,6 +38514,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 27,
 		name: "Sprite",
 		element: "fire",
+		drop: 1,
 		life: "B-",
 		power: "C",
 		growth: "C+",
@@ -38026,6 +38547,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Serrazig",
 		R: 2,
 		element: "fire",
+		drop: 1,
 		life: "B+",
 		power: "C",
 		growth: "C-",
@@ -38054,6 +38576,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 29,
 		name: "Pomprikle",
 		element: "earth",
+		drop: 1,
 		life: "B",
 		power: "C",
 		growth: "C",
@@ -38086,6 +38609,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Spindle",
 		R: 2,
 		element: "earth",
+		drop: 1,
 		life: "B+",
 		power: "C",
 		growth: "C-",
@@ -38115,6 +38639,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Muckster",
 		R: 2,
 		element: "earth",
+		drop: 1,
 		life: "B",
 		power: "C",
 		growth: "B",
@@ -38144,6 +38669,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Sprike",
 		R: 5,
 		element: "earth",
+		drop: 1,
 		life: "A-",
 		power: "B",
 		growth: "D",
@@ -38173,6 +38699,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Aquaster",
 		R: 2,
 		element: "water",
+		drop: 1,
 		life: "B",
 		power: "C",
 		growth: "B",
@@ -38202,6 +38729,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Hotpot",
 		R: 3,
 		element: "fire",
+		drop: 1,
 		life: "A",
 		power: "A",
 		growth: "F-",
@@ -38231,6 +38759,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Mystyyk",
 		R: 5,
 		element: "storm",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "B+",
@@ -38260,6 +38789,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Mystile",
 		R: 5,
 		element: "earth",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "B+",
@@ -38289,6 +38819,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Mystember",
 		R: 5,
 		element: "fire",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "B+",
@@ -38317,6 +38848,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 38,
 		name: "Emburn",
 		element: "fire",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "B",
@@ -38349,6 +38881,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Liosen",
 		R: 2,
 		element: "fire",
+		drop: 1,
 		life: "A-",
 		power: "B",
 		growth: "C",
@@ -38377,6 +38910,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 40,
 		name: "Snoots",
 		element: "storm",
+		drop: 1,
 		life: "B+",
 		power: "A",
 		growth: "D+",
@@ -38409,6 +38943,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Highfawn",
 		R: 2,
 		element: "storm",
+		drop: 1,
 		life: "B+",
 		power: "A",
 		growth: "D",
@@ -38440,6 +38975,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 42,
 		name: "Gloricious",
 		element: "storm",
+		drop: 1,
 		life: "B+",
 		power: "A",
 		growth: "D-",
@@ -38468,6 +39004,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 43,
 		name: "Evolotus",
 		element: "storm",
+		drop: 1,
 		life: "C-",
 		power: "B",
 		growth: "A+",
@@ -38500,6 +39037,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Prodraxis",
 		R: 2,
 		element: "storm",
+		drop: 1,
 		life: "C+",
 		power: "B",
 		growth: "A-",
@@ -38528,6 +39066,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 45,
 		name: "Flameger",
 		element: "fire",
+		drop: 1,
 		life: "B",
 		power: "C",
 		growth: "A-",
@@ -38556,6 +39095,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 46,
 		name: "Gnawdy",
 		element: "water",
+		drop: 1,
 		life: "B-",
 		power: "B",
 		growth: "B",
@@ -38588,6 +39128,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Crookfang",
 		R: 2,
 		element: "water",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "C-",
@@ -38616,6 +39157,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 48,
 		name: "Ashlet",
 		element: "fire",
+		drop: 1,
 		life: "B-",
 		power: "A",
 		growth: "C",
@@ -38648,6 +39190,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Smoldash",
 		R: 2,
 		element: "fire",
+		drop: 1,
 		life: "B",
 		power: "A",
 		growth: "C-",
@@ -38676,6 +39219,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 50,
 		name: "Arcticlaw",
 		element: "ice",
+		drop: 1,
 		life: "B",
 		power: "A",
 		growth: "C-",
@@ -38708,6 +39252,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Frostfang",
 		R: 2,
 		element: "ice",
+		drop: 1,
 		life: "B",
 		power: "A",
 		growth: "C-",
@@ -38736,6 +39281,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 52,
 		name: "Saplette",
 		element: "earth",
+		drop: 1,
 		life: "B-",
 		power: "C",
 		growth: "B+",
@@ -38768,6 +39314,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Arboreal",
 		R: 2,
 		element: "earth",
+		drop: 1,
 		life: "B",
 		power: "C",
 		growth: "B",
@@ -38800,6 +39347,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Vinequeen",
 		R: 5,
 		element: "earth",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "C",
@@ -38828,6 +39376,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 55,
 		name: "Truckle",
 		element: "earth",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "B",
@@ -38856,6 +39405,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 56,
 		name: "Cloud Nibbler",
 		element: "storm",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "B",
@@ -38888,6 +39438,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Cloud Gobbler",
 		R: 2,
 		element: "storm",
+		drop: 1,
 		life: "A",
 		power: "B",
 		growth: "A+",
@@ -38917,6 +39468,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Ivory Truckle",
 		R: 5,
 		element: "earth",
+		drop: 1,
 		life: "B+",
 		power: "B",
 		growth: "B-",
@@ -38945,6 +39497,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 59,
 		name: "TripTrop",
 		element: "earth",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "B",
@@ -38977,6 +39530,7 @@ Monsters.areEqual = function(e, t) {
 		name: "ClipClop",
 		R: 2,
 		element: "earth",
+		drop: 1,
 		life: "B+",
 		power: "B",
 		growth: "B-",
@@ -39006,6 +39560,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Dreamlet",
 		R: 5,
 		element: "earth",
+		drop: 1,
 		life: "B-",
 		power: "B",
 		growth: "C+",
@@ -39035,6 +39590,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Ivory ClipClop",
 		R: 5,
 		element: "ice",
+		drop: 1,
 		life: "A-",
 		power: "B",
 		growth: "B",
@@ -39063,6 +39619,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 63,
 		name: "Flame Neek",
 		element: "fire",
+		drop: 1,
 		life: "B-",
 		power: "B",
 		growth: "A",
@@ -39095,6 +39652,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Flame Caller",
 		R: 2,
 		element: "fire",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "A-",
@@ -39127,6 +39685,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Flame Creator",
 		R: 5,
 		element: "fire",
+		drop: 1,
 		life: "B+",
 		power: "B",
 		growth: "B+",
@@ -39155,6 +39714,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 66,
 		name: "River Neek",
 		element: "water",
+		drop: 1,
 		life: "B-",
 		power: "B",
 		growth: "A",
@@ -39187,6 +39747,7 @@ Monsters.areEqual = function(e, t) {
 		name: "River Caller",
 		R: 2,
 		element: "water",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "A-",
@@ -39219,6 +39780,7 @@ Monsters.areEqual = function(e, t) {
 		name: "River Creator",
 		R: 5,
 		element: "water",
+		drop: 1,
 		life: "B+",
 		power: "B",
 		growth: "B+",
@@ -39247,6 +39809,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 69,
 		name: "Forest Neek",
 		element: "earth",
+		drop: 1,
 		life: "B-",
 		power: "B",
 		growth: "A",
@@ -39279,6 +39842,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Forest Caller",
 		R: 2,
 		element: "earth",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "A-",
@@ -39311,6 +39875,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Forest Creator",
 		R: 5,
 		element: "earth",
+		drop: 1,
 		life: "B+",
 		power: "B",
 		growth: "B+",
@@ -39339,6 +39904,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 72,
 		name: "Cloud Neek",
 		element: "storm",
+		drop: 1,
 		life: "B-",
 		power: "B",
 		growth: "A",
@@ -39371,6 +39937,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Cloud Caller",
 		R: 2,
 		element: "storm",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "A-",
@@ -39403,6 +39970,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Cloud Creator",
 		R: 5,
 		element: "storm",
+		drop: 1,
 		life: "B+",
 		power: "B",
 		growth: "B+",
@@ -39431,6 +39999,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 75,
 		name: "Puck",
 		element: "fire",
+		drop: 1,
 		life: "C+",
 		power: "B",
 		growth: "A",
@@ -39463,6 +40032,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Flaria",
 		R: 2,
 		element: "fire",
+		drop: 1,
 		life: "B+",
 		power: "B",
 		growth: "B",
@@ -39487,10 +40057,40 @@ Monsters.areEqual = function(e, t) {
 		}],
 		flavorText: "Flarias can turn into flames at any time, but only do so when they get hungry."
 	},
+	77: {
+		ID: 77,
+		name: "Tech Gobbler",
+		R: 5,
+		element: "water",
+		life: "B+",
+		power: "B",
+		growth: "B-",
+		curve: [{
+			lvl: 1,
+			a: 7
+		}, {
+			lvl: 5,
+			a: 8
+		}, {
+			lvl: 10,
+			a: 9
+		}, {
+			lvl: 21,
+			a: 10
+		}, {
+			lvl: 33,
+			a: 11
+		}, {
+			lvl: 52,
+			a: 12
+		}],
+		flavorText: "Look out! Not all treasure chests are full of treasure... sometimes, a Mimic is hiding inside instead!"
+	},
 	78: {
 		ID: 78,
 		name: "Rascal",
 		element: "ice",
+		drop: 1,
 		life: "C",
 		power: "B",
 		growth: "A",
@@ -39523,6 +40123,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Shardic",
 		R: 2,
 		element: "ice",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "B",
@@ -39555,6 +40156,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Keeper",
 		R: 5,
 		element: "ice",
+		drop: 1,
 		life: "A",
 		power: "B",
 		growth: "C",
@@ -39583,6 +40185,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 81,
 		name: "Scally",
 		element: "earth",
+		drop: 1,
 		life: "C+",
 		power: "B",
 		growth: "A",
@@ -39615,6 +40218,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Fissural",
 		R: 2,
 		element: "earth",
+		drop: 1,
 		life: "B+",
 		power: "B",
 		growth: "B",
@@ -39647,6 +40251,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Sentinel",
 		R: 5,
 		element: "earth",
+		drop: 1,
 		life: "A+",
 		power: "B",
 		growth: "C",
@@ -39675,6 +40280,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 84,
 		name: "Hob",
 		element: "storm",
+		drop: 1,
 		life: "C",
 		power: "B",
 		growth: "A",
@@ -39707,6 +40313,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Wick",
 		R: 2,
 		element: "storm",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "B",
@@ -39739,6 +40346,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Nebulite",
 		R: 5,
 		element: "storm",
+		drop: 1,
 		life: "A",
 		power: "B",
 		growth: "C",
@@ -39767,6 +40375,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 87,
 		name: "Squally",
 		element: "ice",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "B",
@@ -39799,6 +40408,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Tempest",
 		R: 2,
 		element: "ice",
+		drop: 1,
 		life: "B+",
 		power: "B",
 		growth: "C",
@@ -39831,6 +40441,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Flurrious",
 		R: 5,
 		element: "ice",
+		drop: 1,
 		life: "A",
 		power: "B",
 		growth: "D",
@@ -39859,6 +40470,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 90,
 		name: "Cloaker",
 		element: "storm",
+		drop: 1,
 		life: "A-",
 		power: "C",
 		growth: "B",
@@ -39891,6 +40503,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Arbite",
 		R: 2,
 		element: "storm",
+		drop: 1,
 		life: "A",
 		power: "C",
 		growth: "B",
@@ -39920,6 +40533,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Shade",
 		R: 5,
 		element: "earth",
+		drop: 1,
 		life: "A-",
 		power: "C",
 		growth: "B",
@@ -39952,6 +40566,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Spectral",
 		R: 4,
 		element: "earth",
+		drop: 1,
 		life: "A",
 		power: "C",
 		growth: "B",
@@ -39980,6 +40595,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 94,
 		name: "Burnewt",
 		element: "fire",
+		drop: 1,
 		life: "C-",
 		power: "B",
 		growth: "B+",
@@ -40012,6 +40628,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Singenewt",
 		R: 2,
 		element: "fire",
+		drop: 1,
 		life: "C",
 		power: "B",
 		growth: "B+",
@@ -40044,6 +40661,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Infernewt",
 		R: 5,
 		element: "fire",
+		drop: 1,
 		life: "C+",
 		power: "B",
 		growth: "C+",
@@ -40076,6 +40694,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Embershed",
 		R: 5,
 		element: "fire",
+		drop: 1,
 		life: "A",
 		power: "A",
 		growth: "F-",
@@ -40105,6 +40724,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Mimic",
 		R: 5,
 		element: "water",
+		drop: 1,
 		life: "B+",
 		power: "B",
 		growth: "B-",
@@ -40133,6 +40753,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 99,
 		name: "Funkeel",
 		element: "water",
+		drop: 1,
 		life: "B+",
 		power: "B",
 		growth: "B",
@@ -40165,6 +40786,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Beneel",
 		R: 2,
 		element: "water",
+		drop: 1,
 		life: "A-",
 		power: "B",
 		growth: "B-",
@@ -40197,6 +40819,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Fathom",
 		R: 4,
 		element: "water",
+		drop: 1,
 		life: "A",
 		power: "B",
 		growth: "C+",
@@ -40225,6 +40848,7 @@ Monsters.areEqual = function(e, t) {
 		ID: 102,
 		name: "Squibble",
 		element: "water",
+		drop: 1,
 		life: "B-",
 		power: "B",
 		growth: "A-",
@@ -40257,6 +40881,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Squabble",
 		R: 2,
 		element: "water",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "B+",
@@ -40289,6 +40914,7 @@ Monsters.areEqual = function(e, t) {
 		name: "Squarrel",
 		R: 5,
 		element: "water",
+		drop: 1,
 		life: "B+",
 		power: "B",
 		growth: "B-",
@@ -40319,6 +40945,7 @@ Monsters.areEqual = function(e, t) {
 		member: !0,
 		R: 5,
 		element: "water",
+		drop: 1,
 		life: "B",
 		power: "B",
 		growth: "B-",
@@ -40352,6 +40979,7 @@ Monsters.areEqual = function(e, t) {
 		member: !0,
 		R: 5,
 		element: "water",
+		drop: 1,
 		life: "B+",
 		power: "B",
 		growth: "B-",
@@ -40382,6 +41010,7 @@ Monsters.areEqual = function(e, t) {
 		member: !0,
 		R: 5,
 		element: "earth",
+		drop: 1,
 		life: "A",
 		power: "C",
 		growth: "B-",
@@ -40415,6 +41044,7 @@ Monsters.areEqual = function(e, t) {
 		member: !0,
 		R: 5,
 		element: "earth",
+		drop: 1,
 		life: "A+",
 		power: "C-",
 		growth: "B-",
@@ -40445,6 +41075,7 @@ Monsters.areEqual = function(e, t) {
 		member: !0,
 		R: 5,
 		element: "storm",
+		drop: 1,
 		life: "C+",
 		power: "A",
 		growth: "B-",
@@ -40478,6 +41109,7 @@ Monsters.areEqual = function(e, t) {
 		member: !0,
 		R: 5,
 		element: "storm",
+		drop: 1,
 		life: "B+",
 		power: "B",
 		growth: "B-",
@@ -40508,6 +41140,7 @@ Monsters.areEqual = function(e, t) {
 		member: !0,
 		R: 5,
 		element: "fire",
+		drop: 1,
 		life: "B",
 		power: "A",
 		growth: "B-",
@@ -40547,6 +41180,7 @@ Monsters.areEqual = function(e, t) {
 		member: !0,
 		R: 5,
 		element: "fire",
+		drop: 1,
 		life: "C+",
 		power: "A+",
 		growth: "B-",
@@ -40576,6 +41210,438 @@ Monsters.areEqual = function(e, t) {
 			a: 36
 		}],
 		flavorText: "Terrosaur has many nicknames, including 'King Dyno', 'Sharp Teeth' and 'Big Poppa T'."
+	},
+	113: {
+		ID: 113,
+		name: "Cogmite",
+		element: "storm",
+		life: "B",
+		power: "B",
+		growth: "B",
+		curve: [{
+			lvl: 1,
+			a: 25
+		}, {
+			lvl: 5,
+			a: 26
+		}, {
+			lvl: 10,
+			a: 27
+		}, {
+			lvl: 20,
+			a: 28
+		}, {
+			lvl: 32,
+			a: 29
+		}, {
+			lvl: 50,
+			a: 30
+		}, {
+			lvl: 30,
+			e: 114
+		}],
+		flavorText: "Cogmites are known to gather around large sources of electricity, at which point they all fall asleep. Academy experts call this phenomenon a 'slumber party'."
+	},
+	114: {
+		ID: 114,
+		name: "Gearsite",
+		member: !0,
+		R: 5,
+		element: "storm",
+		life: "A",
+		power: "C",
+		growth: "B",
+		curve: [{
+			lvl: 1,
+			a: 25
+		}, {
+			lvl: 5,
+			a: 26
+		}, {
+			lvl: 10,
+			a: 27
+		}, {
+			lvl: 20,
+			a: 28
+		}, {
+			lvl: 32,
+			a: 29
+		}, {
+			lvl: 50,
+			a: 30
+		}],
+		flavorText: "A gearsite can move its eyes in any direction, and can see for great distances. It is easily the most paranoid monster on the island."
+	},
+	115: {
+		ID: 115,
+		name: "Bitbot",
+		element: "earth",
+		life: "C+",
+		power: "B",
+		growth: "A",
+		curve: [{
+			lvl: 1,
+			a: 13
+		}, {
+			lvl: 4,
+			a: 14
+		}, {
+			lvl: 8,
+			a: 15
+		}, {
+			lvl: 17,
+			a: 16
+		}, {
+			lvl: 28,
+			a: 17
+		}, {
+			lvl: 45,
+			a: 18
+		}, {
+			lvl: 15,
+			e: 116
+		}],
+		flavorText: "The tiny bitbot is very social, and tends to stay in large groups to protect itself from predators."
+	},
+	116: {
+		ID: 116,
+		name: "Bashbot",
+		R: 2,
+		element: "earth",
+		life: "A-",
+		power: "C",
+		growth: "B",
+		curve: [{
+			lvl: 1,
+			a: 13
+		}, {
+			lvl: 5,
+			a: 14
+		}, {
+			lvl: 10,
+			a: 15
+		}, {
+			lvl: 20,
+			a: 16
+		}, {
+			lvl: 32,
+			a: 17
+		}, {
+			lvl: 50,
+			a: 18
+		}, {
+			lvl: 28,
+			e: 117
+		}],
+		flavorText: "Bashbots are ill-tempered, and easily annoyed. In fact, it is said that bashbots rarely get along with one another as they are always arguing."
+	},
+	117: {
+		ID: 117,
+		name: "Batterbot",
+		member: !0,
+		R: 5,
+		element: "earth",
+		life: "A+",
+		power: "B",
+		growth: "C",
+		curve: [{
+			lvl: 1,
+			a: 13
+		}, {
+			lvl: 6,
+			a: 14
+		}, {
+			lvl: 12,
+			a: 15
+		}, {
+			lvl: 23,
+			a: 16
+		}, {
+			lvl: 36,
+			a: 17
+		}, {
+			lvl: 55,
+			a: 18
+		}],
+		flavorText: "The massive batterbot may be strong, but he is very slow and lazy. Most batterbots wait around for something interesting to happen, and sleep the day away."
+	},
+	118: {
+		ID: 118,
+		name: "Fishbol",
+		member: !0,
+		R: 2,
+		element: "water",
+		life: "B-",
+		power: "B",
+		growth: "A-",
+		curve: [{
+			lvl: 1,
+			a: 7
+		}, {
+			lvl: 4,
+			a: 8
+		}, {
+			lvl: 8,
+			a: 9
+		}, {
+			lvl: 18,
+			a: 10
+		}, {
+			lvl: 29,
+			a: 11
+		}, {
+			lvl: 47,
+			a: 12
+		}, {
+			lvl: 26,
+			e: 119
+		}],
+		flavorText: "The water inside the head of a fishbol is used to cool its machinery, which can reach scalding temperatures."
+	},
+	119: {
+		ID: 119,
+		name: "Aquariot",
+		member: !0,
+		R: 5,
+		element: "water",
+		life: "B+",
+		power: "B",
+		growth: "B+",
+		curve: [{
+			lvl: 1,
+			a: 7
+		}, {
+			lvl: 5,
+			a: 8
+		}, {
+			lvl: 10,
+			a: 9
+		}, {
+			lvl: 19,
+			a: 10
+		}, {
+			lvl: 31,
+			a: 11
+		}, {
+			lvl: 48,
+			a: 12
+		}],
+		flavorText: "Aquariots are avid collectors, and it is not uncommon to see items floating around the water in their heads...including small fish!"
+	},
+	120: {
+		ID: 120,
+		name: "Aracute",
+		R: 2,
+		element: "fire",
+		life: "C-",
+		power: "B",
+		growth: "B+",
+		curve: [{
+			lvl: 1,
+			a: 1
+		}, {
+			lvl: 5,
+			a: 2
+		}, {
+			lvl: 10,
+			a: 3
+		}, {
+			lvl: 19,
+			a: 4
+		}, {
+			lvl: 31,
+			a: 5
+		}, {
+			lvl: 48,
+			a: 6
+		}, {
+			lvl: 22,
+			e: 121
+		}],
+		flavorText: "Aracutes prefer warm, dry places to live, and are often found living in the walls of old buildings. They emerge only to look for food and new housing, which is actually quite frequent."
+	},
+	121: {
+		ID: 121,
+		name: "Arachex",
+		member: !0,
+		R: 5,
+		element: "fire",
+		life: "A",
+		power: "A",
+		growth: "F-",
+		curve: [{
+			lvl: 1,
+			a: 2
+		}, {
+			lvl: 9,
+			a: 26
+		}, {
+			lvl: 18,
+			a: 4
+		}, {
+			lvl: 33,
+			a: 28
+		}, {
+			lvl: 49,
+			a: 6
+		}, {
+			lvl: 72,
+			a: 30
+		}],
+		flavorText: "Arachex are notoriously fast runners, but only for short distances. In fact, an arachex will only ever run for a maximum of 99.87542 meters before stopping. This makes it difficult to compete in track competitions."
+	},
+	122: {
+		ID: 122,
+		name: "Ice Neek",
+		element: "ice",
+		effects: [9, 45],
+		life: "B-",
+		power: "B",
+		growth: "A",
+		curve: [{
+			lvl: 1,
+			a: 19
+		}, {
+			lvl: 4,
+			a: 20
+		}, {
+			lvl: 8,
+			a: 21
+		}, {
+			lvl: 17,
+			a: 22
+		}, {
+			lvl: 28,
+			a: 23
+		}, {
+			lvl: 45,
+			a: 24
+		}, {
+			lvl: 12,
+			e: 123
+		}],
+		flavorText: "An Ice Neek is commonly found in places with low temperatures, but also has a strange curiosity towards fire."
+	},
+	123: {
+		ID: 123,
+		name: "Ice Caller",
+		R: 2,
+		element: "ice",
+		effects: [9, 45],
+		life: "B",
+		power: "B",
+		growth: "A-",
+		curve: [{
+			lvl: 1,
+			a: 19
+		}, {
+			lvl: 4,
+			a: 20
+		}, {
+			lvl: 8,
+			a: 21
+		}, {
+			lvl: 18,
+			a: 22
+		}, {
+			lvl: 29,
+			a: 23
+		}, {
+			lvl: 47,
+			a: 24
+		}, {
+			lvl: 24,
+			e: 124
+		}],
+		flavorText: "Whenever a snowstorm is present, you can bet an Ice Caller is somewhere in the midst of it. It's rumored that they use these storms as a form of showering."
+	},
+	124: {
+		ID: 124,
+		name: "Ice Creator",
+		R: 5,
+		element: "ice",
+		effects: [9, 45],
+		life: "B+",
+		power: "B",
+		growth: "B+",
+		curve: [{
+			lvl: 1,
+			a: 19
+		}, {
+			lvl: 5,
+			a: 20
+		}, {
+			lvl: 10,
+			a: 21
+		}, {
+			lvl: 19,
+			a: 22
+		}, {
+			lvl: 31,
+			a: 23
+		}, {
+			lvl: 48,
+			a: 24
+		}],
+		flavorText: "An Ice Creator is a rare sight, found only in the coldest, deepest dungeons. They are fiercely territorial, often claiming entire dungeons for themselves."
+	},
+	125: {
+		ID: 125,
+		name: "Big Hex",
+		R: 5,
+		element: "storm",
+		life: "A",
+		power: "A+",
+		growth: "A",
+		curve: [{
+			lvl: 1,
+			a: 25
+		}, {
+			lvl: 5,
+			a: 26
+		}, {
+			lvl: 10,
+			a: 27
+		}, {
+			lvl: 19,
+			a: 28
+		}, {
+			lvl: 31,
+			a: 29
+		}, {
+			lvl: 48,
+			a: 30
+		}],
+		flavorText: "He comes from an unknown place with an unknown name. You've decided to call him Big Hex for the large bolts that seem to hold him together."
+	},
+	126: {
+		ID: 126,
+		name: "Big Hex",
+		R: 5,
+		element: "storm",
+		life: "A",
+		power: "A+",
+		growth: "A",
+		curve: [{
+			lvl: 1,
+			a: 25
+		}, {
+			lvl: 5,
+			a: 26
+		}, {
+			lvl: 10,
+			a: 27
+		}, {
+			lvl: 19,
+			a: 28
+		}, {
+			lvl: 31,
+			a: 29
+		}, {
+			lvl: 48,
+			a: 30
+		}],
+		flavorText: "He comes from an unknown place with an unknown name. You've decided to call him Big Hex for the large bolts that seem to hold him together."
 	}
 };
 var NetworkManager = function() {

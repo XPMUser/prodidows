@@ -67,7 +67,7 @@ function ApiClient(e, t) {
 		g = "leaderboard-api/",
 		u = "account-api/",
 		y = "matchmaking-api/",
-		m = "friend-api/",
+		m = "friends-api/",
 		f = "game-mailer-api/",
 		b = "game-tools-api/",
 		v = "assignment-api/",
@@ -72375,7 +72375,7 @@ Prodigy.Controller.BattleController = function(e) {
 		this.game.scale.maxWidth = 1280, this.game.scale.maxHeight = 720, this.game.scale.updateLayout()
 	},
 	setResolutionLarge: function() {
-		this.game.scale.maxWidth = 1920, this.game.scale.maxHeight = 1080, this.game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT, this.game.scale.refresh()
+		this.game.scale.maxWidth = 0, this.game.scale.maxHeight = 0, this.game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT, this.game.scale.refresh()
 	}
 }, Prodigy.MailController = function(e) {
 	this.game = e, this._mail = [], this._callbacks = []

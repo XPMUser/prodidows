@@ -5891,6 +5891,10 @@ var Backpack = function() {
 			this.data.lb = e, this.updated = !0
 		}, e.prototype.addSpell = function(e) {
 			Util.isDefined(this.data.spells) || (this.data.spells = []), Util.inArray(this.data.spells, e) || this.data.spells.push(e), this.updated = !0
+		}, e.prototype.setZone = function(e) {
+			this.data.zone = e;
+		}, e.prototype.getZone = function() {
+			return Util.isDefined(this.data.zone) ? this.data.zone : "Academy"
 		}, e
 	}();
 Player.LEVEL_CURVE = [{
@@ -11290,7 +11294,38 @@ var CreatureData = function() {
 	}();
 Boot.init = function(e) {
 	var t = new Phaser.Game(1280, 720, Phaser.CANVAS, "game-container");
-	t.prodigy = new Prodigy(t), t.prodigy.sso = e || {}, t.assets = new AssetManager(t), t.state.add("DungeonMaker", DungeonMaker), t.state.add("Boot", Boot), t.state.add("Login", Login), t.state.add("Battle", Battle), t.state.add("Forest", Forest), t.state.add("Mountain", Mountain), t.state.add("Volcano", Volcano), t.state.add("Arena", Arena), t.state.add("TownSquare", TownSquare), t.state.add("Pirate", Pirate), t.state.add("CutScene", CutScene), t.state.add("Academy", Academy), t.state.add("Tutorial", Tutorial), t.state.add("Tower", Tower), t.state.add("TowerBase", TowerBase), t.state.add("Cloud", Cloud), t.state.add("Plains", Plains), t.state.add("Docks", Docks), t.state.add("Dorm", Dorm), t.state.add("Dino", Dino), t.state.add("Museum", Museum), t.state.add("Tech", Tech), t.state.add("Tree", Tree), t.state.add("DinoDig", DinoDig), t.state.add("DanceDance", DanceDance), t.state.start("Boot")
+	t.prodigy = new Prodigy(t),
+	t.prodigy.sso = e || {},
+	t.assets = new AssetManager(t),
+	t.state.add("DungeonMaker", DungeonMaker),
+	t.state.add("Boot", Boot),
+	t.state.add("Login", Login),
+	t.state.add("Battle", Battle),
+	t.state.add("Forest", Forest),
+	t.state.add("Mountain", Mountain),
+	t.state.add("Volcano", Volcano),
+	t.state.add("Arena", Arena),
+	t.state.add("TownSquare", TownSquare),
+	t.state.add("Pirate", Pirate),
+	t.state.add("Academy", Academy),
+	t.state.add("Tutorial", Tutorial),
+	t.state.add("Tower", Tower),
+	t.state.add("TowerBase", TowerBase),
+	t.state.add("Cloud", Cloud),
+	t.state.add("Plains", Plains),
+	t.state.add("Dorm", Dorm),
+	t.state.add("Dino", Dino),
+	t.state.add("Museum", Museum),
+	t.state.add("Tech", Tech),
+	t.state.add("Tree", Tree),
+	t.state.add("DinoDig", DinoDig),
+	t.state.add("DanceDance", DanceDance);
+	if (Util.isDefined(window.checkForMods)) {
+		window.checkForMods(t, window.location.search)
+	} else {
+		console.log("%c %c %c Found no mods to hook into. %c %c ", "background: #9bd", "background: #48a", "background: #16a; color: #FFF", "background: #48a", "background: #9bd")
+	};
+	t.state.start("Boot")
 };
 var Screen = function() {
 		function e(e, t, a, i) {
@@ -11470,7 +11505,7 @@ var Screen = function() {
 			}, 500, Phaser.Easing.Cubic.Out, !0), Util.isDefined(this.game.prodigy.sso.externalApp) && (this.usernameField.setValue("Engrade Login"), this.passwordField.setValue("Engrade Password"), this.login())
 		}, e.prototype.offlineMode = function() {
 			this.game.prodigy.player.isMember = !0;
-			Tutorial.stateNotComplete(this.game, Tutorial.states.LEFT_ACADEMY) ? this.game.state.start("Tutorial") : this.game.state.start("Academy")
+			Tutorial.stateNotComplete(this.game, Tutorial.states.LEFT_ACADEMY) || !Util.isDefined(this.game.prodigy.player.data.zone) ? this.game.state.start("Tutorial") : this.game.state.start(this.game.prodigy.player.data.zone)
 		}, e.prototype.openFileForCharacter = function () {
 			var fileCallback = this.loadCharacter;
 			var fileInput = document.createElement('input');
@@ -12075,7 +12110,7 @@ var WalkableScreen = function() {
 		}, e.prototype.preload = function() {
 			Screen.prototype.preload.call(this), this.game.assets.load(this.game.load, [this.screenName, "icons-membership", this.bgm]), this.game.assets.load(this.game.load, PlayerContainer.getAssets(this.game.prodigy.player, 1)), this.game.assets.load(this.game.load, this.assets)
 		}, e.prototype.create = function(e, t) {
-			if (Screen.prototype.create.call(this), this.game.prodigy.player.saveEnabled = !0, this.path = new Pathfinder(this.area), this.createBackground(), this.user = new PlayerContainer(this.game, this.content, this.game.prodigy.player, 1, e || 500, t || 300), this.user.setup(), this.user.showName(!0), !this.game.prodigy.player.isMember && !this.disableMembership) {
+			if (Screen.prototype.create.call(this), this.game.prodigy.player.saveEnabled = !0, this.game.prodigy.player.data.zone = this.game.state.current, this.path = new Pathfinder(this.area), this.createBackground(), this.user = new PlayerContainer(this.game, this.content, this.game.prodigy.player, 1, e || 500, t || 300), this.user.setup(), this.user.showName(!0), !this.game.prodigy.player.isMember && !this.disableMembership) {
 				var a = new Sprite(this.game, 10, 10, "icons-membership");
 				this.menus.add(a), a.animations.add("flash", [0, 1, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 10, !0, !0), a.animations.play("flash"), a.inputEnabled = !0, a.events.onInputDown.add(function() {
 					window.open("https://xpmuser.github.io/")
@@ -34551,7 +34586,7 @@ var AudioController = function() {
 	}(),
 	Prodigy = function() {
 		function e(e) {
-			this.version2 = "Prodidows Alpha", this.version = "Version 1.10.0 build 2601", this.player = new Player, this.graphics = new GraphicsController(e), this.audio = new AudioController(e), this.open = new MenuFactory(e), this.effects = new EffectFactory(e), this.dialogue = new DialogueFactory(e), this.external = new ExternalFactory(e), this.chat = new ChatManager(e), this.network = new NetworkManager(e), this.education = new EducationSystem(e), this.canvas = null
+			this.version2 = "Prodidows Alpha", this.version = "Version 1.10.0 build 2602", this.player = new Player, this.graphics = new GraphicsController(e), this.audio = new AudioController(e), this.open = new MenuFactory(e), this.effects = new EffectFactory(e), this.dialogue = new DialogueFactory(e), this.external = new ExternalFactory(e), this.chat = new ChatManager(e), this.network = new NetworkManager(e), this.education = new EducationSystem(e), this.canvas = null
 		}
 		return e.prototype.cleanup = function() {
 			this.dialogue.cleanup()

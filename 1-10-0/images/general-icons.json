@@ -6216,6 +6216,54 @@
                 "y": 0.5
             }
         },
+        "hat/77": {
+            "frame": {
+                "x": 1130,
+                "y": 1756,
+                "w": 62,
+                "h": 100
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 8,
+                "y": 11,
+                "w": 62,
+                "h": 70
+            },
+            "sourceSize": {
+                "w": 80,
+                "h": 80
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        "hat/78": {
+            "frame": {
+                "x": 1030,
+                "y": 1756,
+                "w": 62,
+                "h": 100
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 8,
+                "y": 11,
+                "w": 62,
+                "h": 70
+            },
+            "sourceSize": {
+                "w": 80,
+                "h": 80
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
         "heal": {
             "frame": {
                 "x": 297,
@@ -18810,30 +18858,6 @@
             "sourceSize": {
                 "w": 46,
                 "h": 42
-            },
-            "pivot": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        "hat/77": {
-            "frame": {
-                "x": 1130,
-                "y": 1756,
-                "w": 62,
-                "h": 100
-            },
-            "rotated": false,
-            "trimmed": true,
-            "spriteSourceSize": {
-                "x": 8,
-                "y": 11,
-                "w": 62,
-                "h": 70
-            },
-            "sourceSize": {
-                "w": 80,
-                "h": 80
             },
             "pivot": {
                 "x": 0.5,

@@ -60,7 +60,7 @@ class ModHandler {
 		let openOther = SystemMenu.prototype.openOther;
 		SystemMenu.prototype.openOther = function() {
 			openOther.call(this);
-			new BitmapFont(this.game, this.content, 0, 230, "walk speed", {
+			new BitmapFont(this.game, this.content, 0, 280, "walk speed", {
 				width: 400,
 				align: "center"
 			}), this.walkSpeedBar = new ProgressBar(this.game, this.content, 50, 260, 300, 80, 1, walkSpeed/20), this.walkSpeedBar.setDraggable(), this.walkSpeedBar.setBarAnimationSpeed(ProgressBar.SPEED_VERYSLOW)

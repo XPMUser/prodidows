@@ -63,7 +63,7 @@ class ModHandler {
 			new BitmapFont(this.game, this.content, 0, 280, "walk speed", {
 				width: 400,
 				align: "center"
-			}), this.walkSpeedBar = new ProgressBar(this.game, this.content, 50, 260, 300, 80, 1, walkSpeed/20), this.walkSpeedBar.setDraggable(), this.walkSpeedBar.setBarAnimationSpeed(ProgressBar.SPEED_VERYSLOW)
+			}), this.walkSpeedBar = new ProgressBar(this.game, this.content, 50, 310, 300, 80, 1, walkSpeed/20), this.walkSpeedBar.setDraggable(), this.walkSpeedBar.setBarAnimationSpeed(ProgressBar.SPEED_VERYSLOW)
 		};
 		
 		let menuUpdate = SystemMenu.prototype.menuUpdate;

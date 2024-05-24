@@ -6,7 +6,7 @@ body:
   - type: input
     attributes:
       label: What would you like to add?
-      description: (stop asking me to add new versions, i'll do that in my own time.)
+      description: (You can also ask for more versions if you want to.)
       placeholder: Something cool!
     validations:
       required: true

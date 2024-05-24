@@ -11277,7 +11277,7 @@ var CreatureData = function() {
         }();
 Boot.init = function(e) {
         var t = new Phaser.Game(1280, 720, Phaser.CANVAS, "game-container");
-        t.prodigy = new Prodigy(t), t.prodigy.sso = e || {}, t.assets = new AssetManager(t), t.state.add("DungeonMaker", DungeonMaker), t.state.add("Boot", Boot), t.state.add("Login", Login), t.state.add("Battle", Battle), t.state.add("Forest", Forest), t.state.add("Mountain", Mountain), t.state.add("Volcano", Volcano), t.state.add("Arena", Arena), t.state.add("TownSquare", TownSquare), t.state.add("Pirate", Pirate), t.state.add("Academy", Academy), t.state.add("Tutorial", Tutorial), t.state.add("Tower", Tower), t.state.add("TowerBase", TowerBase), t.state.add("Cloud", Cloud), t.state.add("Plains", Plains), t.state.add("Dorm", Dorm), t.state.add("Dino", Dino), t.state.add("Museum", Museum), t.state.add("Tech", Tech), t.state.add("Tree", Tree), t.state.add("Docks", Docks), t.state.add("DinoDig", DinoDig), t.state.add("DanceDance", DanceDance);
+        t.prodigy = new Prodigy(t), t.prodigy.sso = e || {}, t.assets = new AssetManager(t), t.state.add("DungeonMaker", DungeonMaker), t.state.add("Boot", Boot), t.state.add("Login", Login), t.state.add("Battle", Battle), t.state.add("Forest", Forest), t.state.add("Mountain", Mountain), t.state.add("Volcano", Volcano), t.state.add("Arena", Arena), t.state.add("TownSquare", TownSquare), t.state.add("Pirate", Pirate), t.state.add("Academy", Academy), t.state.add("Intro2", Intro2), t.state.add("Tutorial", Tutorial), t.state.add("Tower", Tower), t.state.add("TowerBase", TowerBase), t.state.add("Cloud", Cloud), t.state.add("Plains", Plains), t.state.add("Dorm", Dorm), t.state.add("Dino", Dino), t.state.add("Museum", Museum), t.state.add("Tech", Tech), t.state.add("Tree", Tree), t.state.add("Docks", Docks), t.state.add("DinoDig", DinoDig), t.state.add("DanceDance", DanceDance);
         if (Util.isDefined(window.checkForMods)) {
                 window.checkForMods(t, window.location.search)
         } else {
@@ -12220,7 +12220,7 @@ var WalkableScreen = function() {
 CutScene.getValue = function(e, t, a, s, i) {
         return "in" === i ? (e /= s, a * e * e + t) : "out" === i ? (e /= s, -a * e * (e - 2) + t) : a * e / s + t
 };
-var Intro2 = function () {
+var Intro2 = function() {
 		function e(e) {
 			CutScene.call(this, e, ["scene-intro", "scene-intro-bg1", "scene-intro-bg2", "scene-intro-bg3", "bgm-intro-1"])
 		}
@@ -12693,11 +12693,11 @@ Tree.DATA = {
                                 WW1: 0,
                                 FH2: 1,
                                 FG1: [
-                                        [1, 1, 1, 0, 0],
-                                        [0, 1, 1, 0, 0],
-                                        [0, 0, 1, 1, 1],
-                                        [0, 0, 1, 1, 1],
-                                        [0, 0, 1, 1, 1]
+                                        [1, 1, 1, 1, 1],
+                                        [1, 1, 1, 1, 1],
+                                        [1, 1, 1, 1, 1],
+                                        [1, 1, 1, 1, 1],
+                                        [1, 1, 1, 1, 1]
                                 ]
                         },
                         objects: {
@@ -12712,31 +12712,31 @@ Tree.DATA = {
                         objects: [],
                         tiles: [
                                 ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
-                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "", "", "", "", "", ""],
-                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "", "", "", "", "", ""],
-                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "", "", "", "", "", ""],
-                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "", "", "", "", "", ""],
-                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "", "", "", "", "", ""],
-                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "", "", "", "", ""],
-                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "", "", "", "", "", ""],
-                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "", "", "", "", "", ""],
-                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "", "", "", "", "", ""],
-                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "", "", "", "", "", ""],
-                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "", "", "", "", "", ""],
-                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "", "", "", "", "", ""],
-                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "", "", "", "", "", ""],
-                                ["", "", "", "FH2", "FH2", "FH2", "", "", "", "", "", "", "", "", ""],
-                                ["", "", "", "FH2", "FH2", "FH2", "", "", "", "", "", "", "", "", ""],
-                                ["", "", "", "FH2", "FH2", "", "", "", "", "", "", "", "", "", ""],
-                                ["", "", "", "FH2", "FH2", "", "", "", "", "", "", "", "", "", ""],
-                                ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-                                ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-                                ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-                                ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-                                ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-                                ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-                                ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-                                ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"],
+                                ["FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2", "FH2"]
                         ]
                 },
                 foyer: {
@@ -13502,6 +13502,18 @@ Forest.STORE = {
                         type: "pet",
                         price: 9500,
                         mprice: 900
+                }]
+        }, {
+                maleTag: "male",
+                femaleTag: "female",
+                items: [{
+                        ID: 68,
+                        type: "hat",
+                        mprice: 600
+                }, {
+                        ID: 84,
+                        type: "weapon",
+                        mprice: 1200
                 }]
         }]
 }, Forest.AUDIO = [{
@@ -14403,6 +14415,18 @@ Mountain.STORE = {
                         price: 9500,
                         mprice: 900
                 }]
+        }, {
+                maleTag: "male",
+                femaleTag: "female",
+                items: [{
+                        ID: 67,
+                        type: "hat",
+                        mprice: 600
+                }, {
+                        ID: 83,
+                        type: "weapon",
+                        mprice: 1200
+                }]
         }]
 }, Mountain.AUDIO = [{
         tag: "voice-1",
@@ -15189,6 +15213,18 @@ Volcano.STORE = {
                         type: "pet",
                         price: 9500,
                         mprice: 900
+                }]
+        }, {
+                maleTag: "male",
+                femaleTag: "female",
+                items: [{
+                        ID: 70,
+                        type: "hat",
+                        mprice: 600
+                }, {
+                        ID: 86,
+                        type: "weapon",
+                        mprice: 1200
                 }]
         }]
 }, Volcano.AUDIO = [{
@@ -16406,6 +16442,18 @@ Pirate.STORE = {
                         price: 9500,
                         mprice: 900
                 }]
+        }, {
+                maleTag: "male1",
+                femaleTag: "female1",
+                items: [{
+                        ID: 69,
+                        type: "hat",
+                        mprice: 600
+                }, {
+                        ID: 85,
+                        type: "weapon",
+                        mprice: 1200
+                }]
         }]
 }, Pirate.AUDIO = [{
         tag: "voice-5",
@@ -17443,7 +17491,7 @@ var Tower = function() {
                                 };
                         Battle.startBattle(this.game, this.mods, e, t.bind(this), a.bind(this, this.floor, this.mods.boss))
                 }, e.prototype.toFloor = function(e, t) {
-                        return e > 100 ? (this.toBase(), void 0) : (this.game.state.states.Tower.playerX = 602, this.game.state.states.Tower.playerY = 150, this.game.state.states.Tower.floor = e, this.game.state.states.Tower.team = t, this.game.state.states.Tower.cleared = !1, this.game.state.start("Tower"), void 0)
+                        return e > 105 ? (this.toBase(), void 0) : (this.game.state.states.Tower.playerX = 602, this.game.state.states.Tower.playerY = 150, this.game.state.states.Tower.floor = e, this.game.state.states.Tower.team = t, this.game.state.states.Tower.cleared = !1, this.game.state.start("Tower"), void 0)
                 }, e.prototype.toBase = function() {
                         var t = function(e) {
                                         e.state.states.TowerBase.playerX = 1200, e.state.states.TowerBase.playerY = 400, e.state.start("TowerBase")
@@ -17719,6 +17767,17 @@ Tower.AUDIO = [{
                 face: 1,
                 audio: Tower.AUDIO[0]
         }]
+}, {
+        floor: 105,
+        reward: [{
+                type: "gold",
+                N: 500
+        }],
+        text: [{
+                text: "Hey, you're doing great! Here's a little reward...",
+                face: 0,
+                audio: Tower.AUDIO[6]
+        }]
 }], Tower.DIALOGUE = [
         [{
                 text: "Here's your first boss...there is one on every fifth floor. Let's see how well you do!",
@@ -17872,6 +17931,15 @@ Tower.AUDIO = [{
                 text: "Come, wizard! It's time for you to face the strongest wizard of all time!",
                 face: 3,
                 audio: Tower.AUDIO[2]
+        }, {
+                text: "After that, there are 5 more floors left. I recommend wearing the Duelist Set."
+        }, {
+                text: "To get the Duelist Set, do some battles in the Coliseum."
+        }],
+        [{
+                text: "Do you really think you can beat my tower? There were a few more floors left."
+        }, {
+                text: "Wanna dance?"
         }]
 ], Tower.OPPONENTS = [{
         pets: [{
@@ -18356,25 +18424,25 @@ Tower.AUDIO = [{
         }]
 }, {
         wizards: [{
-                data: '{"level":1}',
-                appearance: '{"name":"Kelly Monstertamer", "gender":"female", "hairStyle":11, "hairColor":9, "skinColor":1, "eyeColor":13}',
-                equipment: '{"hat":1, "outfit":1, "weapon":1}'
-        }, {
-                data: '{"level":1}',
-                appearance: '{"name":"Aaron Mountainsteel", "gender":"male", "hairStyle":3, "hairColor":6, "skinColor":2, "eyeColor":3}',
-                equipment: '{"hat":1, "outfit":1, "weapon":1}'
-        }, {
-                data: '{"level":1}',
-                appearance: '{"name":"Melissa Thundercaster", "gender":"female", "hairStyle":7, "hairColor":8, "skinColor":3, "eyeColor":6}',
-                equipment: '{"hat":1, "outfit":1, "weapon":1}'
-        }, {
-                data: '{"level":1}',
-                appearance: '{"name":"Jack Froststaff", "gender":"male", "hairStyle":4, "hairColor":16, "skinColor":2, "eyeColor":9}',
-                equipment: '{"hat":1, "outfit":1, "weapon":1}'
-        }, {
-                data: '{"level":1}',
-                appearance: '{"name":"David Fruitstrider", "gender":"male", "hairStyle":8, "hairColor":5, "skinColor":4, "eyeColor":14}',
-                equipment: '{"hat":1, "outfit":1, "weapon":1}'
+		data: '{"level":50}',
+		appearance: '{"name":"Frozine", "gender":"female", "hairStyle":11, "hairColor":9, "skinColor":1, "eyeColor":13}',
+		equipment: '{"hat":37, "outfit":33, "weapon":63}'
+	}, {
+		data: '{"level":50}',
+		appearance: '{"name":"Charcole", "gender":"male", "hairStyle":3, "hairColor":6, "skinColor":2, "eyeColor":3}',
+		equipment: '{"hat":11, "outfit":8, "weapon":64}'
+	}, {
+		data: '{"level":50}',
+		appearance: '{"name":"Sprout", "gender":"female", "hairStyle":7, "hairColor":8, "skinColor":3, "eyeColor":6}',
+		equipment: '{"hat":33, "outfit":29, "weapon":24}'
+	}, {
+		data: '{"level":50}',
+		appearance: '{"name":"Thundane", "gender":"male", "hairStyle":4, "hairColor":16, "skinColor":2, "eyeColor":9}',
+		equipment: '{"hat":8, "outfit":24, "weapon":23}'
+	}, {
+		data: '{"level":50}',
+		appearance: '{"name":"Pounce", "gender":"male", "hairStyle":8, "hairColor":5, "skinColor":4, "eyeColor":14}',
+		equipment: '{"hat":32, "outfit":31, "weapon":60}'
         }]
 }, {
         pets: [{
@@ -18559,6 +18627,36 @@ Tower.AUDIO = [{
                 maxHP: 240,
                 name: "Mira Shade"
         }
+}, {
+        wizards: [{
+                data: '{"level":100}',
+                appearance: '{"name":"Hot Party Plumber", "gender":"female", "hairStyle":14, "hairColor":9, "skinColor":1, "eyeColor":13}',
+                equipment: '{"hat":78, "outfit":57, "weapon":69}'
+        }]
+}, {
+        wizards: [{
+                data: '{"level":100}',
+                appearance: '{"name":"Jeff", "gender":"male", "hairStyle":24, "hairColor":1, "skinColor":2, "eyeColor":2}',
+                equipment: '{"hat":77}'
+        }]
+}, {
+        wizards: [{
+                data: '{"level":100}',
+                appearance: '{"name":"Hot Party Computer", "gender":"female", "hairStyle":5, "hairColor":14, "skinColor":1, "eyeColor":13}',
+                equipment: '{"hat":76, "outfit":57, "weapon":16}'
+        }]
+}, {
+        wizards: [{
+                data: '{"level":100}',
+                appearance: '{"name":"Baldi", "gender":"male", "hairStyle":24, "hairColor":7, "skinColor":2, "eyeColor":8}',
+                equipment: '{"outfit":3}'
+        }]
+}, {
+        wizards: [{
+                data: '{"level":100}',
+                appearance: '{"name":"Michael Jackson", "gender":"male", "hairStyle":13, "hairColor":5, "skinColor":1, "eyeColor":2}',
+                equipment: '{"outfit":50}'
+        }]
 }];
 var TowerBase = function() {
         function e(t) {
@@ -18605,7 +18703,7 @@ var TowerBase = function() {
                 WalkableScreen.prototype.create.call(this, this.playerX, this.playerY), new QuestNPC(this.game, this.content, 1155, 340, e.DATA, this.openTower.bind(this)), this.path.addCallback(3, this.toTown.bind(this))
         }, e.prototype.openTower = function() {
                 var t = this.game.prodigy.player.getTowerProgress();
-                if (t = t - t % 5 + 1, t > 100 && (t = 100), this.game.prodigy.network.sendAnalytics("Dark-Tower"), this.game.prodigy.player.isMember)
+                if (t = t - t % 5 + 1, t > 105 && (t = 105), this.game.prodigy.network.sendAnalytics("Dark-Tower"), this.game.prodigy.player.isMember)
                         if (0 === this.game.prodigy.player.getTowerProgress()) {
                                 for (var a = 1; 6 > a; a++) this.game.prodigy.dialogue.setText(e.DATA.dialogue[a]);
                                 var i = {
@@ -18615,7 +18713,7 @@ var TowerBase = function() {
                                         audio: e.AUDIO[0]
                                 };
                                 this.game.prodigy.dialogue.setText(i)
-                        } else if (this.game.prodigy.player.getTowerProgress() > 99)
+                        } else if (this.game.prodigy.player.getTowerProgress() > 104)
                         for (var a = 6; 8 > a; a++) this.game.prodigy.dialogue.setText(e.DATA.dialogue[a]);
                 else {
                         var i = {
@@ -19775,13 +19873,47 @@ Tech.STORE = {
                         price: 2e3,
                         mprice: 500
                 }]
+        }, {
+                maleTag: "male",
+                femaleTag: "female",
+                items: [{
+                        ID: 76,
+                        type: "hat",
+                        mprice: 500
+                }, {
+                        ID: 57,
+                        type: "outfit",
+                        price: 4500,
+                        mprice: 0
+                }, {
+                        ID: 82,
+                        type: "weapon",
+                        price: 2500,
+                        mprice: 0
+                }]
+        }, {
+                maleTag: "male",
+                femaleTag: "female",
+                items: [{
+                        ID: 77,
+                        type: "hat",
+                        mprice: 500
+                }, {
+                        ID: 78,
+                        type: "hat",
+                        mprice: 500
+                }, {
+                        ID: 66,
+                        type: "hat",
+                        mprice: 500
+                }]
         }]
 }, Tech.updateTechData = function(e) {
         var t = Util.getDateSeed(),
                 a = (new Date).getDay();
         e.quests.getZoneVar(Tech.DATA.ID, "day") !== a && (e.quests.clearQuestLine(Tech.DATA.ID), e.quests.setZoneVar(Tech.DATA.ID, "day", a));
-        var s = [113, 115, 118, 120, 115, 113, 118],
-                i = [113, 114, 115, 116, 117, 118, 119, 120, 121],
+        var s = [113, 115, 118, 120, 115, 113, 118, 125],
+                i = [113, 114, 115, 116, 117, 118, 119, 120, 121, 125],
                 r = ["Power", "Super", "Techno", "Bumble", "Scrappy", "Lumpy", "Metal", "Grease", "Clank", "Pocket", "Speed"],
                 o = ["bot", "tank", "gear", "byte", "bit", "dude", "-1000", "sprocket", ""],
                 n = Tech.DATA.quests[0];
@@ -19880,6 +20012,8 @@ Tech.STORE = {
                         ID: 120
                 }, {
                         ID: 121
+                }, {
+                        ID: 125
                 }]
         },
         dialogue: [{
@@ -21148,6 +21282,10 @@ var Docks = function() {
                 }), this.game.prodigy.dialogue.setText({
                         text: "If you want to change your skin color or your gender, you can edit your save.",
                         face: 3,
+                        anim: 4
+                }), this.game.prodigy.dialogue.setText({
+                        text: "Uh oh! Plumber's Cap isn't completely organized and fixed the right way in your backpack or the player menu.",
+                        face: 4,
                         anim: 4
                 }), this.game.prodigy.dialogue.start(e.DATA.atlas)
         }, e.prototype.screenSetup = function() {
@@ -22625,6 +22763,7 @@ var DormMenu = function() {
                         A = "https://cdn.prodigygame.com/game/assets/images/boss/",
                         E = "https://cdn.prodigygame.com/game/assets/images/boss/small/",
                         B = "https://cdn.prodigygame.com/game/assets/images/prompts/",
+			X = "https://cdn.prodigygame.com/game/assets/" + "images/scenes/",
                         z = "assets/"
                 P = {
                         attacks: {
@@ -22917,23 +23056,23 @@ var DormMenu = function() {
                         },
                         "scene-intro": {
                                 type: "atlas",
-                                base: "https://cdn.prodigygame.com/game/assets/images/scenes/",
+                                base: X,
                                 url: "scene-intro.png",
                                 json: "scene-intro.json"
                         },
                         "scene-intro-bg1": {
                                 type: "sprite",
-                                base: "https://cdn.prodigygame.com/game/assets/images/scenes/",
+                                base: X,
                                 url: "scene-intro-bg1.jpg"
                         },
                         "scene-intro-bg2": {
                                 type: "sprite",
-                                base: "https://cdn.prodigygame.com/game/assets/images/scenes/",
+                                base: X,
                                 url: "scene-intro-bg2.jpg"
                         },
                         "scene-intro-bg3": {
                                 type: "sprite",
-                                base: "https://cdn.prodigygame.com/game/assets/images/scenes/",
+                                base: X,
                                 url: "scene-intro-bg3.jpg"
                         },
                         "zone-docks": {
@@ -23052,7 +23191,7 @@ var DormMenu = function() {
                         },
                         login: {
                                 type: "atlas",
-                                base: "images/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/",
                                 url: "login.png",
                                 json: "login.json"
                         },
@@ -23378,7 +23517,7 @@ var DormMenu = function() {
                         },
                         icons: {
                                 type: "atlas",
-                                base: "images/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/",
                                 url: "general-icons.png",
                                 json: "general-icons.json"
                         },
@@ -25309,7 +25448,7 @@ var DormMenu = function() {
                         },
                         heads: {
                                 type: "atlas",
-                                base: "images/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/",
                                 url: "head.png",
                                 json: "head.json"
                         },
@@ -26107,7 +26246,7 @@ var DormMenu = function() {
                         },
                         "reduced-outfit-male-38": {
                                 type: "spritesheet",
-                                base: "images/outfits/male/reduced/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/outfits/male/reduced/",
                                 url: "38.png",
                                 x: 17,
                                 y: 0,
@@ -26809,7 +26948,7 @@ var DormMenu = function() {
                         },
                         "normal-outfit-female-57": {
                                 type: "spritesheet",
-                                base: "images/outfits/female/normal/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/outfits/female/normal/",
                                 url: "57.png",
                                 x: 94,
                                 y: 156,
@@ -27322,7 +27461,7 @@ var DormMenu = function() {
                         },
                         "reduced-outfit-female-57": {
                                 type: "spritesheet",
-                                base: "images/outfits/female/reduced/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/outfits/female/reduced/",
                                 url: "57.png",
                                 x: 44,
                                 y: 86,
@@ -28042,12 +28181,21 @@ var DormMenu = function() {
                         },
                         "normal-hat-77": {
                                 type: "spritesheet",
-                                base: "images/hats/normal/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hats/normal/",
                                 url: "77.png",
                                 x: 80,
                                 y: 25,
                                 w: 80,
                                 h: 85
+                        },
+                        "normal-hat-78": {
+                                type: "spritesheet",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hats/normal/",
+                                url: "78.png",
+                                x: 49,
+                                y: 39,
+                                w: 131,
+                                h: 89
                         },
                         "normal-hat-8": {
                                 type: "spritesheet",
@@ -28735,12 +28883,21 @@ var DormMenu = function() {
                         },
                         "reduced-hat-77": {
                                 type: "spritesheet",
-                                base: "images/hats/reduced/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hats/reduced/",
                                 url: "77.png",
                                 x: 39,
                                 y: 23,
                                 w: 45,
                                 h: 43
+                        },
+                        "reduced-hat-78": {
+                                type: "spritesheet",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hats/reduced/",
+                                url: "78.png",
+                                x: 23,
+                                y: 29,
+                                w: 66,
+                                h: 45
                         },
                         "reduced-hat-8": {
                                 type: "spritesheet",
@@ -29581,7 +29738,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-male-24-1": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -29590,7 +29747,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-male-24-2": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -29599,7 +29756,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-male-24-3": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -29608,7 +29765,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-male-24-4": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -29617,7 +29774,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-male-24-5": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -29626,7 +29783,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-male-24-6": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -29635,7 +29792,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-male-24-7": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -29644,7 +29801,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-male-24-8": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -29653,7 +29810,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-male-24-9": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -29662,7 +29819,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-male-24-10": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -29671,7 +29828,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-male-24-11": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -29680,7 +29837,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-male-24-12": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -29689,7 +29846,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-male-24-13": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -29698,7 +29855,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-male-24-14": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -29707,7 +29864,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-male-24-15": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -29716,7 +29873,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-male-24-16": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -33037,7 +33194,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-male-24-1": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -33046,7 +33203,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-male-24-2": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -33055,7 +33212,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-male-24-3": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -33064,7 +33221,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-male-24-4": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -33073,7 +33230,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-male-24-5": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -33082,7 +33239,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-male-24-6": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -33091,7 +33248,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-male-24-7": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -33100,7 +33257,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-male-24-8": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -33109,7 +33266,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-male-24-9": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -33118,7 +33275,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-male-24-10": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -33127,7 +33284,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-male-24-11": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -33136,7 +33293,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-male-24-12": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -33145,7 +33302,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-male-24-13": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -33154,7 +33311,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-male-24-14": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -33163,7 +33320,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-male-24-15": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -33172,7 +33329,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-male-24-16": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36493,7 +36650,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-female-24-1": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36502,7 +36659,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-female-24-2": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36511,7 +36668,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-female-24-3": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36520,7 +36677,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-female-24-4": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36529,7 +36686,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-female-24-5": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36538,7 +36695,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-female-24-6": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36547,7 +36704,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-female-24-7": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36556,7 +36713,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-female-24-8": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36565,7 +36722,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-female-24-9": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36574,7 +36731,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-female-24-10": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36583,7 +36740,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-female-24-11": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36592,7 +36749,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-female-24-12": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36601,7 +36758,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-female-24-13": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36610,7 +36767,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-female-24-14": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36619,7 +36776,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-female-24-15": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36628,7 +36785,7 @@ var DormMenu = function() {
                         },
                         "normal-hair-female-24-16": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36637,7 +36794,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-female-24-1": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36646,7 +36803,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-female-24-2": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36655,7 +36812,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-female-24-3": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36664,7 +36821,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-female-24-4": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36673,7 +36830,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-female-24-5": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36682,7 +36839,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-female-24-6": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36691,7 +36848,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-female-24-7": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36700,7 +36857,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-female-24-8": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36709,7 +36866,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-female-24-9": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36718,7 +36875,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-female-24-10": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36727,7 +36884,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-female-24-11": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36736,7 +36893,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-female-24-12": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36745,7 +36902,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-female-24-13": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36754,7 +36911,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-female-24-14": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36763,7 +36920,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-female-24-15": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -36772,7 +36929,7 @@ var DormMenu = function() {
                         },
                         "reduced-hair-female-24-16": {
                                 type: "spritesheet",
-                                base: "images/hair/",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
                                 url: "0-1.png",
                                 x: 88,
                                 y: 74,
@@ -44558,7 +44715,8 @@ Items.getItemData = function(e, t) {
                 rarity: 2,
                 drop: 1,
                 flavorText: "The robes of one of the greatest wizards in the Academy.",
-                h: 20
+                h: 20,
+                d: 100
         }, {
                 name: "Shiverchill Robes",
                 member: 0,
@@ -44600,7 +44758,8 @@ Items.getItemData = function(e, t) {
                 rarity: 3,
                 drop: 1,
                 flavorText: "These robes give off immense power, and almost seem to repel the ground below you.",
-                h: 20
+                h: 20,
+                d: 20
         }, {
                 name: "Diggin Outfit",
                 member: 0,
@@ -44750,8 +44909,7 @@ Items.getItemData = function(e, t) {
                 rarity: 4,
                 drop: 1,
                 flavorText: "Celebrate Prodigy's 13th birthday.",
-                h: 10,
-                d: 10
+                h: 10
         }],
         weapon: [{
                 name: "Enchanted Stick",
@@ -44864,7 +45022,7 @@ Items.getItemData = function(e, t) {
                 rarity: 1,
                 drop: 1,
                 flavorText: "This staff was once paired with another just like it and belonged to twin wizards.",
-                d: 1
+                d: 3
         }, {
                 name: "Vita",
                 member: 0,
@@ -45186,7 +45344,8 @@ Items.getItemData = function(e, t) {
                 rarity: 2,
                 drop: 1,
                 flavorText: "Crios once swore that if anyone could beat him in a duel, he'd give them this staff. Looks like you did it!",
-                d: 100
+                d: 100,
+                h: 20
         }, {
                 name: "Hailstone",
                 member: 0,
@@ -45228,7 +45387,8 @@ Items.getItemData = function(e, t) {
                 rarity: 3,
                 drop: 1,
                 flavorText: "A gift from the great wizard Mira. Just holding this staff makes you feel stronger than ever before.",
-                d: 25
+                d: 25,
+                h: 25
         }, {
                 ID: 69,
                 name: "Wrench",
@@ -45599,7 +45759,8 @@ Items.getItemData = function(e, t) {
                 rarity: 3,
                 drop: 1,
                 flavorText: 'Official sponsors of the Annual Wizard Dueling Contest, they say "The Choice of Champions" in big letters on the side. ',
-                h: 200
+                h: 200,
+                d: 100
         }, {
                 name: "Shiverchill Boots",
                 member: 0,
@@ -45902,7 +46063,8 @@ Items.getItemData = function(e, t) {
                 rarity: 2,
                 drop: 1,
                 flavorText: "The hat of one of the greatest wizards in the Academy.",
-                h: 20
+                h: 20,
+                d: 100
         }, {
                 name: "Shiverchill Hat",
                 type: "",
@@ -45950,7 +46112,8 @@ Items.getItemData = function(e, t) {
                 rarity: 3,
                 drop: 1,
                 flavorText: "Mira's hood radiates a powerful energy...",
-                h: 20
+                h: 20,
+                d: 20
         }, {
                 name: "Desert Hat",
                 type: "",
@@ -46255,8 +46418,7 @@ Items.getItemData = function(e, t) {
                 rarity: 4,
                 drop: 1,
                 flavorText: "You aren't a computer, but this hat sure makes you look like one!",
-                h: 10,
-                d: 10
+                h: 10
         }, {
                 ID: 77,
                 name: "Jeff's Hat",
@@ -46265,8 +46427,16 @@ Items.getItemData = function(e, t) {
                 rarity: 2,
                 drop: 1,
                 flavorText: "Jeff from PVZ Mods has worn this hat before. Credits to Peridot/Starry Ciocirlan and Stefan25897 (King Raber) for PVZ 1 art style designs of this hat and credits to Peridot/Starry Ciocirlan for Jeff's hat.",
-                h: 6,
-                d: 6
+                h: 6
+        }, {
+            ID: 78,
+            name: "Plumber's Cap",
+            type: "",
+            member: 0,
+            rarity: 1,
+            drop: 1,
+            flavorText: "Credits to Craftersshaft and Mr. Intend for this hat.",
+            h: 4
         }],
         item: [{
                 name: "Apple",

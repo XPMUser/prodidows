@@ -6713,7 +6713,7 @@ var Character = function () {
 			}, {
 				icon: "quest",
 				callback: this.openQuest.bind(this),
-				title: "QUEST PROGRESS                                                            Uh oh...the gears mightn't get completely organized."
+				title: "QUEST PROGRESS                                                            Uh oh... there's gears on my head."
 			}, {
 				icon: "map",
 				callback: this.openMap.bind(this),
@@ -44059,7 +44059,7 @@ Items.getItemData = function (e, t) {
                 member: 1,
                 rarity: 4,
                 drop: 1,
-                flavorText: "undefined",
+                flavorText: "Celebrate Prodigy's 13th birthday.",
                 h: 10
 	}],
 	weapon: [{

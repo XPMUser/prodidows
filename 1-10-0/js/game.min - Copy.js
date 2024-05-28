@@ -10587,7 +10587,7 @@ var MapDisplay = function() {
         }, e.prototype.toDocks = function(e) {
                 this.game.state.states.Docks.playerX = 1167, this.game.state.states.Docks.playerY = 445, this.game.state.start("Docks")
         }, e.prototype.toNewStyle = function() {
-                this.createAccount()
+                this.createAccountButton.setInactive()
         }, e
 }();
 MapDisplay.getAssets = function() {
@@ -21280,7 +21280,7 @@ var Docks = function() {
                         face: 3,
                         anim: 4
                 }), this.game.prodigy.dialogue.setText({
-                        text: "If you want to change your skin color or your gender, you can edit your save.",
+                        text: "If you want to change your skin color, your name, or your gender, you can edit your save manually with any text editor like Notepad.",
                         face: 3,
                         anim: 4
                 }), this.game.prodigy.dialogue.setText({
@@ -43974,7 +43974,7 @@ var AudioController = function() {
         }(),
         Prodigy = function() {
                 function e(e) {
-                        this.version2 = "Prodidows Alpha", this.version = "Version 1.10.0 build 2610.16385", this.player = new Player, this.graphics = new GraphicsController(e), this.audio = new AudioController(e), this.open = new MenuFactory(e), this.effects = new EffectFactory(e), this.dialogue = new DialogueFactory(e), this.external = new ExternalFactory(e), this.chat = new ChatManager(e), this.network = new NetworkManager(e), this.education = new EducationSystem(e), this.canvas = null
+                        this.version2 = "Prodidows Alpha", this.version = "Version 1.10.0 build 2611.16385", this.player = new Player, this.graphics = new GraphicsController(e), this.audio = new AudioController(e), this.open = new MenuFactory(e), this.effects = new EffectFactory(e), this.dialogue = new DialogueFactory(e), this.external = new ExternalFactory(e), this.chat = new ChatManager(e), this.network = new NetworkManager(e), this.education = new EducationSystem(e), this.canvas = null
                 }
                 return e.prototype.cleanup = function() {
                         this.dialogue.cleanup()

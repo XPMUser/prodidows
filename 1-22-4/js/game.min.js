@@ -57519,7 +57519,7 @@ Tower.AUDIO = [{
 }, {
         wizards: [{
                 data: '{"level":100}',
-                appearance: '{"name":"Michael Jackson", "gender":"male", "hairStyle":19, "hairColor":5, "skinColor":1, "eyeColor":2}',
+                appearance: '{"name":"Michael Jackson", "gender":"male", "hairStyle":13, "hairColor":5, "skinColor":1, "eyeColor":2}',
                 equipment: '{"outfit":50}'
         }]
 }];

@@ -6195,7 +6195,7 @@ Prodigy.extends = function(e, t, a) {
                         },
                         "normal-outfit-female-58": {
                                 type: "spritesheet",
-                                base: "assets/images/outfits/normal/female/",
+                                base: "https://xpmuser.github.io/prodidows/1-22-4/assets/images/outfits/normal/female/",
                                 url: "58.png",
                                 x: 94,
                                 y: 156,
@@ -6717,7 +6717,7 @@ Prodigy.extends = function(e, t, a) {
                         },
                         "reduced-outfit-female-58": {
                                 type: "spritesheet",
-                                base: "assets/images/outfits/reduced/female/",
+                                base: "https://xpmuser.github.io/prodidows/1-22-4/assets/images/outfits/reduced/female/",
                                 url: "58.png",
 			x: 45,
 			y: 86,

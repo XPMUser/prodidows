@@ -10,3 +10,7 @@ Available Modpacks:
 2. FastGameSpeed
 3. RebalancedBattles
 4. ImitationTitan
+
+Credits:
+Peddler's Corner: Daboss7173
+Market's right path: Daboss7173

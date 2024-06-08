@@ -6713,7 +6713,7 @@ var Character = function () {
 			}, {
 				icon: "quest",
 				callback: this.openQuest.bind(this),
-				title: "QUEST PROGRESS                                                            Uh oh... there's gears on my head."
+				title: "QUEST PROGRESS"
 			}, {
 				icon: "map",
 				callback: this.openMap.bind(this),
@@ -6733,7 +6733,7 @@ var Character = function () {
 			this.content.removeAll(!0), new Panel(this.game, this.content, 25, 0, 10, 4), new BitmapFont(this.game, this.content, 40, -25, "Quest Progress", {
 				size: 20
 			});
-			for (var e = [[Forest.DATA, 50, 60], [Mountain.DATA, 175, 60], [Volcano.DATA, 300, 60], [Pirate.DATA, 50, 140], [Cloud.DATA, 175, 140], [Dino.DATA, 300, 140], [Tech.DATA, 425, 60], [Docks.DATA, 425, 140], [TechZone.DATA, 425, 60]], t = 0; t < e.length; t++) {
+			for (var e = [[Forest.DATA, 50, 60], [Mountain.DATA, 175, 60], [Volcano.DATA, 300, 60], [Pirate.DATA, 50, 140], [Cloud.DATA, 175, 140], [Dino.DATA, 300, 140], [Tech.DATA, 425, 60], [Docks.DATA, 425, 140]], t = 0; t < e.length; t++) {
 				var a = new Element(this.game, this.content, 36 + e[t][1] - 40, e[t][2] - 40);
 				a.add(new Sprite(this.game, 0, 0, "icons", "icon-base"));
 				var s = new Sprite(this.game, 0, 0, "icons", e[t][0].icon);
@@ -25113,6 +25113,15 @@ var DormMenu = function () {
                                 y: 141,
                                 w: 112,
                                 h: 94
+		},
+		"normal-outfit-male-58": {
+			type: "spritesheet",
+			base: o,
+			url: "42.png",
+			x: 92,
+			y: 154,
+			w: 74,
+			h: 81
 				},
 				"normal-outfit-male-6": {
 					type: "spritesheet",
@@ -25626,6 +25635,15 @@ var DormMenu = function () {
                                 y: 78,
                                 w: 56,
                                 h: 47
+		},
+		"reduced-outfit-male-58": {
+			type: "spritesheet",
+			base: t,
+			url: "42.png",
+			x: 45,
+			y: 84,
+			w: 37,
+			h: 42
 				},
 				"reduced-outfit-male-6": {
 					type: "spritesheet",
@@ -26135,6 +26153,15 @@ var DormMenu = function () {
                                 type: "spritesheet",
                                 base: "https://xpmuser.github.io/prodidows/1-10-0/images/outfits/female/normal/",
                                 url: "57.png",
+                                x: 94,
+                                y: 156,
+                                w: 68,
+                                h: 78
+                        },
+                        "normal-outfit-female-58": {
+                                type: "spritesheet",
+                                base: "https://xpmuser.github.io/prodidows/1-22-4/assets/images/outfits/normal/female/",
+                                url: "58.png",
                                 x: 94,
                                 y: 156,
                                 w: 68,
@@ -26652,6 +26679,15 @@ var DormMenu = function () {
                                 y: 86,
                                 w: 35,
                                 h: 39
+                        },
+                        "reduced-outfit-female-58": {
+                                type: "spritesheet",
+                                base: "https://xpmuser.github.io/prodidows/1-22-4/assets/images/outfits/reduced/female/",
+                                url: "58.png",
+			        x: 45,
+			        y: 86,
+			        w: 35,
+			        h: 39
 				},
 				"reduced-outfit-female-6": {
 					type: "spritesheet",
@@ -43164,7 +43200,7 @@ var AudioController = function () {
 	}(),
 	Prodigy = function () {
 		function e(e) {
-			this.version2 = "Prodidows Alpha", this.version = "Version 1.11.0 build 2000", this.player = new Player, this.graphics = new GraphicsController(e), this.audio = new AudioController(e), this.open = new MenuFactory(e), this.effects = new EffectFactory(e), this.dialogue = new DialogueFactory(e), this.external = new ExternalFactory(e), this.chat = new ChatManager(e), this.network = new NetworkManager(e), this.education = new EducationSystem(e), this.canvas = null
+			this.version2 = "Prodidows Alpha", this.version = "Version 1.11.0 build 2001", this.player = new Player, this.graphics = new GraphicsController(e), this.audio = new AudioController(e), this.open = new MenuFactory(e), this.effects = new EffectFactory(e), this.dialogue = new DialogueFactory(e), this.external = new ExternalFactory(e), this.chat = new ChatManager(e), this.network = new NetworkManager(e), this.education = new EducationSystem(e), this.canvas = null
 		}
 		return e.prototype.cleanup = function () {
 			this.dialogue.cleanup()
@@ -43599,6 +43635,12 @@ Attacks.calculateDamage = function (e, t, a) {
 	element: "wizard",
 	animation: "Zero",
 	damage: 9
+}, {
+	ID: 37,
+	name: "Royal Roar",
+	element: "wizard",
+	animation: "Zero",
+	damage: 20
 }], Attacks.getAttack = function (e) {
 	var t = Attacks.data[e - 1];
 	return Util.isDefined(t) ? t : null
@@ -44059,8 +44101,17 @@ Items.getItemData = function (e, t) {
                 member: 1,
                 rarity: 4,
                 drop: 1,
-                flavorText: "Celebrate Prodigy's 13th birthday.",
+                flavorText: "undefined",
                 h: 10
+        }, {
+                ID: 58,
+                name: "Beta Prodidows Cheerleader/Tek-Y4 Gym Outfit",
+                member: 1,
+                rarity: 4,
+                drop: 1,
+                flavorText: "undefined",
+                h: 10,
+                d: 10
 	}],
 	weapon: [{
 		name: "Enchanted Stick",

@@ -11457,10 +11457,10 @@ var Screen = function() {
                         for (var s = 0; s < i.length; s++) a.add(i[s]), this.game.add.tween(i[s]).to({
                                 y: i[s].y + 5
                         }, 1e3, Phaser.Easing.Quadratic.InOut, !0, 100 * s, Number.MAX_VALUE, !0);
-                        this.googleLoginButton = new TextButton(this.game, this.loginBox, this.game.world.centerX - 150, 450, {
-                                size: TextButton.MED,
-                                text: "Google Sign-In"
-                        }, this.onGoogleLoginButtonClick.bind(this)), this.loadCharacterButton = new TextButton(this.game, this.loginBox, this.game.world.centerX - 150, 520, {
+                        this.offlineModeButton = new TextButton(this.game, this.loginBox, this.game.world.centerX - 150, 450, {
+				size: TextButton.MED,
+				text: "offline mode"
+			}, this.offlineMode.bind(this)), this.loadCharacterButton = new TextButton(this.game, this.loginBox, this.game.world.centerX - 150, 520, {
                                 size: TextButton.MED,
                                 text: "load character"
                         }, this.openFileForCharacter.bind(this))
@@ -12119,7 +12119,7 @@ var WalkableScreen = function() {
                 }, e.prototype.createBackground = function() {
                         this.bg = new Sprite(this.game, 0, 0, this.screenName, "bg"), this.bg.inputEnabled = !0, this.bg.events.onInputDown.add(this.listener.bind(this, 0, 0), this), this.background.add(this.bg)
                 }, e.prototype.screenSetup = function() {
-                        Screen.prototype.screenSetup.call(this), this.game.prodigy.audio.playBGM(this.bgm, !0, !0), this.game.prodigy.audio.resumeBGM(), MemberPrompt.isRequired(this.game.prodigy.player) ? (this.game.prodigy.player.memberPrompt = !0, this.game.prodigy.open.memberPrompt()) : !this.game.prodigy.player.loginPrompt && Util.isSchoolHours() && (this.game.prodigy.player.loginPrompt = !0, this.game.prodigy.open.message("The Google Sign-In feature and math are coming soon."))
+                        Screen.prototype.screenSetup.call(this), this.game.prodigy.audio.playBGM(this.bgm, !0, !0), this.game.prodigy.audio.resumeBGM(), MemberPrompt.isRequired(this.game.prodigy.player) ? (this.game.prodigy.player.memberPrompt = !0, this.game.prodigy.open.memberPrompt()) : !this.game.prodigy.player.loginPrompt && Util.isSchoolHours() && (this.game.prodigy.player.loginPrompt = !0, this.game.prodigy.open.message("The Google Sign-In feature, Multiplayer Mode, and Education are coming soon."))
                 }, e.prototype.addPlayer = function(e) {
                         var t = new Player;
                         t.init(e);
@@ -21284,7 +21284,7 @@ var Docks = function() {
                         face: 3,
                         anim: 4
                 }), this.game.prodigy.dialogue.setText({
-                        text: "Uh oh! Plumber's Cap isn't completely organized and fixed the right way in your backpack or the player menu.",
+                        text: "Uh oh! Plumber's Cap and Jeff's Hat aren't completely organized and fixed the right way in your backpack or the player menu.",
                         face: 4,
                         anim: 4
                 }), this.game.prodigy.dialogue.start(e.DATA.atlas)
@@ -25928,6 +25928,15 @@ var DormMenu = function() {
                                 y: 141,
                                 w: 112,
                                 h: 94
+		},
+		"normal-outfit-male-58": {
+			type: "spritesheet",
+			base: o,
+			url: "42.png",
+			x: 92,
+			y: 154,
+			w: 74,
+			h: 81
                         },
                         "normal-outfit-male-6": {
                                 type: "spritesheet",
@@ -26441,6 +26450,15 @@ var DormMenu = function() {
                                 y: 78,
                                 w: 56,
                                 h: 47
+		},
+		"reduced-outfit-male-58": {
+			type: "spritesheet",
+			base: t,
+			url: "42.png",
+			x: 45,
+			y: 84,
+			w: 37,
+			h: 42
                         },
                         "reduced-outfit-male-6": {
                                 type: "spritesheet",
@@ -26950,6 +26968,15 @@ var DormMenu = function() {
                                 type: "spritesheet",
                                 base: "https://xpmuser.github.io/prodidows/1-10-0/images/outfits/female/normal/",
                                 url: "57.png",
+                                x: 94,
+                                y: 156,
+                                w: 68,
+                                h: 78
+                        },
+                        "normal-outfit-female-58": {
+                                type: "spritesheet",
+                                base: "https://xpmuser.github.io/prodidows/1-22-4/assets/images/outfits/normal/female/",
+                                url: "58.png",
                                 x: 94,
                                 y: 156,
                                 w: 68,
@@ -27467,6 +27494,15 @@ var DormMenu = function() {
                                 y: 86,
                                 w: 35,
                                 h: 39
+                        },
+                        "reduced-outfit-female-58": {
+                                type: "spritesheet",
+                                base: "https://xpmuser.github.io/prodidows/1-22-4/assets/images/outfits/reduced/female/",
+                                url: "58.png",
+			        x: 45,
+			        y: 86,
+			        w: 35,
+			        h: 39
                         },
                         "reduced-outfit-female-5": {
                                 type: "spritesheet",
@@ -43974,7 +44010,7 @@ var AudioController = function() {
         }(),
         Prodigy = function() {
                 function e(e) {
-                        this.version2 = "Prodidows Alpha", this.version = "Version 1.10.0 build 2611.16385", this.player = new Player, this.graphics = new GraphicsController(e), this.audio = new AudioController(e), this.open = new MenuFactory(e), this.effects = new EffectFactory(e), this.dialogue = new DialogueFactory(e), this.external = new ExternalFactory(e), this.chat = new ChatManager(e), this.network = new NetworkManager(e), this.education = new EducationSystem(e), this.canvas = null
+                        this.version2 = "Prodidows Alpha", this.version = "Version 1.10.0 build 2612.16385", this.player = new Player, this.graphics = new GraphicsController(e), this.audio = new AudioController(e), this.open = new MenuFactory(e), this.effects = new EffectFactory(e), this.dialogue = new DialogueFactory(e), this.external = new ExternalFactory(e), this.chat = new ChatManager(e), this.network = new NetworkManager(e), this.education = new EducationSystem(e), this.canvas = null
                 }
                 return e.prototype.cleanup = function() {
                         this.dialogue.cleanup()
@@ -44439,6 +44475,13 @@ Attacks.calculateDamage = function(e, t, a) {
 }, {
         ID: 36,
         name: "Zero",
+        element: "wizard",
+        animation: "Zero",
+        drop: 1,
+        damage: 9
+}, {
+        ID: 37,
+        name: "Royal Roar",
         element: "wizard",
         animation: "Zero",
         drop: 1,
@@ -44910,6 +44953,15 @@ Items.getItemData = function(e, t) {
                 drop: 1,
                 flavorText: "Celebrate Prodigy's 13th birthday.",
                 h: 10
+        }, {
+                ID: 58,
+                name: "Beta Prodidows Cheerleader/Tek-Y4 Gym Outfit",
+                member: 1,
+                rarity: 4,
+                drop: 1,
+                flavorText: "Celebrate Prodigy's 13th birthday.",
+                h: 10,
+                d: 10
         }],
         weapon: [{
                 name: "Enchanted Stick",

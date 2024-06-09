@@ -1,0 +1,30 @@
+
+    { name: "ID", price: ?, description: ?." },
+       { name: "ID", price: ?, description: ?." },
+
+
+function displayShop() {
+    console.log("Welcome to the item shop!\n");
+    console.log("Available Items:");
+    shopItems.forEach((item, index) => {
+        console.log(`${index + 1}. ${item.name} - ${item.price} gold coins`);
+        console.log(`   ${item.description}`);
+    });
+}
+
+
+function purchaseItem(itemIndex, playerGold) {
+    const selectedItem = shopItems[itemIndex - 1];
+    if (!selectedItem) {
+        console.log("Invalid item selection.");
+        return;
+    }
+    if (playerGold < selectedItem.price) {
+        console.log("Insufficient gold coins to purchase this item.");
+        return;
+    }
+
+    console.log(`You have purchased ${selectedItem.name} for ${selectedItem.price} gold coins.`);
+
+}
+

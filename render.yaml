@@ -1,0 +1,19 @@
+# Exported from Render on 2024-06-16T23:53:17Z
+services:
+- type: web
+  name: XPMUser.github.io/Prodidows
+  runtime: node
+  repo: https://github.com/XPMUser/XPMUser.github.io
+  plan: free
+  region: oregon
+  buildCommand: yarn
+  startCommand: "300000000000000"
+- type: web
+  name: XPMUser.github.io
+  runtime: static
+  repo: https://github.com/XPMUser/XPMUser.github.io
+  envVars:
+  - key: rnd_THFnwiOjvXis6Z53Mnnq5YeJADaw
+    sync: false
+  staticPublishPath: Old Prodigy
+version: "1"

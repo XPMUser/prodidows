@@ -14,3 +14,7 @@ Available Modpacks:
 Credits:
 Peddler's Corner: Daboss7173
 Market's right path: Daboss7173
+
+# System Requirements
+
+Windows OS: Windows XP or later

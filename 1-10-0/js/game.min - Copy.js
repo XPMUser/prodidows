@@ -29772,6 +29772,15 @@ var DormMenu = function() {
                                 w: 61,
                                 h: 61
                         },
+                        "normal-weapon-92": {
+                                type: "spritesheet",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/assets/images/player/normal/weapons/",
+                                url: "92.png",
+                                x: 144,
+                                y: 142,
+                                w: 51,
+                                h: 52
+                        },
                         "normal-hair-male-24-1": {
                                 type: "spritesheet",
                                 base: "https://xpmuser.github.io/prodidows/1-10-0/images/hair/",
@@ -44010,7 +44019,7 @@ var AudioController = function() {
         }(),
         Prodigy = function() {
                 function e(e) {
-                        this.version2 = "Prodidows Alpha", this.version = "Version 1.10.0 build 2612.16385", this.player = new Player, this.graphics = new GraphicsController(e), this.audio = new AudioController(e), this.open = new MenuFactory(e), this.effects = new EffectFactory(e), this.dialogue = new DialogueFactory(e), this.external = new ExternalFactory(e), this.chat = new ChatManager(e), this.network = new NetworkManager(e), this.education = new EducationSystem(e), this.canvas = null
+                        this.version2 = "Prodidows Alpha", this.version = "Version 1.10.0 build 2613.16405", this.player = new Player, this.graphics = new GraphicsController(e), this.audio = new AudioController(e), this.open = new MenuFactory(e), this.effects = new EffectFactory(e), this.dialogue = new DialogueFactory(e), this.external = new ExternalFactory(e), this.chat = new ChatManager(e), this.network = new NetworkManager(e), this.education = new EducationSystem(e), this.canvas = null
                 }
                 return e.prototype.cleanup = function() {
                         this.dialogue.cleanup()
@@ -44960,8 +44969,8 @@ Items.getItemData = function(e, t) {
                 rarity: 4,
                 drop: 1,
                 flavorText: "Celebrate Prodigy's 13th birthday.",
-                h: 10,
-                d: 10
+                h: 100,
+                d: 100
         }],
         weapon: [{
                 name: "Enchanted Stick",
@@ -45628,6 +45637,15 @@ Items.getItemData = function(e, t) {
                 drop: 1,
                 flavorText: "Legend says these swords belonged to the Sky Knights who fought on the backs of Pegasi a long time ago.",
                 d: 3,
+                memberAd: 0
+        }, {
+                ID: 92,
+                name: "Developer/Forker's Stick",
+                member: 1,
+                rarity: 2,
+                drop: 1,
+                flavorText: "Credits to Daboss7173 for this wand.",
+                d: 80,
                 memberAd: 0
         }],
         boots: [{

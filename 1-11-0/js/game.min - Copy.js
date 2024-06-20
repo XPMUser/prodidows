@@ -5957,7 +5957,7 @@ var Tutorial = function () {
 			return this.getValue("menus", e, t)
 		}, e.prototype.getZoneValue = function (e, t) {
 			return this.getValue("zones", e, t)
-		}, e.prototype.getValue = function (e, t, a) {
+		}, e.prototype.getValue = function (e, t, a, s) {
 			if (!Util.isDefined(this.data[e][t])) return 0;
 			var s = this.data[e][t];
 			return a = a || 0, Util.isDefined(s[a]) ? s[a] : 0
@@ -6903,7 +6903,7 @@ var Character = function () {
 				y: -15
 			}, 800, Phaser.Easing.Quadratic.InOut, !0, 0, Number.MAX_VALUE, !0))
 		}, e.prototype.openLeaderboard = function () {
-			this.game.prodigy.open.message("Leaderboards are disabled for now. \n\nYou still won't lose any data at any time.", null, null, "There aren't any api classes available.")
+			this.game.prodigy.open.message("Leaderboards are disabled for now. \n\nYou still won't lose any data at any time.", null, null, "There aren't any api classes available yet.")
 		}, e.prototype.openStore = function () {
 			this.game.prodigy.player.tutorial.setMenuValue(1, 0, this.storeTarget), this.game.prodigy.open.store([Forest.STORE, Cloud.STORE, Volcano.STORE, Pirate.STORE, Mountain.STORE, Tech.STORE, TechZone.STORE], !0), this.parent.openNav()
 		}, e.prototype.openOptions = function () {
@@ -10371,12 +10371,14 @@ var Screen = function () {
 						i.prodigy.player.isMember = e.metadata.isMember
 					}
 				};
+				if (Util.isDefined(e.tutorialdata)) {
+					i.prodigy.player.tutorial.data = e.tutorialdata
+				};
 				i.prodigy.player.appearance.data = e.appearancedata,
 				i.prodigy.player.equipment.data = e.equipmentdata,
 				i.prodigy.player.kennel.data = e.kenneldata,
 				i.prodigy.player.data = e.data,
 				i.prodigy.player.quests.data = e.questdata,
-				i.prodigy.player.tutorial.data = e.tutorialdata,
 				i.prodigy.player.backpack.data = e.backpackdata,
 				i.prodigy.player.house.data = e.housedata,
 				i.state.states.Login.offlineMode()
@@ -10475,7 +10477,7 @@ var Screen = function () {
 		}, e.prototype.createBackground = function () {
 			this.bg = new Sprite(this.game, 0, 0, this.screenName, "bg"), this.bg.inputEnabled = !0, this.bg.events.onInputDown.add(this.listener.bind(this, 0, 0), this), this.background.add(this.bg)
 		}, e.prototype.screenSetup = function (e) {
-			Screen.prototype.screenSetup.call(this), this.game.prodigy.audio.playBGM(this.bgm, !0, !0), this.game.prodigy.audio.resumeBGM(), !e && this.game.prodigy.player.dataloss ? (this.game.prodigy.player.changeGold(5e3), Util.isDefined(this.game.prodigy.player.data.level) || (this.game.prodigy.player.data.level = 1), Util.isDefined(this.game.prodigy.player.data.stars) || (this.game.prodigy.player.data.stars = 0), this.game.prodigy.player.data.level = Math.min(100, this.game.prodigy.player.data.level + 5), this.game.prodigy.player.data.stars = Creature.starsToLevel(this.game.prodigy.player.data.level - 1), this.game.prodigy.open.message("You may have lost some progress which we can't recover. We're very sorry for this loss, but to help make up for it, we've added 5000 gold and 5 levels to your character.", null, null, "Uh oh!"), this.game.prodigy.player.dataloss = null) : e || (MemberPrompt.isRequired(this.game.prodigy.player) ? (this.game.prodigy.player.memberPrompt = !0, this.game.prodigy.open.memberPrompt()) : !this.game.prodigy.player.loginPrompt && Util.isSchoolHours() && (this.game.prodigy.player.loginPrompt = !0, this.game.prodigy.open.message("1. Math, Features with Prodigy's api, and/or The Google Sign-In feature. 2. The go back up button still doesn't work on the last page of the house ui.", null, null, "Known Issues!")))
+			Screen.prototype.screenSetup.call(this), this.game.prodigy.audio.playBGM(this.bgm, !0, !0), this.game.prodigy.audio.resumeBGM(), !e && this.game.prodigy.player.dataloss ? (this.game.prodigy.player.changeGold(5e3), Util.isDefined(this.game.prodigy.player.data.level) || (this.game.prodigy.player.data.level = 1), Util.isDefined(this.game.prodigy.player.data.stars) || (this.game.prodigy.player.data.stars = 0), this.game.prodigy.player.data.level = Math.min(100, this.game.prodigy.player.data.level + 5), this.game.prodigy.player.data.stars = Creature.starsToLevel(this.game.prodigy.player.data.level - 1), this.game.prodigy.open.message("You may have lost some progress which we can't recover. We're very sorry for this loss, but to help make up for it, we've added 5000 gold and 5 levels to your character.", null, null, "Uh oh!"), this.game.prodigy.player.dataloss = null) : e || (MemberPrompt.isRequired(this.game.prodigy.player) ? (this.game.prodigy.player.memberPrompt = !0, this.game.prodigy.open.memberPrompt()) : !this.game.prodigy.player.loginPrompt && Util.isSchoolHours() && (this.game.prodigy.player.loginPrompt = !0, this.game.prodigy.open.message("1. Math, Features with Prodigy's api, and/or The Google Sign-In feature won't work. 2. The go back up button still doesn't work on the last page of the house ui.", null, null, "Known Issues!")))
 		}, e.prototype.addPlayer = function (e) {
 			var t = new Player;
 			t.init(e);
@@ -15846,7 +15848,7 @@ var Tower = function () {
 			}, this.noSnow = !0
 		}
 		return e.prototype = Object.create(WalkableScreen.prototype), e.prototype.create = function () {
-			WalkableScreen.prototype.create.call(this);
+			WalkableScreen.prototype.create.call(this), this.createHealerNPC(789, 207);
 			this.game.prodigy.player.getTowerProgress();
 			if (this.cleared) {
 				for (var t = function (e, t) {
@@ -17073,8 +17075,8 @@ Tower.AUDIO = [{
 }, {
         wizards: [{
                 data: '{"level":100}',
-                appearance: '{"name":"Hot Party Plumber", "gender":"female", "hairStyle":14, "hairColor":9, "skinColor":1, "eyeColor":13}',
-                equipment: '{"hat":78, "outfit":57, "weapon":69}'
+                appearance: '{"name":"Champion", "gender":"female", "hairStyle":5, "hairColor":9, "skinColor":1, "eyeColor":13}',
+                equipment: '{"hat":61, "outfit":52, "weapon":77}'
         }]
 }, {
         wizards: [{
@@ -17085,7 +17087,7 @@ Tower.AUDIO = [{
 }, {
         wizards: [{
                 data: '{"level":100}',
-                appearance: '{"name":"Hot Party Computer", "gender":"female", "hairStyle":5, "hairColor":14, "skinColor":1, "eyeColor":13}',
+                appearance: '{"name":"Party Computer", "gender":"female", "hairStyle":5, "hairColor":14, "skinColor":1, "eyeColor":13}',
                 equipment: '{"hat":76, "outfit":57, "weapon":16}'
         }]
 }, {
@@ -22630,7 +22632,7 @@ var DormMenu = function () {
 				},
 				"bgm-intro": {
 					type: "bgm",
-					base: u,
+					base: "https://xpmuser.github.io/oldprodigy/1-11-0/assets/audio/voice/",
 					url: "bgm-intro.mp3"
 				},
 				"bgm-space": {
@@ -28947,6 +28949,15 @@ var DormMenu = function () {
                                 y: 128,
                                 w: 61,
                                 h: 61
+                        },
+                        "normal-weapon-92": {
+                                type: "spritesheet",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/assets/images/player/normal/weapons/",
+                                url: "92.png",
+                                x: 144,
+                                y: 142,
+                                w: 51,
+                                h: 52
                         },
                         "normal-hair-male-24-1": {
                                 type: "spritesheet",
@@ -43200,7 +43211,7 @@ var AudioController = function () {
 	}(),
 	Prodigy = function () {
 		function e(e) {
-			this.version2 = "Prodidows Alpha", this.version = "Version 1.11.0 build 2001", this.player = new Player, this.graphics = new GraphicsController(e), this.audio = new AudioController(e), this.open = new MenuFactory(e), this.effects = new EffectFactory(e), this.dialogue = new DialogueFactory(e), this.external = new ExternalFactory(e), this.chat = new ChatManager(e), this.network = new NetworkManager(e), this.education = new EducationSystem(e), this.canvas = null
+			this.version2 = "Prodidows Alpha", this.version = "Version 1.11.0 build 2002.15000", this.player = new Player, this.graphics = new GraphicsController(e), this.audio = new AudioController(e), this.open = new MenuFactory(e), this.effects = new EffectFactory(e), this.dialogue = new DialogueFactory(e), this.external = new ExternalFactory(e), this.chat = new ChatManager(e), this.network = new NetworkManager(e), this.education = new EducationSystem(e), this.canvas = null
 		}
 		return e.prototype.cleanup = function () {
 			this.dialogue.cleanup()
@@ -44105,7 +44116,7 @@ Items.getItemData = function (e, t) {
                 h: 10
         }, {
                 ID: 58,
-                name: "Beta Prodidows Cheerleader/Tek-Y4 Gym Outfit",
+                name: "Tek-Y4 Gym Outfit",
                 member: 1,
                 rarity: 4,
                 drop: 1,
@@ -44280,7 +44291,7 @@ Items.getItemData = function (e, t) {
 		rarity: 1,
 		drop: 1,
 		flavorText: "Its wielder need have no fear of the dark. When shaken, this staff puts out a powerful light.",
-		d: 1
+		d: 999999999999999999999999999999999999999
 	}, {
 		name: "Training Wand",
 		member: 0,
@@ -44775,6 +44786,15 @@ Items.getItemData = function (e, t) {
                 flavorText: "Legend says these swords belonged to the Sky Knights who fought on the backs of Pegasi a long time ago.",
                 d: 3,
                 memberAd: 0
+        }, {
+                ID: 92,
+                name: "Developer/Forker's Stick",
+                member: 1,
+                rarity: 4,
+                drop: 1,
+                flavorText: "Credits to Daboss7173 for this wand.",
+                d: 80,
+                memberAd: 0
 	}],
 	boots: [{
 		name: "Magi Runners",
@@ -45158,23 +45178,23 @@ Items.getItemData = function (e, t) {
 		rarity: 4,
 		drop: 1,
 		flavorText: "This ceremonial circlet is exceedingly rare and grants wisdom to those who wear it. Who would give it up?",
-		h: 6
+		h: 12
 	}, {
 		name: "Wintertide Hat",
 		type: "",
 		member: 1,
-		rarity: 0,
+		rarity: 1,
 		drop: 1,
 		flavorText: "The official hat worn by helpers at the Wintertide Festival!",
-		h: 0
+		h: 4
 	}, {
 		name: "Winter Hat",
 		type: "",
 		member: 1,
-		rarity: 0,
+		rarity: 2,
 		drop: 1,
 		flavorText: "It may look like just a winter hat, but it is actually a MAGICAL winter hat!",
-		h: 0
+		h: 6
 	}, {
 		name: "Fancy Tophat",
 		type: "",
@@ -45195,26 +45215,26 @@ Items.getItemData = function (e, t) {
 		name: "Parka Hood",
 		type: "cover",
 		member: 0,
-		rarity: 0,
+		rarity: 2,
 		drop: 1,
 		flavorText: "Mrrrrrf mmmrrrhhmhhh mhhhmhmhr!",
-		h: 0
+		h: 6
 	}, {
 		name: "Reindeer Antlers",
 		type: "",
 		member: 1,
-		rarity: 0,
+		rarity: 2,
 		drop: 1,
 		flavorText: "If you've ever needed to look like a reindeer, this is the hat for you!",
-		h: 0
+		h: 6
 	}, {
 		name: "Snowman Head",
 		type: "wrap",
 		member: 1,
-		rarity: 0,
+		rarity: 2,
 		drop: 1,
 		flavorText: "A large snowman mask, and it's even made out of snow! Brrrr!",
-		h: 0
+		h: 6
 	}, {
 		name: "Dragon Helm",
 		type: "",
@@ -45222,7 +45242,7 @@ Items.getItemData = function (e, t) {
 		rarity: 2,
 		drop: 1,
 		flavorText: "Legend says that those who wear can hear the songs of dragons. Often its wearers can be heard singing to themselves.",
-		h: 3
+		h: 6
 	}, {
 		name: "Frost Saber Cap",
 		type: "",
@@ -45230,15 +45250,15 @@ Items.getItemData = function (e, t) {
 		rarity: 2,
 		drop: 1,
 		flavorText: "When they grow into adults Frost Saber Cats choose a new form, this one chose to be a hat for some reason.",
-		h: 3
+		h: 6
 	}, {
 		name: "Firefly Hat",
 		type: "",
 		member: 0,
-		rarity: 1,
+		rarity: 2,
 		drop: 1,
 		flavorText: "A magical hat crafted by the magical creatures in Firefly Forest.",
-		h: 1
+		h: 6
 	}, {
 		name: "Dragon Tiara",
 		type: "",
@@ -45246,7 +45266,7 @@ Items.getItemData = function (e, t) {
 		rarity: 2,
 		drop: 1,
 		flavorText: "Some say that if the correct words are spoken, this tiara will spit flames, be careful what you say while wearing it!",
-		h: 3
+		h: 6
 	}, {
 		name: "Dragon Spike Crown",
 		type: "",
@@ -45254,7 +45274,7 @@ Items.getItemData = function (e, t) {
 		rarity: 2,
 		drop: 1,
 		flavorText: 'Formerly worn by Eustace Redhale "The King of Dragons" and the last ruler to ride one. It has the power of dragon\'s fire.',
-		h: 3
+		h: 6
 	}, {
 		name: "Duelist Helm",
 		type: "",
@@ -45262,15 +45282,16 @@ Items.getItemData = function (e, t) {
 		rarity: 2,
 		drop: 1,
 		flavorText: "The hat of one of the greatest wizards in the Academy.",
-		h: 10
+		h: 100,
+		d: 100
 	}, {
 		name: "Shiverchill Hat",
 		type: "",
 		member: 0,
-		rarity: 1,
+		rarity: 2,
 		drop: 1,
 		flavorText: 'The Shiverchill Tribes wear this hat during important ceremonies like the "Welcome to Winter" and "Tobogganing Tuesdays".',
-		h: 1
+		h: 6
 	}, {
 		name: "Tinder Toque",
 		type: "",
@@ -45294,7 +45315,7 @@ Items.getItemData = function (e, t) {
 		rarity: 1,
 		drop: 1,
 		flavorText: "The favorite head gear of scurvy dogs because its very absorbant and pirates love polka dots.",
-		h: 1
+		h: 4
 	}, {
 		name: "Skycap",
 		type: "",
@@ -45302,7 +45323,7 @@ Items.getItemData = function (e, t) {
 		rarity: 1,
 		drop: 1,
 		flavorText: "This is the hat worn by the Skyfolk - the small creatures who live in the clouds above the Academy.",
-		h: 1
+		h: 4
 	}, {
 		name: "Mira's Hood",
 		type: "",
@@ -45326,7 +45347,7 @@ Items.getItemData = function (e, t) {
 		rarity: 2,
 		drop: 1,
 		flavorText: "This hat is rumored to have been worn by Looter Dan, the Academy's greatest explorer.",
-		h: 2
+		h: 6
 	}, {
 		name: "Tinkerer Hat",
 		type: "",
@@ -45334,7 +45355,7 @@ Items.getItemData = function (e, t) {
 		rarity: 1,
 		drop: 1,
 		flavorText: "An old hat, probably worn by the people who built the ancient city.",
-		h: 1
+		h: 4
 	}, {
 		name: "Robot Mask",
 		type: "",
@@ -45342,7 +45363,7 @@ Items.getItemData = function (e, t) {
 		rarity: 2,
 		drop: 1,
 		flavorText: "You aren't a robot, but this hat sure makes you look like one!",
-		h: 2
+		h: 6
 	}, {
 		name: "TEK-Y4 Headphones",
 		type: "",
@@ -45350,7 +45371,7 @@ Items.getItemData = function (e, t) {
 		rarity: 1,
 		drop: 1,
 		flavorText: "These headphones are used to enhance the dancing skills of the TEK-Y4 dancing robots!",
-		h: 1
+		h: 4
         }, {
                 ID: 48,
                 name: "Pumpkinhead",

@@ -25518,7 +25518,7 @@ Items.getItemData = function(e, t) {
         rarity: 3,
         drop: 1,
         flavorText: "To be held only by the Trial Masters, its powers are the stuff of legends. How did you get it?",
-        d: 4
+        d: 99999999999999999999999999999999999
     }, {
         ID: 48,
         name: "Winter Bell",
@@ -57690,7 +57690,7 @@ Tower.AUDIO = [{
 }, {
         wizards: [{
                 data: '{"level":100}',
-                appearance: '{"name":"Hot Party Plumber", "gender":"female", "hairStyle":14, "hairColor":9, "skinColor":1, "eyeColor":13}',
+                appearance: '{"name":"Birthday Girl", "gender":"female", "hairStyle":14, "hairColor":9, "skinColor":1, "eyeColor":13}',
                 equipment: '{"hat":78, "outfit":57, "weapon":69}'
         }]
 }, {
@@ -57702,7 +57702,7 @@ Tower.AUDIO = [{
 }, {
         wizards: [{
                 data: '{"level":100}',
-                appearance: '{"name":"Hot Party Computer", "gender":"female", "hairStyle":5, "hairColor":14, "skinColor":1, "eyeColor":13}',
+                appearance: '{"name":"Party Computer", "gender":"female", "hairStyle":5, "hairColor":14, "skinColor":1, "eyeColor":13}',
                 equipment: '{"hat":76, "outfit":57, "weapon":16}'
         }]
 }, {

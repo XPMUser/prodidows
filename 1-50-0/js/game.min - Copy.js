@@ -457,7 +457,7 @@ Prodigy.extends = function(e, t, i) {
 }, Prodigy.Entity = {}, Prodigy.Breadcrumbs = {};
 var GameConstants = GameConstants || function() {
 	var e = {};
-	if (e["GameConstants.Build.VERSION"] = "Prodidows (Prodigy 1-50-0 Mode)", e["GameConstants.Beta.VERSION"] = "Build 4323.1024 Modified by XPMUser", e["GameConstants.Build.LODASH_VERSION"] = "4.13.1", e["GameConstants.Build.DEBUG"] = !1, e["GameConstants.Build.SHOW_FPS"] = !1, e["GameConstants.Build.MUTE_BGM"] = !1, e["GameConstants.Build.LOG_LEVEL"] = 12, e["GameConstants.Build.ASSETS_LOCATION"] = "https://cdn.prodigygame.com/game/assets/", e["GameConstants.Build.TELEPORT"] = "", e["GameConstants.Build.QUEST"] = [], e["GameConstants.Build.ITEM_TYPE"] = [], e["GameConstants.Build.KILL_GORE"] = !1, e["GameConstants.Build.EASY_MODE"] = !1, e["GameConstants.Build.MEMBERSHIP"] = !1, e["GameConstants.Tower.MAX_FREE_MEMBER_FLOOR"] = 5, e["GameConstants.Debug.DISABLE_DAILY_BONUS"] = !1, e["GameConstants.Debug.ENABLE_MAP"] = !1, e["GameConstants.Debug.AUTO_LOGIN"] = [], e["GameConstants.Debug.GET_PET"] = [], e["GameConstants.Debug.SET_LEVEL"] = 0, e["GameConstants.Debug.DISABLE_ACHIEVEMENTS"] = !1, e["GameConstants.Debug.GET_GOLD"] = 0, e["GameConstants.Debug.GET_SPELL"] = 0, e["GameConstants.Debug.COMPLETE_TUTORIAL"] = !1, e["GameConstants.Debug.FORCE_DROPS"] = [], e["GameConstants.Mailer.TEST_MAIL"] = !1, e["GameConstants.FriendsList.TEST_FRIENDS_LIST"] = !1, e["GameConstants.Features.ENABLE_HOUSE_MOVING"] = !0, e["GameConstants.Features.Wheel.COOLDOWN"] = 5, e["GameConstants.Features.Wheel.DEFAULT_SPINS"] = 1, e["GameConstants.Features.Wheel.MEMBER_SPINS"] = 2, e["GameConstants.Features.Wheel.SPIN_TIME"] = 15e3, e["GameConstants.Features.TwilightWheel.DEFAULT_SPINS"] = 1, e["GameConstants.Features.TwilightWheel.MEMBER_SPINS"] = 2, e["GameConstants.Features.TwilightWheel.SPIN_TIME"] = 15e3, e["GameConstants.Features.SplitTests.PLAY_AT_HOME"] = !0, e["GameConstants.Features.TwilightWheel.RIGGED_REWARD"] = null, e["GameConstants.Features.SplitTests.USER_ID_MOD"] = 4, e["GameConstants.Features.SplitTests.CLASS_ID_MOD"] = 0, e["GameConstants.Features.SplitTests.GRADE_MOD"] = 0, e["GameConstants.Battle.VALID_PARENT_EMAIL_STARS_PERCENTAGE"] = 1.05, e["GameConstants.Battle.MAX_NUM_PETS"] = 1, "undefined" != typeof gameConstantsLocal)
+	if (e["GameConstants.Build.VERSION"] = "Prodidows (Prodigy 1-50-0 Mode)", e["GameConstants.Beta.VERSION"] = "Build 4324.1030 Modified by XPMUser", e["GameConstants.Build.LODASH_VERSION"] = "4.13.1", e["GameConstants.Build.DEBUG"] = !1, e["GameConstants.Build.SHOW_FPS"] = !1, e["GameConstants.Build.MUTE_BGM"] = !1, e["GameConstants.Build.LOG_LEVEL"] = 12, e["GameConstants.Build.ASSETS_LOCATION"] = "https://cdn.prodigygame.com/game/assets/", e["GameConstants.Build.TELEPORT"] = "", e["GameConstants.Build.QUEST"] = [], e["GameConstants.Build.ITEM_TYPE"] = [], e["GameConstants.Build.KILL_GORE"] = !1, e["GameConstants.Build.EASY_MODE"] = !1, e["GameConstants.Build.MEMBERSHIP"] = !1, e["GameConstants.Tower.MAX_FREE_MEMBER_FLOOR"] = 5, e["GameConstants.Debug.DISABLE_DAILY_BONUS"] = !1, e["GameConstants.Debug.ENABLE_MAP"] = !1, e["GameConstants.Debug.AUTO_LOGIN"] = [], e["GameConstants.Debug.GET_PET"] = [], e["GameConstants.Debug.SET_LEVEL"] = 0, e["GameConstants.Debug.DISABLE_ACHIEVEMENTS"] = !1, e["GameConstants.Debug.GET_GOLD"] = 0, e["GameConstants.Debug.GET_SPELL"] = 0, e["GameConstants.Debug.COMPLETE_TUTORIAL"] = !1, e["GameConstants.Debug.FORCE_DROPS"] = [], e["GameConstants.Mailer.TEST_MAIL"] = !1, e["GameConstants.FriendsList.TEST_FRIENDS_LIST"] = !1, e["GameConstants.Features.ENABLE_HOUSE_MOVING"] = !0, e["GameConstants.Features.Wheel.COOLDOWN"] = 5, e["GameConstants.Features.Wheel.DEFAULT_SPINS"] = 1, e["GameConstants.Features.Wheel.MEMBER_SPINS"] = 2, e["GameConstants.Features.Wheel.SPIN_TIME"] = 15e3, e["GameConstants.Features.TwilightWheel.DEFAULT_SPINS"] = 1, e["GameConstants.Features.TwilightWheel.MEMBER_SPINS"] = 2, e["GameConstants.Features.TwilightWheel.SPIN_TIME"] = 15e3, e["GameConstants.Features.SplitTests.PLAY_AT_HOME"] = !0, e["GameConstants.Features.TwilightWheel.RIGGED_REWARD"] = null, e["GameConstants.Features.SplitTests.USER_ID_MOD"] = 4, e["GameConstants.Features.SplitTests.CLASS_ID_MOD"] = 0, e["GameConstants.Features.SplitTests.GRADE_MOD"] = 0, e["GameConstants.Battle.VALID_PARENT_EMAIL_STARS_PERCENTAGE"] = 1.05, e["GameConstants.Battle.MAX_NUM_PETS"] = 1, "undefined" != typeof gameConstantsLocal)
 		for (var t in gameConstantsLocal) e[t] = gameConstantsLocal[t];
 	return {
 		get: function(t) {
@@ -467,7 +467,7 @@ var GameConstants = GameConstants || function() {
 			e["GameConstants.Build.LOG_LEVEL"] = t
 		},
 		enableDebug: function(t, i, a) {
-			"EqEeMbbSqu+ms5NROS97KQ==" === CryptoJS.MD5(i).toString(CryptoJS.enc.Base64) && (e["GameConstants.Build.DEBUG"] = !0, e["GameConstants.Build.SHOW_FPS"] = Util.isDefined(a) && a, t.prodigy.debug.enableDebugCalls(t, !1))
+			"EqEeMbbSqu+ms5NROS97KQ==" === CryptoJS.MD5(i).toString(CryptoJS.enc.Base64) && (e["GameConstants.Build.DEBUG"] = true, e["GameConstants.Build.SHOW_FPS"] = Util.isDefined(a) && a, t.prodigy.debug.enableDebugCalls(t, !1))
 		},
 		setNightWOWRewardIndex: function(t, i) {
 			e["GameConstants.Features.TwilightWheel.RIGGED_REWARD"] = i
@@ -10794,6 +10794,15 @@ Util.capitalize = function(e) {
 			y: 128,
 			w: 61,
 			h: 61
+                        },
+                        "normal-weapon-92": {
+                                type: "spritesheet",
+                                base: "https://xpmuser.github.io/prodidows/1-10-0/assets/images/player/normal/weapons/",
+                                url: "92.png",
+                                x: 144,
+                                y: 142,
+                                w: 51,
+                                h: 52
 		},
 		"normal-hair-male-1-1": {
 			type: "spritesheet",
@@ -29114,7 +29123,7 @@ Util.capitalize = function(e) {
 	}, {
 		text: "If you don't like math, you can click or tap on the math off button on the login screen."
 	}, {
-		text: "If you're an iPad user and you still want to continue using your saved save, use a different device."
+  		text: "If you're an Xbox One user and you still want to continue using your saved save, use a different device."
 	}, {
 		text: "If your saved save file is on your iPad, you can put it in any drive feature that keeps your files safe and available for another device."
 	}, {
@@ -29813,7 +29822,7 @@ Items.getItemData = function(e, t) {
 		effects: [83]
 	}, {
 		ID: 58,
-		name: "Beta Prodidows Cheerleader/Tek-Y4 Gym Outfit",
+		name: "Tek-Y4 Gym Outfit",
 		member: 0,
 		rarity: 4,
 		drop: 1,
@@ -30550,6 +30559,15 @@ Items.getItemData = function(e, t) {
 		drop: 1,
 		flavorText: "Legend says these swords belonged to the Sky Knights who fought on the backs of Pegasi a long time ago.",
 		effects: [32],
+		memberAd: 0
+	}, {
+		ID: 92,
+		name: "Trialmaster's Training Stick",
+		member: 1,
+		rarity: 3,
+		drop: 10,
+		flavorText: "Credits to Daboss7173 for this wand. Problem: This wand can't be stronger than other wands.",
+		effects: [81],
 		memberAd: 0
 	}],
 	boots: [{
@@ -42526,7 +42544,7 @@ Prodigy.Creature = function(e) {
 		}
 		this.starsToProcess = 0;
 		var o = this.getLevel();
-		if (this.game.broadcaster.broadcast(Prodigy.Events.Creature.STARS_ADDED, this, null), o >= 125) return !1;
+		if (this.game.broadcaster.broadcast(Prodigy.Events.Creature.STARS_ADDED, this, null), o >= 100) return !1;
 		if (Util.isDefined(this.data.stars) ? this.data.stars += e : this.data.stars = e, Util.isDefined(i) || (this.starsEarned += e), this.data.level = Prodigy.Creature.levelFromStars(this.data.stars), o !== this.data.level) {
 			this.levelEvents = [];
 			var n = this.getLevelingCurve(this.data.level);
@@ -42612,7 +42630,7 @@ Prodigy.Creature = function(e) {
 	return 100
 }, Prodigy.Creature.getHeartsFromCurve = function(e, t, i) {
 	var a = Prodigy.Creature.HP_BONUS[e];
-	return 20 * (Math.floor((20 + a) * i / 125) - Math.floor((20 + a) * (t - 1) / 125))
+	return 20 * (Math.floor((20 + a) * i / 100) - Math.floor((20 + a) * (t - 1) / 100))
 }, Prodigy.Creature.getAttacksFromCurve = function(e, t, i) {
 	for (var a = [], s = 0; s < e.length; s++) {
 		var r = e[s];
@@ -44207,7 +44225,7 @@ Prodigy.ForestBoss = function(e, t) {
 				feature: e
 			})
 		} catch (t) {}
-		if (this.game.prodigy.network.sendAnalytics("Purchase-Membership-Click", e), 1 == Util.getUrlVariable("iosApp")) this.game.prodigy.open.message("Visit www.prodigygame.com to purchase a membership!");
+		if (this.game.prodigy.network.sendAnalytics("Purchase-Membership-Click", e), 1 == Util.getUrlVariable("iosApp")) this.game.prodigy.open.message("Go to settings to enable membership!");
 		else try {
 			var i = Util.isDefined(this.game.prodigy.player.username) ? this.game.prodigy.player.username : this.game.prodigy.player.getName();
 			prodigyWeb.membershipFlow.open(i, this.game.prodigy.player.userID, this.finishUpgrade.bind(this), this.adID || 0)
@@ -44661,6 +44679,7 @@ Prodigy.ForestBoss = function(e, t) {
 			backpackdata: this.game.prodigy.player.backpack.data,
 			housedata: this.game.prodigy.player.house.data,
 			achievementsdata: this.game.prodigy.player.achievements.data,
+      userID: this.game.prodigy.player.userID,
 			metadata: {
 				isMember: this.game.prodigy.player.isMember
 			},
@@ -46560,7 +46579,7 @@ Prodigy.ForestBoss = function(e, t) {
 				frameNo: 0
 			}, 1, Phaser.Easing.Quadratic.In), this.f8 = this.game.add.tween(this._petImage).to({
 				alpha: 1
-			}, 1e3, Phaser.Easing.Quadratic.In), this.f1.chain(this.f2), this.f2.chain(this.f3), this.f3.chain(this.f4), this.f4.chain(this.f5), this.f5.chain(this.f6), this.f6.chain(this.f7), this.f7.chain(this.f8), this.f8.chain(this.f1), this.f1.start(), this.game.prodigy.create.font(this.content, 309, 100, "When you get an Epic, you get a REAL TOY, AND a POWERFUL level 20 pet to join your team!\n\n Ask your parents to help you get them on your team today! ", {
+			}, 1e3, Phaser.Easing.Quadratic.In), this.f1.chain(this.f2), this.f2.chain(this.f3), this.f3.chain(this.f4), this.f4.chain(this.f5), this.f5.chain(this.f6), this.f6.chain(this.f7), this.f7.chain(this.f8), this.f8.chain(this.f1), this.f1.start(), this.game.prodigy.create.font(this.content, 309, 100, "Go to settings, and click get all epics to get every single epic on your team today! ", {
 				size: 16,
 				width: 370
 			});
@@ -54500,7 +54519,7 @@ var Screen = function() {
 		}, window.onGooglePlatformLoad = function () {
 			Util.log("google platform loaded"), window.gapi.load("auth2", function () {
 				var t = window.gapi.auth2.init({
-					client_id: "220442635630-9tjlg48pualfqmef01i1bsq0453ecucv.apps.googleusercontent.com",
+					client_id: "662218208391-ehdaoakrl8inqijbn6n0vt9prjgknjvr.apps.googleusercontent.com",
 					cookiepolicy: "single_host_origin"
 				});
 				t.then(function () {
@@ -54529,19 +54548,19 @@ var Screen = function() {
 			return
 			}
 			}
-			this.game.prodigy.create.textButton(this.loginBox, 500, 8, {
-                text: "Math Off",
+			this.game.prodigy.create.textButton(this.loginBox, 600, 8, {
+                text: "Math Off (Recommended)",
                 size: Prodigy.Control.TextButton.MED
             }, this.eduToggle.bind(this))
 			
-			this.game.prodigy.create.textButton(this.loginBox, 500, 72, {
-                text: "Math On",
+			this.game.prodigy.create.textButton(this.loginBox, 600, 100, {
+                text: "Math On (Not Recommended)",
                 size: Prodigy.Control.TextButton.MED
             }, this.eduToggle.bind(this)), this.game.prodigy.debug.easyMode(0, 0), this.background.add(this.game.prodigy.create.sprite(0, 0, "login", "bg")), this.loginBox = this.game.prodigy.create.element(this.background), this.usernameField = Prodigy.Control.InputField.createInputField(this.game, this.loginBox, "username", "", 100, 230, 300, 40), this.usernameField.hide(0), this.usernameField.setLabel(this.loginBox, "Username:");
 			var e = Util.getCookie("prodigyUsername");
 			Util.isDefined(e) && this.usernameField.setValue(e), this.passwordField = Prodigy.Control.InputField.createInputField(this.game, this.loginBox, "password", "", 100, 310, 300, 40, "password"), this.passwordField.hide(0), this.passwordField.setLabel(this.loginBox, "Password:"),
 			this.loadCharacterButton = this.game.prodigy.create.button(this.loginBox, 100, 380, "login", "loadcharacter", this.openFileForCharacter.bind(this)),
-			this.offlineModeButton = this.game.prodigy.create.button(this.loginBox, 100, 470, "login", "offline", this.offlineMode.bind(this)),
+			this.googleLoginButton = this.game.prodigy.create.button(this.loginBox, 100, 470, "login", "google-signin-btn", this.onGoogleLoginButtonClick.bind(this));
 			this.progressBox = this.game.prodigy.create.element(this.background, 100, 250),
 			this.error = this.game.prodigy.create.font(this.progressBox, 0, 0, "", {
 				width: 300,
@@ -54580,13 +54599,13 @@ var Screen = function() {
 					t.loadCharacter.call(t, JSON.parse(reader.target.result), !0);
 				};
 				reader.onerror = function(reader) {
-					t.game.prodigy.open.okaymessage("Failed to open save file, please retry.",null,null,"Character Loader");
+					t.game.prodigy.open.okaymessage("Failed to open save file maybe because you modified it, please retry.",null,null,"Character Loader");
 				}
 			}
 		}, e.prototype.loadCharacter = function(e, t) {
 			try {
 				if (e.gameVersion != this.game.prodigy.version && t == !0) {
-					this.game.prodigy.open.confirm("Your character is from a different Prodigy version! This may cause multiple problems while playing!\n\nDo you want to continue?", this.loadCharacter.bind(this, e, !1), this.showLogin.bind(this, !0), null, "Character Loader")
+					this.game.prodigy.open.confirm("Your character is from a different Prodigy version! This may cause multiple problems while you play multiplayer, it might get affected and is not recommended!\n\nDo you want to continue?", this.loadCharacter.bind(this, e, !1), this.showLogin.bind(this, !0), null, "Character Loader")
 					this.showLogin(!1);
 				} else {
 					this.game.prodigy.player.appearance.data = e.appearancedata,
@@ -54704,6 +54723,7 @@ this.game.prodigy.education.init(e), this.error.setText("Loading worlds..."), th
 			var i = this.game.prodigy.player.data.zone;
 			Util.isDefined(i) && i.indexOf("-") > 0 ? this.game.prodigy.world.teleport(i) : this.game.state.start("Intro")
 		}, e.prototype.createAccount = function (e) {
+    this.game.prodigy.player.userID = Math.round(1e32 * Math.random());
 			this.game.prodigy.start("CharCreate")
 		}, e.prototype.startLoginTutorial = function (e, t, i) {
 			this.showLogin(!0), this.createAccountButton.visible = !e, e && (this.new_username = t, this.new_password = i, this.usernameField.setValue(""), this.passwordField.setValue(""), this.tutorial = !0)
@@ -55284,7 +55304,7 @@ CutScene.getValue = function(e, t, i, a, s) {
 		this.background.add(this.game.prodigy.create.sprite(0, 0, "bg-battle-forest")), this.game.prodigy.create.panel(this.background, 240, 640, 20, 3, "shine2"), this.off = this.game.prodigy.create.textButton(this.background, 820, 660, {
 			icon: "next",
 			text: "next"
-		}, this.offlineMode.bind(this)), this.game.prodigy.create.textButton(this.background, 260, 660, {
+		}, this.openWorlds.bind(this)), this.game.prodigy.create.textButton(this.background, 260, 660, {
 			icon: "back",
 			text: "back"
 		}, this.logout);
@@ -66712,7 +66732,7 @@ Arena.AUDIO = [{
 			rect: !0
 		}, "lamplight-C3", 1000, 540, null, AreaEvent.LEFT);
 		var a = e.prodigy.open.message.bind(e.prodigy.open, "Do not disturb Crazy Dave.", null, "star", "Locked!");
-		this._zone.util.addDoor(e, t, 400, 40, 120, 160, 450, 250, a); this._zone.util.addLamp(e, t, 2, 98), this._zone.util.addLamp(e, t, 242, 98), this._zone.util.addLamp(e, t, 2, 458), this._zone.util.addLamp(e, t, 2, 658), this._zone.util.addLamp(e, t, 280, 223), this._zone.util.addLamp(e, t, 1246, 223)
+		this._zone.util.addDoor(e, t, 400, 40, 120, 200, 460, 240, a); this._zone.util.addLamp(e, t, 2, 98), this._zone.util.addLamp(e, t, 242, 98), this._zone.util.addLamp(e, t, 2, 458), this._zone.util.addLamp(e, t, 2, 658), this._zone.util.addLamp(e, t, 280, 223), this._zone.util.addLamp(e, t, 1246, 223)
 	}
 }), Prodigy.Lamplight_D5 = function(e, t) {
 	Prodigy.Map.call(this, e, "D5", "Neighbour's House", 200, 600, ["lamplight-D4"], t.concat(["npc-sprite-noot"]))
@@ -73647,7 +73667,7 @@ Tower.AUDIO = [{
 }, {
         wizards: [{
                 data: '{"level":100}',
-                appearance: '{"name":"Hot Party Plumber", "gender":"female", "hairStyle":14, "hairColor":9, "skinColor":1, "eyeColor":13}',
+                appearance: '{"name":"Birthday Girl", "gender":"female", "hairStyle":14, "hairColor":9, "skinColor":1, "eyeColor":13}',
                 equipment: '{"hat":78, "outfit":57, "weapon":69}'
         }]
 }, {
@@ -73659,7 +73679,7 @@ Tower.AUDIO = [{
 }, {
         wizards: [{
                 data: '{"level":100}',
-                appearance: '{"name":"Hot Party Computer", "gender":"female", "hairStyle":5, "hairColor":14, "skinColor":1, "eyeColor":13}',
+                appearance: '{"name":"Party Computer", "gender":"female", "hairStyle":5, "hairColor":14, "skinColor":1, "eyeColor":13}',
                 equipment: '{"hat":76, "outfit":57, "weapon":16}'
         }]
 }, {

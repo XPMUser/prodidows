@@ -1,5 +1,6 @@
-
-    { name: "ID", price: ?, description: ?." },
+Duplicate this as many times as you want, also depending on how many shop items there may be.
+  
+{ name: "ID", price: ?, description: ?." },
        { name: "ID", price: ?, description: ?." },
 
 

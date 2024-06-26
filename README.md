@@ -2,7 +2,7 @@
 Prodidows
 https://xpmuser.github.io/prodidows
 ?mods=Anything or ?mods=Anything,Anything
-'Anything' above means the mod name.
+'Anything' above means the mod name for example: /?mods=WalkSpeed,FastGameSpeed
 
 # Available Modpacks:
 

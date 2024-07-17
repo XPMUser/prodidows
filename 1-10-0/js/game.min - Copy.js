@@ -5953,11 +5953,10 @@ var SystemMenu = function() {
                                 text: "sound",
                                 size: TextButton.MED,
                                 icon: "settings"
-                        }, this.openSound.bind(this)), new TextButton(this.game, this.content, 50, 130, {
-                                text: "graphics",
-                                size: TextButton.MED,
-                                icon: "settings"
-                        }, this.openGraphics.bind(this)), new TextButton(this.game, this.content, 50, 210, {
+                        }, this.openSound.bind(this)), new TextButton(this.game, this.content, 50, 125, {
+                                text: "reset tutorial",
+                                size: TextButton.MED
+                        }, this.openIntro.bind(this)), new TextButton(this.game, this.content, 50, 210, {
                                 text: "other",
                                 size: TextButton.MED,
                                 icon: "settings"
@@ -5999,10 +5998,7 @@ var SystemMenu = function() {
                         }, this.toggleMember.bind(this)), new TextButton(this.game, this.content, 50, 140, {
                                 text: "save character",
                                 size: TextButton.MED
-                        }, this.saveCharacter.bind(this)), new TextButton(this.game, this.content, 50, 230, {
-                                text: "reset tutorial",
-                                size: TextButton.MED
-                        }, this.openIntro.bind(this)), TextButton.createBackButton(this.game, this.content, 100, 370, this.openList.bind(this))
+                        }, this.saveCharacter.bind(this)), TextButton.createBackButton(this.game, this.content, 100, 370, this.openList.bind(this))
                 }, e.prototype.saveCharacter = function() {
                         var character = {
                                 appearancedata: this.game.prodigy.player.appearance.data,
@@ -11599,10 +11595,10 @@ var Screen = function() {
                                         t = "Prodigy Is Updating";
                                         break;
                                 case 500:
-                                        t = "Prodigy Is Temporarily Offline.";
+                                        t = "Prodidows Is Temporarily Offline.";
                                         break;
                                 default:
-                                        t = "Prodigy Is Temporarily Offline."
+                                        t = "Prodidows Is Temporarily Offline."
                         }
                         return t
                 }, e
@@ -13394,7 +13390,7 @@ var Forest = function() {
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3]
-                ]
+                ], this.bgm = "bgm-firefly-forest"
         }
         return e.prototype = Object.create(WalkableScreen.prototype), e.prototype.create = function() {
                 WalkableScreen.prototype.create.call(this, this.playerX, this.playerY), new QuestNPC(this.game, this.content, 345, 530, e.DATA), this.path.addCallback(3, this.toTown.bind(this)), this.path.addCallback(4, this.toCave.bind(this));
@@ -17397,7 +17393,7 @@ var Tower = function() {
                         ], this.bgm = "bgm-space", this.noSnow = !0
                 }
                 return e.prototype = Object.create(WalkableScreen.prototype), e.prototype.create = function() {
-                        WalkableScreen.prototype.create.call(this, this.playerX, this.playerY);
+                        WalkableScreen.prototype.create.call(this, this.playerX, this.playerY), new QuestNPC(this.game, this.content, 900, 230, e.DATA, this.startText.bind(this));
                         this.game.prodigy.player.getTowerProgress();
                         if (this.cleared) {
                                 for (var t = function(e, t) {
@@ -17430,7 +17426,20 @@ var Tower = function() {
                                         alpha: .3
                                 }, 1500, Phaser.Easing.Linear.None, !0, 0, 1e4, !0), this.background.add(h)
                         }
-                        this.floor % 5 === 0 && new QuestNPC(this.game, this.content, 900, 230, e.DATA, this.npcDialogue.bind(this)), this.path.addCallback(3, this.toBase.bind(this))
+                        this.floor % 5 === 0 && new QuestNPC(this.game, this.content, 900, 300, e.DATA, this.npcDialogue.bind(this)), this.path.addCallback(3, this.toBase.bind(this))
+        }, e.prototype.startText = function() {
+                this.heal(), this.game.prodigy.dialogue.setText({
+                        text: "You look a little tired... let me heal you and your pets!",
+                        face: 2
+                }), this.game.prodigy.dialogue.setText({
+                        text: "You're all healed! Come visit me again if you run low on hearts!",
+                        face: 1,
+                        anim: 4
+                }), this.game.prodigy.dialogue.start(e.DATA.atlas)		
+        }, e.prototype.heal = function() {
+                this.game.prodigy.player.changeCurrentHearts(200);
+                for (var e = this.game.prodigy.player.getAllPets(), t = 0; t < e.length; t++) new Monster(e[t]).changeCurrentHearts(200);
+                this.game.prodigy.player.kennel.updated = !0				
                 }, e.prototype.blockDoor = function() {
                         this.game.prodigy.dialogue.setText({
                                 text: "Before you can move on, you must defeat the challenger on this floor. Click on the orb in the room to begin!",
@@ -18630,7 +18639,7 @@ Tower.AUDIO = [{
 }, {
         wizards: [{
                 data: '{"level":100}',
-                appearance: '{"name":"Hot Party Plumber", "gender":"female", "hairStyle":14, "hairColor":9, "skinColor":1, "eyeColor":13}',
+                appearance: '{"name":"Birthday Girl", "gender":"female", "hairStyle":14, "hairColor":9, "skinColor":1, "eyeColor":13}',
                 equipment: '{"hat":78, "outfit":57, "weapon":69}'
         }]
 }, {
@@ -18642,7 +18651,7 @@ Tower.AUDIO = [{
 }, {
         wizards: [{
                 data: '{"level":100}',
-                appearance: '{"name":"Hot Party Computer", "gender":"female", "hairStyle":5, "hairColor":14, "skinColor":1, "eyeColor":13}',
+                appearance: '{"name":"Party Computer", "gender":"female", "hairStyle":5, "hairColor":14, "skinColor":1, "eyeColor":13}',
                 equipment: '{"hat":76, "outfit":57, "weapon":16}'
         }]
 }, {
@@ -22733,6 +22742,8 @@ var DormMenu = function() {
                 }, e.prototype.fileComplete = function(e, t, a, i) {
                         var s = new Sprite(this.game, 0, 0, t, "s");
                         a.removeAll(!0), a.add(s), i += s.width * s.height, this.getAssetByID(e + 1, a, i)
+		        }, e.prototype.getAssetMap = function() {
+			            return P;						
                 };
                 var t = "https://cdn.prodigygame.com/game/assets/images/player/reduced/outfits/male/",
                         a = "https://cdn.prodigygame.com/game/assets/images/player/reduced/outfits/female/",
@@ -23302,8 +23313,8 @@ var DormMenu = function() {
                         },
                         "voice-10": {
                                 type: "sfx",
-                                base: "https://xpmuser.github.io/oldprodigy/prodigyde/assets/audio/voice/",
-                                url: "voice-10.mp3"
+                                base: "https://cdn.prodigygame.com/game/assets/audio/voice/",
+                                url: "voice-0.mp3"
                         },
                         "voice-1": {
                                 type: "sfx",
@@ -23419,6 +23430,11 @@ var DormMenu = function() {
                                 type: "bgm",
                                 base: c,
                                 url: "bgm-intro.mp3"
+                        },
+                        "bgm-firefly-forest": {
+                                type: "bgm",
+                                base: "https://cdn.prodigygame.com/game/assets/v1_cache/audio/bgm-firefly-forest/ae37bd3e27962118ae306e0b2026d1e1/",
+                                url: "bgm-firefly-forest.mp3"								
                         },
                         "bgm-intro-1": {
                                 type: "bgm",
@@ -25448,9 +25464,9 @@ var DormMenu = function() {
                         },
                         heads: {
                                 type: "atlas",
-                                base: "https://xpmuser.github.io/prodidows/1-10-0/images/",
-                                url: "head.png",
-                                json: "head.json"
+                                base: "https://xpmuser.github.io/oldprodigy/prodigyde/assets/images/",
+                                url: "general-head.png",
+                                json: "general-head.json"
                         },
                         "normal-outfit-male-1": {
                                 type: "spritesheet",
@@ -44019,7 +44035,7 @@ var AudioController = function() {
         }(),
         Prodigy = function() {
                 function e(e) {
-                        this.version2 = "Prodidows Alpha", this.version = "Version 1.10.0 build 2613.16405", this.player = new Player, this.graphics = new GraphicsController(e), this.audio = new AudioController(e), this.open = new MenuFactory(e), this.effects = new EffectFactory(e), this.dialogue = new DialogueFactory(e), this.external = new ExternalFactory(e), this.chat = new ChatManager(e), this.network = new NetworkManager(e), this.education = new EducationSystem(e), this.canvas = null
+                        this.version2 = "Prodidows 1.10.0 Mode", this.version = "Version 1.10.0 build 2614", this.player = new Player, this.graphics = new GraphicsController(e), this.audio = new AudioController(e), this.open = new MenuFactory(e), this.effects = new EffectFactory(e), this.dialogue = new DialogueFactory(e), this.external = new ExternalFactory(e), this.chat = new ChatManager(e), this.network = new NetworkManager(e), this.education = new EducationSystem(e), this.canvas = null
                 }
                 return e.prototype.cleanup = function() {
                         this.dialogue.cleanup()
@@ -45118,7 +45134,7 @@ Items.getItemData = function(e, t) {
                 rarity: 1,
                 drop: 1,
                 flavorText: "Used by the Dragon Tamers of old, no one knows if it retains its power to control the winged beasts. Do you dare find out?",
-                d: 1
+                d: 99999999999999999999999
         }, {
                 name: "Phoenix Talon",
                 member: 1,
@@ -45640,11 +45656,11 @@ Items.getItemData = function(e, t) {
                 memberAd: 0
         }, {
                 ID: 92,
-                name: "Developer/Forker's Stick",
+                name: "Trialmaster's Stick",
                 member: 1,
-                rarity: 2,
-                drop: 1,
-                flavorText: "Credits to Daboss7173 for this wand.",
+                rarity: 4,
+                drop: 3,
+                flavorText: "Credits to Daboss7173 for this wand in a different color.",
                 d: 80,
                 memberAd: 0
         }],

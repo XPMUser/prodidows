@@ -25464,7 +25464,7 @@ var DormMenu = function() {
                         },
                         heads: {
                                 type: "atlas",
-                                base: "https://xpmuser.github.io/oldprodigy/prodigyde/assets/images/",
+                                base: "https://xpmuser.github.io/prodidows/1-50-0/assets/images/general-head/1/",
                                 url: "general-head.png",
                                 json: "general-head.json"
                         },
@@ -44035,7 +44035,7 @@ var AudioController = function() {
         }(),
         Prodigy = function() {
                 function e(e) {
-                        this.version2 = "Prodidows 1.10.0 Mode", this.version = "Version 1.10.0 build 2614", this.player = new Player, this.graphics = new GraphicsController(e), this.audio = new AudioController(e), this.open = new MenuFactory(e), this.effects = new EffectFactory(e), this.dialogue = new DialogueFactory(e), this.external = new ExternalFactory(e), this.chat = new ChatManager(e), this.network = new NetworkManager(e), this.education = new EducationSystem(e), this.canvas = null
+                        this.version2 = "Prodidows 1.10.0 Mode", this.version = "Version 1.10.0 build 2620", this.player = new Player, this.graphics = new GraphicsController(e), this.audio = new AudioController(e), this.open = new MenuFactory(e), this.effects = new EffectFactory(e), this.dialogue = new DialogueFactory(e), this.external = new ExternalFactory(e), this.chat = new ChatManager(e), this.network = new NetworkManager(e), this.education = new EducationSystem(e), this.canvas = null
                 }
                 return e.prototype.cleanup = function() {
                         this.dialogue.cleanup()

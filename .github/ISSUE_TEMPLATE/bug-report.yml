@@ -18,6 +18,4 @@ body:
   - type: textarea
     attributes:
       label: What did the console output?
-      description: Even if there is no error in the console, you should still list whatever was logged when the bug occurred.
-    validations:
-      required: true
+      description: Even if there is no error in the console, you should still list whatever was logged when the bug occurred, otherwise, just leave it blank.

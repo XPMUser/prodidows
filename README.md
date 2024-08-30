@@ -4,6 +4,8 @@ https://xpmuser.github.io/prodidows
 ?mods=Anything or ?mods=Anything,Anything
 'Anything' above means the mod name for example: /?mods=WalkSpeed,FastGameSpeed
 
+https://www.reddit.com/r/Prodidows/rising/
+
 # Available Modpacks:
 
 1. WalkSpeed

@@ -4842,6 +4842,7 @@
             "imagewidth": 480,
             "margin": 0,
             "name": "tileset-forest-new",
+            "credits": "peddler's-corner-by-daboss7173",
             "spacing": 0,
             "tilecount": 264,
             "tileheight": 40,
@@ -4852,4 +4853,4 @@
     "type": "map",
     "version": 1,
     "width": 32
-}, {Credits to Daboss7173 for Peddler's Corner.}
+}

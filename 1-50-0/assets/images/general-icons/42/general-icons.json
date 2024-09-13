@@ -12504,6 +12504,30 @@
                 "y": 0.5
             }
         },
+        "outfit/59": {
+            "frame": {
+                "x": 1659,
+                "y": 1848,
+                "w": 50,
+                "h": 50
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 50,
+                "h": 50
+            },
+            "sourceSize": {
+                "w": 50,
+                "h": 50
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },        
         "pet-yes": {
             "frame": {
                 "x": 1617,
@@ -21530,7 +21554,7 @@
         }
     },
     "meta": {
-        "app": "http://www.codeandweb.com/texturepacker",
+        "app": "",
         "version": "1.0",
         "image": "general-icons.png",
         "format": "RGBA5555",

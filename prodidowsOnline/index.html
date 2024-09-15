@@ -6,16 +6,18 @@
         <meta charset="UTF-8" />
         <meta content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
         
-	<meta name="description" content="Old Prodigy is back and better than ever! Click now and try the Online Prodidows experience!">
+	<meta name="description" content="Old Prodigy is back and better than ever! Click now and try the definitive Old Prodigy experience!">
 	
         <link rel="stylesheet" href="./css/font-awesome.min.css">
 
 	<script>
 	! function() {
+        if (!window.location.href.includes("play/") && window.location.hostname !== "localhost")
+            return;
 		"use strict";
 		var SW = SW || {};
 		SW.Load = {};
-		const updateID = "0.0.1"
+		const updateID = "0.10.6d"
 		var prodigyWeb = {};
 		prodigyWeb.gameVersion = "1-50-0";
 		window.percentLoaded = 0;
@@ -48,7 +50,7 @@
 				};
 				t.onerror = function() {
 					SW.Load.toggleErrorScreen(!0);
-					SW.Load.setErrorScreenText(SW.Load.ERROR_TITLE_FAIL)
+					SW.Load.setErrorScreenText(SW.Load.ERROR_TITLE_FAIL);
 				};
 				SW.Load.scriptQueue.splice(0, 1)
 			}
@@ -107,6 +109,8 @@
 			SW.Load.loadGame();
 		};
 		window.updateLoadBar = SW.Load.updateLoadBar;
+        window.toggleErrorScreen = SW.Load.toggleErrorScreen;
+        window.setErrorScreenText = SW.Load.setErrorScreenText;
 	}();
 	</script>
         <link rel="icon" type="image/png" href="./favicon.png">

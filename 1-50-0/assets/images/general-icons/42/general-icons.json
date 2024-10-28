@@ -6292,8 +6292,8 @@
             "frame": {
                 "x": 978,
                 "y": 1908,
-                "w": 80,
-                "h": 53
+                "w": 200,
+                "h": 153
             },
             "rotated": false,
             "trimmed": true,

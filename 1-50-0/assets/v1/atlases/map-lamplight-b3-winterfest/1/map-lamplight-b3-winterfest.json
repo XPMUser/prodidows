@@ -892,19 +892,6 @@
          "tilecount":4,
          "tileheight":40,
          "tilewidth":40
-        }, 
-        {
-         "columns":9,
-         "firstgid":1049,
-         "image":"..\/..\/..\/..\/..\/..\/assets_dev\/tilesets\/WheelOfWonder.png",
-         "imageheight":398,
-         "imagewidth":377,
-         "margin":0,
-         "name":"tileset-wheel",
-         "spacing":0,
-         "tilecount":81,
-         "tileheight":40,
-         "tilewidth":40
         }],
  "tilewidth":40,
  "type":"map",

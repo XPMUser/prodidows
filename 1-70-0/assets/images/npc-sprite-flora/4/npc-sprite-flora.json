@@ -1,0 +1,456 @@
+{
+    "frames": {
+        "back-wing-1": {
+            "frame": {
+                "x": 59,
+                "y": 914,
+                "w": 26,
+                "h": 31
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 31
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 31
+            }
+        },
+        "back-wing-2": {
+            "frame": {
+                "x": 1,
+                "y": 932,
+                "w": 26,
+                "h": 32
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 32
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 32
+            }
+        },
+        "back-wing-3": {
+            "frame": {
+                "x": 29,
+                "y": 949,
+                "w": 29,
+                "h": 27
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 29,
+                "h": 27
+            },
+            "sourceSize": {
+                "w": 29,
+                "h": 27
+            }
+        },
+        "back-wing-4": {
+            "frame": {
+                "x": 1,
+                "y": 914,
+                "w": 30,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 16
+            }
+        },
+        "back-wing-5": {
+            "frame": {
+                "x": 60,
+                "y": 947,
+                "w": 18,
+                "h": 21
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 18,
+                "h": 21
+            },
+            "sourceSize": {
+                "w": 18,
+                "h": 21
+            }
+        },
+        "back-wing-6": {
+            "frame": {
+                "x": 1,
+                "y": 966,
+                "w": 16,
+                "h": 12
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 16,
+                "h": 12
+            },
+            "sourceSize": {
+                "w": 16,
+                "h": 12
+            }
+        },
+        "body": {
+            "frame": {
+                "x": 33,
+                "y": 914,
+                "w": 24,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 24,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 24,
+                "h": 33
+            }
+        },
+        "fake-pixel": {
+            "frame": {
+                "x": 19,
+                "y": 971,
+                "w": 1,
+                "h": 1
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 1,
+                "h": 1
+            },
+            "sourceSize": {
+                "w": 1,
+                "h": 1
+            }
+        },
+        "front-wing-1": {
+            "frame": {
+                "x": 72,
+                "y": 803,
+                "w": 12,
+                "h": 27
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 12,
+                "h": 27
+            },
+            "sourceSize": {
+                "w": 12,
+                "h": 27
+            }
+        },
+        "front-wing-2": {
+            "frame": {
+                "x": 72,
+                "y": 832,
+                "w": 14,
+                "h": 22
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 14,
+                "h": 22
+            },
+            "sourceSize": {
+                "w": 14,
+                "h": 22
+            }
+        },
+        "head-1": {
+            "frame": {
+                "x": 1,
+                "y": 859,
+                "w": 69,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 69,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 69,
+                "h": 53
+            }
+        },
+        "head-2": {
+            "frame": {
+                "x": 1,
+                "y": 803,
+                "w": 69,
+                "h": 54
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 69,
+                "h": 54
+            },
+            "sourceSize": {
+                "w": 69,
+                "h": 54
+            }
+        },
+        "npc_0": {
+            "frame": {
+                "x": 1,
+                "y": 704,
+                "w": 83,
+                "h": 97
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 3,
+                "y": 2,
+                "w": 83,
+                "h": 97
+            },
+            "sourceSize": {
+                "w": 86,
+                "h": 100
+            }
+        },
+        "npc_1": {
+            "frame": {
+                "x": 1,
+                "y": 1,
+                "w": 86,
+                "h": 99
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 1,
+                "w": 86,
+                "h": 99
+            },
+            "sourceSize": {
+                "w": 86,
+                "h": 100
+            }
+        },
+        "npc_2": {
+            "frame": {
+                "x": 1,
+                "y": 405,
+                "w": 85,
+                "h": 98
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 1,
+                "y": 2,
+                "w": 85,
+                "h": 98
+            },
+            "sourceSize": {
+                "w": 86,
+                "h": 100
+            }
+        },
+        "npc_3": {
+            "frame": {
+                "x": 1,
+                "y": 605,
+                "w": 85,
+                "h": 97
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 1,
+                "y": 3,
+                "w": 85,
+                "h": 97
+            },
+            "sourceSize": {
+                "w": 86,
+                "h": 100
+            }
+        },
+        "npc_4": {
+            "frame": {
+                "x": 1,
+                "y": 505,
+                "w": 85,
+                "h": 98
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 1,
+                "y": 2,
+                "w": 85,
+                "h": 98
+            },
+            "sourceSize": {
+                "w": 86,
+                "h": 100
+            }
+        },
+        "npc_5": {
+            "frame": {
+                "x": 1,
+                "y": 203,
+                "w": 85,
+                "h": 99
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 1,
+                "y": 1,
+                "w": 85,
+                "h": 99
+            },
+            "sourceSize": {
+                "w": 86,
+                "h": 100
+            }
+        },
+        "npc_6": {
+            "frame": {
+                "x": 1,
+                "y": 304,
+                "w": 85,
+                "h": 99
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 1,
+                "y": 0,
+                "w": 85,
+                "h": 99
+            },
+            "sourceSize": {
+                "w": 86,
+                "h": 100
+            }
+        },
+        "npc_7": {
+            "frame": {
+                "x": 1,
+                "y": 102,
+                "w": 86,
+                "h": 99
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 86,
+                "h": 99
+            },
+            "sourceSize": {
+                "w": 86,
+                "h": 100
+            }
+        },
+        "particle-1": {
+            "frame": {
+                "x": 19,
+                "y": 966,
+                "w": 3,
+                "h": 3
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 3,
+                "h": 3
+            },
+            "sourceSize": {
+                "w": 3,
+                "h": 3
+            }
+        },
+        "particle-2": {
+            "frame": {
+                "x": 22,
+                "y": 971,
+                "w": 1,
+                "h": 1
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 1,
+                "h": 1
+            },
+            "sourceSize": {
+                "w": 1,
+                "h": 1
+            }
+        }
+    },
+    "meta": {
+        "app": "Paint 3D",
+        "version": "1.0",
+        "image": "npc-sprite-flora.png",
+        "format": "RGBA5555",
+        "size": {
+            "w": 88,
+            "h": 979
+        },
+        "scale": "1",
+        "smartupdate": "$TexturePacker:SmartUpdate:683887a7eec3a2a76cc79dd94fa466a9:4f24227dbcc253c77c9196ca20ed9db6:eb2eeecdb251b2c8946baa89495684fc$"
+    }
+}

@@ -61889,6 +61889,39 @@
                     "y": 0.85
                 }
             }
+        },
+        {
+            "ID": 121,
+            "assetID": 1516,
+            "type": "weapon",
+            "gender": 0,
+            "data": {
+                "name": "Trialmaster's Training Stick",
+                "member": 0,
+                "rarity": 3,
+                "drop": 1,
+                "price": 10000,
+                "cost": [
+                    {
+                        "type": "currency",
+                        "ID": 1,
+                        "N": 5000
+                    }
+                ],
+                "flavorText": "",
+                "effects": []
+            },
+            "metadata": {
+                "v": 1,
+                "size": 0,
+                "type": "singleImage",
+                "angle": 50,
+                "vIcon": 2,
+                "anchor": {
+                    "x": 0.45,
+                    "y": 0.85
+                }
+            }
         }
     ]
 }

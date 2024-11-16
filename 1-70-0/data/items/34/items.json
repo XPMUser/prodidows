@@ -61896,7 +61896,7 @@
             "type": "weapon",
             "gender": 0,
             "data": {
-                "name": "Trialmaster's Training Stick",
+                "name": "Trialmaster's Sword",
                 "member": 0,
                 "rarity": 3,
                 "drop": 1,
@@ -61909,7 +61909,10 @@
                     }
                 ],
                 "flavorText": "",
-                "effects": []
+                "effects": [
+                    81
+                ],
+                "flavorText": "undefined"
             },
             "metadata": {
                 "v": 1,

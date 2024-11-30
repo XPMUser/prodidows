@@ -7880,4 +7880,68 @@
             }
         ]
     }
+    "22": {
+        "name": "THE MACHINE SHOP",
+        "pages": [
+            {
+                "btn": {
+                    "icon": {
+                        "type": "item",
+                        "ID": "47",
+                        "metadata": {
+                            "vIcon": 1
+                        }
+                    },
+                    "bot": "Items"
+                },
+                "items": [
+                    {
+                        "ID": 46,
+                        "type": "hat",
+                        "cost": [
+                            {
+                                "type": "currency",
+                                "ID": 11,
+                                "N": 250
+                            }
+                        ]
+                    },
+                    {
+                        "ID": 69,
+                        "type": "weapon",
+                        "cost": [
+                            {
+                                "type": "currency",
+                                "ID": 11,
+                                "N": 350
+                            }
+                        ]
+                    },
+                    {
+                        "ID": 43,
+                        "type": "outfit",
+                        "cost": [
+                            {
+                                "type": "currency",
+                                "ID": 11,
+                                "N": 300
+                            }
+                        ]
+                    },
+                    {
+                        "ID": 118,
+                        "type": "pet",
+                        "cost": [
+                            {
+                                "type": "currency",
+                                "ID": 11,
+                                "N": 1500
+                            }
+                        ]
+                    }
+                ],
+                "isDefault": true
+            }
+        ]
+    }
 }

@@ -15,6 +15,8 @@ https://www.reddit.com/r/Prodidows/rising/
 
 # Credits:
 
+Prodidows: XPMUser
+
 Peddler's Corner: Daboss7173
 
 Market's right path: Daboss7173

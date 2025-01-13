@@ -5,39 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prodidows Homepage</title>
     <style>
+        /* General Styles */
         body {
-            font-family: Pipe Dream, BrianneTod;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f7fc;
+            color: #333;
         }
+
+        h1, p {
+            margin: 0;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        /* Toolbar styles */
         .toolbar {
-            background-color: #333;
-            overflow: hidden;
+            background-color: #0066cc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
+
         .toolbar button {
-            float: left;
-            display: inline-block;
             color: white;
             text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
+            padding: 12px 20px;
             border: none;
-            background: none;
+            background-color: #0066cc;
             cursor: pointer;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s;
         }
+
         .toolbar button:hover {
-            background-color: #575757;
+            background-color: #004b8d;
+            transform: scale(1.1);
+        }
+
+        .toolbar button:focus {
+            outline: none;
+        }
+
+        /* Layout Improvements for Main Section */
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        .intro-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .intro-section h1 {
+            font-size: 36px;
+            color: #0066cc;
+        }
+
+        .intro-section p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media Query for Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .toolbar {
+                flex-direction: column;
+            }
+            .toolbar button {
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Toolbar Section -->
     <div class="toolbar">
         <button onclick="window.location.href='https://xpmuser.github.io/'">Home</button>
-        <button onclick="window.location.href='https://xpmuser.github.io/prodidows/ProdidowsOnline/'">prodidows online</button>
+        <button onclick="window.location.href='https://xpmuser.github.io/prodidows/ProdidowsOnline/'">Prodidows Online</button>
         <button onclick="window.location.href='https://xpmuser.github.io/prodidows/versions/'">Versions</button>
-        <button onclick="window.location.href='https://www.youtube.com/@ProdidowsMathGame'">Subscribe to our YouTube Channel!</button>
-        <button onclick="window.location.href='https://x.com/ProdidowsD/'">Follow us on Twitter</button>
-        <button onclick="window.location.href='https://discord.gg/g2XHgKgrYA'">Discord</button>
+        <button onclick="window.location.href='https://www.youtube.com/@ProdidowsMathGame'">Subscribe to YouTube</button>
+        <button onclick="window.location.href='https://x.com/ProdidowsD/'">Follow on Twitter</button>
+        <button onclick="window.location.href='https://discord.gg/g2XHgKgrYA'">Join Discord</button>
     </div>
+
+    <!-- Main Section with Introduction -->
+    <main>
+        <div class="intro-section">
+            <h1>Welcome to Prodidows!</h1>
+            <p>Explore exciting features and play the most up-to-date versions of Prodidows and Prodigy right here! Stay connected, get early access, and join the community.</p>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Prodidows. All Rights Reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </footer>
+
 </body>
 </html>

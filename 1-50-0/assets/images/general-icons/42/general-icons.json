@@ -6290,18 +6290,18 @@
         },
         "hat/80": {
             "frame": {
-                "x": 978,
-                "y": 1908,
-                "w": 200,
-                "h": 153
+                "x": 896,
+                "y": 931,
+                "w": 77,
+                "h": 72
             },
             "rotated": false,
             "trimmed": true,
             "spriteSourceSize": {
-                "x": 0,
-                "y": 16,
-                "w": 80,
-                "h": 53
+                "x": 2,
+                "y": 3,
+                "w": 77,
+                "h": 72
             },
             "sourceSize": {
                 "w": 80,

@@ -13,52 +13,66 @@
             background-size: cover;
             background-position: center center;
             margin: 0;
-            height: 100vh;
-            background-color: #5a9cff;
-            text-align: center;
+            padding: 0;
             font-family: Tahoma, Geneva, sans-serif;
+            text-align: center;
+            background-color: #5a9cff;
         }
-
         .title {
             font-size: 50px;
-            margin-top: 20px;
+            margin: 50px 0 30px;
         }
-
         .button-container {
-            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
         }
-
         .button {
             background: linear-gradient(rgb(85, 186, 151), rgb(69, 143, 130));
             border: 1px solid rgb(65, 141, 168);
             border-radius: 11px;
-            padding: 15px 25px;
+            padding: 15px 40px;
             color: white;
             font-size: 22px;
-            font-family: "Open Sans", sans-serif;
-            text-shadow: 1px 1px rgb(0, 0, 0);
-            margin: 10px;
+            font-weight: bold;
+            text-shadow: 1px 1px black;
             cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
         }
-
+        .button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(rgb(95, 206, 161), rgb(79, 163, 140));
+        }
         .back-button {
             position: fixed;
             left: 30px;
             top: 30px;
             background: linear-gradient(rgb(255, 115, 115), rgb(206, 24, 24));
             border: 1px solid rgb(147, 35, 35);
-            border-radius: 11px;
-            padding: 15px 25px;
-            color: white;
+            padding: 15px 30px;
             font-size: 22px;
-            font-family: "Open Sans", sans-serif;
-            text-shadow: 1px 1px rgb(0, 0, 0);
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px black;
+            border-radius: 11px;
             cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+        }
+        .back-button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(rgb(255, 135, 135), rgb(226, 44, 44));
+        }
+        .note {
+            font-size: 20px;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
-    <h1 class="title">Development Versions</h1>
+    <div class="title">Development Versions</div>
+    
     <button class="back-button" onclick="window.location.href='/prodidows/versions'">Go Back</button>
     
     <div class="button-container">
@@ -72,7 +86,10 @@
         <button class="button" onclick="window.location.href='/prodidows/1-60-0'">Prodidows 1.60.0</button>
         <button class="button" onclick="window.location.href='/prodidows/1-70-0'">Prodidows 1.70.0</button>
     </div>
-
-    <p style="font-size: 20px; margin-top: 20px;">These are versions of the game I am still working on. Hopefully, I finish all of these.<br>Keep in mind that these are not complete and won't function entirely properly.</p>
+    
+    <div class="note">
+        These are versions of the game I am still working on. Hopefully, I finish all of these.<br>
+        Keep in mind that these are not complete and won't function entirely properly.
+    </div>
 </body>
 </html>

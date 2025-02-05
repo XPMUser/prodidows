@@ -1,74 +1,78 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Development Versions</title>
-<meta name="description" content="The legendary math game Prodigy is now legendary again, and no longer a math game!"/>
-<style type="text/css">
-body {
-		background-image: url("https://xpmuser.github.io/oldprodigy/select/images/Background-4.png");
-		background-attachment: fixed;
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center center;
-		margin: auto;
-		height: 100%;
-		background-color: #5a9cff;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development Versions</title>
+    <meta name="description" content="The legendary math game Prodigy is now legendary again, and no longer a math game!"/>
+    <style>
+        body {
+            background-image: url("https://xpmuser.github.io/oldprodigy/select/images/Background-4.png");
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            margin: 0;
+            height: 100vh;
+            background-color: #5a9cff;
+            text-align: center;
+            font-family: Tahoma, Geneva, sans-serif;
+        }
 
-.title {
-	font-family: Tahoma, Geneva, sans-serif;
-	font-size: 50px;
-}
+        .title {
+            font-size: 50px;
+            margin-top: 20px;
+        }
 
-</style>
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .button {
+            background: linear-gradient(rgb(85, 186, 151), rgb(69, 143, 130));
+            border: 1px solid rgb(65, 141, 168);
+            border-radius: 11px;
+            padding: 15px 25px;
+            color: white;
+            font-size: 22px;
+            font-family: "Open Sans", sans-serif;
+            text-shadow: 1px 1px rgb(0, 0, 0);
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .back-button {
+            position: fixed;
+            left: 30px;
+            top: 30px;
+            background: linear-gradient(rgb(255, 115, 115), rgb(206, 24, 24));
+            border: 1px solid rgb(147, 35, 35);
+            border-radius: 11px;
+            padding: 15px 25px;
+            color: white;
+            font-size: 22px;
+            font-family: "Open Sans", sans-serif;
+            text-shadow: 1px 1px rgb(0, 0, 0);
+            cursor: pointer;
+        }
+    </style>
 </head>
+<body>
+    <h1 class="title">Development Versions</h1>
+    <button class="back-button" onclick="window.location.href='/prodidows/versions'">Go Back</button>
+    
+    <div class="button-container">
+        <button class="button" onclick="window.location.href='/prodidows/1-22-1'">Prodidows 1.22.1</button>
+        <button class="button" onclick="window.location.href='/prodidows/1-24-0'">Prodidows 1.24.0</button>
+        <button class="button" onclick="window.location.href='/prodidows/1-30-0'">Prodidows 1.30.0</button>
+        <button class="button" onclick="window.location.href='/prodidows/1-37-0'">Prodidows 1.37.0</button>
+        <button class="button" onclick="window.location.href='/prodidows/1-39-0'">Prodidows 1.39.0</button>
+        <button class="button" onclick="window.location.href='/prodidows/1-50-0'">Prodidows 1.50.0</button>
+        <button class="button" onclick="window.location.href='/prodidows/1-51-0'">Prodidows 1.51.0</button>
+        <button class="button" onclick="window.location.href='/prodidows/1-60-0'">Prodidows 1.60.0</button>
+        <button class="button" onclick="window.location.href='/prodidows/1-70-0'">Prodidows 1.70.0</button>
+    </div>
 
-<body class="title">
-<div align="center">Development Versions
-</div>
+    <p style="font-size: 20px; margin-top: 20px;">These are versions of the game I am still working on. Hopefully, I finish all of these.<br>Keep in mind that these are not complete and won't function entirely properly.</p>
 </body>
-
-<div align="center" style="position:fixed; left: 30px; top: 30px">
-<button onclick="window.location.href='/prodidows/versions'" id="back" style="background: linear-gradient(rgb(255, 115, 115), rgb(206, 24, 24)); border: 1px solid rgb(147, 35, 35); border-radius: 11px; padding: 20px 30px; color: rgb(255, 255, 255); display: inline-block; font: 26px / 1 &quot;Open Sans&quot;, sans-serif; text-align: center; text-shadow: rgb(0, 0, 0) 1px 1px;">Go Back</button>
-</div>
-
-<div align="center" style="position: relative; top: 110px">
-<button onclick="window.location.href='/prodidows/1-22-1'" id="1600" style="background: linear-gradient(rgb(85, 186, 151), rgb(69, 143, 130)); border: 1px solid rgb(65, 141, 168); border-radius: 11px; padding: 20px 30px; color: rgb(255, 255, 255); display: inline-block; font: 26px / 1 &quot;Open Sans&quot;, sans-serif; text-align: center; text-shadow: rgb(0, 0, 0) 1px 1px;">Prodidows 1.22.1</button>
-</div>
-
-<div align="center" style="position: relative; top: 50px">
-<button onclick="window.location.href='/prodidows/1-24-0'" id="1240" style="background: linear-gradient(rgb(85, 186, 151), rgb(69, 143, 130)); border: 1px solid rgb(65, 141, 168); border-radius: 11px; padding: 20px 30px; color: rgb(255, 255, 255); display: inline-block; font: 26px / 1 &quot;Open Sans&quot;, sans-serif; text-align: center; text-shadow: rgb(0, 0, 0) 1px 1px;">Prodidows 1.24.0</button>
-</div>
-
-<div align="center" style="position: relative; top: 60px">
-<button onclick="window.location.href='/oldprodigy/1-30-0'" id="1300" style="background: linear-gradient(rgb(85, 186, 151), rgb(69, 143, 130)); border: 1px solid rgb(65, 141, 168); border-radius: 11px; padding: 20px 30px; color: rgb(255, 255, 255); display: inline-block; font: 26px / 1 &quot;Open Sans&quot;, sans-serif; text-align: center; text-shadow: rgb(0, 0, 0) 1px 1px;">Prodidows 1.30.0</button>
-</div>
-
-<div align="center" style="position: relative; top: 70px">
-<button onclick="window.location.href='/prodidows/1-37-0'" id="1370" style="background: linear-gradient(rgb(85, 186, 151), rgb(69, 143, 130)); border: 1px solid rgb(65, 141, 168); border-radius: 11px; padding: 20px 30px; color: rgb(255, 255, 255); display: inline-block; font: 26px / 1 &quot;Open Sans&quot;, sans-serif; text-align: center; text-shadow: rgb(0, 0, 0) 1px 1px;">Prodidows 1.37.0</button>
-</div>
-
-<div align="center" style="position: relative; top: 80px">
-<button onclick="window.location.href='/prodidows/1-39-0'" id="1390" style="background: linear-gradient(rgb(85, 186, 151), rgb(69, 143, 130)); border: 1px solid rgb(65, 141, 168); border-radius: 11px; padding: 20px 30px; color: rgb(255, 255, 255); display: inline-block; font: 26px / 1 &quot;Open Sans&quot;, sans-serif; text-align: center; text-shadow: rgb(0, 0, 0) 1px 1px;">Prodidows 1.39.0</button>
-</div>
-
-<div align="center" style="position: relative; top: 90px">
-<button onclick="window.location.href='/prodidows/1-50-0'" id="1500" style="background: linear-gradient(rgb(85, 186, 151), rgb(69, 143, 130)); border: 1px solid rgb(65, 141, 168); border-radius: 11px; padding: 20px 30px; color: rgb(255, 255, 255); display: inline-block; font: 26px / 1 &quot;Open Sans&quot;, sans-serif; text-align: center; text-shadow: rgb(0, 0, 0) 1px 1px;">Prodidows 1.50.0</button>
-</div>
-
-<div align="center" style="position: relative; top: 100px">
-<button onclick="window.location.href='/prodidows/1-51-0'" id="1510" style="background: linear-gradient(rgb(85, 186, 151), rgb(69, 143, 130)); border: 1px solid rgb(65, 141, 168); border-radius: 11px; padding: 20px 30px; color: rgb(255, 255, 255); display: inline-block; font: 26px / 1 &quot;Open Sans&quot;, sans-serif; text-align: center; text-shadow: rgb(0, 0, 0) 1px 1px;">Prodidows 1.51.0</button>
-</div>
-
-<div align="center" style="position: relative; top: 110px">
-<button onclick="window.location.href='/prodidows/1-60-0'" id="1600" style="background: linear-gradient(rgb(85, 186, 151), rgb(69, 143, 130)); border: 1px solid rgb(65, 141, 168); border-radius: 11px; padding: 20px 30px; color: rgb(255, 255, 255); display: inline-block; font: 26px / 1 &quot;Open Sans&quot;, sans-serif; text-align: center; text-shadow: rgb(0, 0, 0) 1px 1px;">Prodidows 1.60.0</button>
-</div>
-
-<div align="center" style="position: relative; top: 120px">
-<button onclick="window.location.href='/prodidows/1-70-0'" id="1600" style="background: linear-gradient(rgb(85, 186, 151), rgb(69, 143, 130)); border: 1px solid rgb(65, 141, 168); border-radius: 11px; padding: 20px 30px; color: rgb(255, 255, 255); display: inline-block; font: 26px / 1 &quot;Open Sans&quot;, sans-serif; text-align: center; text-shadow: rgb(0, 0, 0) 1px 1px;">Prodidows 1.70.0</button>
-</div>
-
-<div align="center" style="font-size: 20px; font-family: Tahoma, Geneva, sans-serif;">
-These are versions of the game I am still working on. Hopefully I finish all of these.<p>Keep in mind that these are not complete and won't function entirely properly
-</div>
-
 </html>

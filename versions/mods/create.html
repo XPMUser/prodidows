@@ -1,36 +1,64 @@
 <!DOCTYPE html>
+<html>
 <head>
-<title>Create a Prodidows Mod!</title>
-<meta name="description" content="The legendary math game Prodidows is now legendary again!"/>
-<style type="text/css">
-body {
-	background-color: #5a9cff
-}
-
-.title {
-	font-family: Tahoma, Geneva, sans-serif;
-	font-size: 50px
-}
-
-</style>
+    <title>Create a Prodidows Mod!</title>
+    <meta name="description" content="The legendary math game Prodidows is now legendary again!"/>
+    <style>
+        body {
+            background-color: #5a9cff;
+            text-align: center;
+            font-family: Tahoma, Geneva, sans-serif;
+        }
+        .title {
+            font-size: 50px;
+            margin-top: 20px;
+        }
+        .description {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 22px;
+            color: white;
+            border-radius: 11px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            transition: 0.3s ease-in-out;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .github-btn {
+            background: linear-gradient(rgb(85, 186, 151), rgb(69, 143, 130));
+            border: 2px solid rgb(65, 141, 168);
+        }
+        .github-btn:hover {
+            background: linear-gradient(rgb(75, 166, 135), rgb(59, 123, 110));
+        }
+        .back-btn {
+            background: linear-gradient(rgb(255, 115, 115), rgb(206, 24, 24));
+            border: 2px solid rgb(147, 35, 35);
+            position: fixed;
+            left: 30px;
+            top: 30px;
+        }
+        .back-btn:hover {
+            background: linear-gradient(rgb(235, 95, 95), rgb(186, 14, 14));
+        }
+    </style>
 </head>
-
-<body class="title">
-<div align="center">Create An Old Prodigy Mod!
-</div>
+<body>
+    <div class="title">Create An Old Prodigy Mod!</div>
+    <div class="description">
+        If you know how to code JS and HTML5, and you want to create a Prodidows mod... You absolutely can!<br>
+        Once done modifying, leave a comment on any of my videos: <a href="https://www.youtube.com/@learningandfunwithsc" target="_blank">YouTube Channel</a>
+    </div>
+    
+    <div style="margin-top: 20px;">
+        <button onclick="window.location.href='https://github.com/XPMUser/XPMUser.github.io/tree/main/prodidows'" class="button github-btn">Prodidows Src</button>
+    </div>
+    
+    <button onclick="window.location.href='/prodidows'" class="button back-btn">Go Back</button>
 </body>
-
-<div align="center" style="font-size: 20px; font-family: Tahoma, Geneva, sans-serif; top: 20px; position: relative;">
-If you know how to code js and html5, and you want to create a Prodidows mod... You absolutely can!<p>
-Once done modifying, leave a comment on any of my videos. https://www.youtube.com/@learningandfunwithsc
-</div>
-
-<div align="center" style="position: relative; top: 20px">
-<button onclick="window.location.href='https://github.com/XPMUser/XPMUser.github.io/tree/main/prodidows'" id="github" style="background: linear-gradient(rgb(85, 186, 151), rgb(69, 143, 130)); border: 1px solid rgb(65, 141, 168); border-radius: 11px; padding: 20px 30px; color: rgb(255, 255, 255); display: inline-block; font: 26px / 1 &quot;Open Sans&quot;, sans-serif; text-align: center; text-shadow: rgb(0, 0, 0) 1px 1px;">Prodidows Src</button>
-</div>
-
-<div align="center" style="position: fixed; left: 30px; top: 30px">
-<button onclick="window.location.href='/prodidows'" id="back" style="background: linear-gradient(rgb(255, 115, 115), rgb(206, 24, 24)); border: 1px solid rgb(147, 35, 35); border-radius: 11px; padding: 20px 30px; color: rgb(255, 255, 255); display: inline-block; font: 26px / 1 &quot;Open Sans&quot;, sans-serif; text-align: center; text-shadow: rgb(0, 0, 0) 1px 1px;">Go Back</button>
-</div>
-
 </html>

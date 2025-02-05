@@ -1,51 +1,113 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Prodidows</title>
-<meta name="description" content="The legendary math game Prodidows is now legendary again!"/>
-<style type="text/css">
-body {
-		background-image: url("https://xpmuser.github.io/oldprodigy/select/images/Background-4.png");
-		background-attachment: fixed;
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center center;
-		margin: auto;
-		height: 100%;
-		background-color: #5a9cff;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodidows</title>
+    <meta name="description" content="The legendary math game Prodidows is now legendary again!"/>
+    <style>
+        body {
+            background-image: url("https://xpmuser.github.io/oldprodigy/select/images/Background-4.png");
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            text-align: center;
+            font-family: Tahoma, Geneva, sans-serif;
+        }
 
-.title {
-	font-family: Tahoma, Geneva, sans-serif;
-	font-size: 50px
-}
+        .title {
+            font-size: 50px;
+            margin-top: 50px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
 
-.description {
-	font-family: Tahoma, Geneva, sans-serif;
-	font-size: 20px
-}
+        .description {
+            font-size: 20px;
+            margin-top: 10px;
+            color: white;
+        }
 
-</style>
+        .button-container {
+            position: fixed;
+            top: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+        }
+
+        .button, .modpack-button {
+            background: linear-gradient(135deg, #ff6464, #d41d1d);
+            border: none;
+            border-radius: 12px;
+            padding: 18px 35px;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px black;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            outline: none;
+        }
+
+        .button:hover, .modpack-button:hover {
+            background: linear-gradient(135deg, #d41d1d, #ff6464);
+            transform: scale(1.08);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .mod-button {
+            background: linear-gradient(135deg, #7ea1ff, #1e5495);
+        }
+
+        .mod-button:hover {
+            background: linear-gradient(135deg, #1e5495, #7ea1ff);
+        }
+
+        .modpack-button {
+            background: linear-gradient(135deg, #55ba97, #458f82);
+            margin-top: 60px;
+        }
+
+        .modpack-button:hover {
+            background: linear-gradient(135deg, #458f82, #55ba97);
+        }
+
+        @media (max-width: 600px) {
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+                top: 20px;
+            }
+
+            .button {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
 </head>
+<body>
 
-<body class="title">
-<div align="center">Prodidows Mods
-</div>
+    <div class="title">Prodidows Mods</div>
+    <div class="description">Coming Soon!</div>
+
+    <div class="button-container">
+        <button class="button" onclick="window.location.href='/prodidows'">Go Back</button>
+        <button class="button mod-button" onclick="window.location.href='/prodidows/versions/mods/create'">Create your own mod!</button>
+    </div>
+
+    <div>
+        <button class="modpack-button" onclick="window.location.href='/prodidows/1-50-0/?mods=WalkSpeed,FastGameSpeed,RebalancedBattles,ClassicFaces'">
+            Prodidows 1.50.0 with all 4 modpacks
+        </button>
+    </div>
+
 </body>
-
-<div align="center" style="font-size: 20px; font-family: Tahoma, Geneva, sans-serif; top: 20px; position: relative;">
-Coming Soon!
-</div>
-
-<div align="center" style="position: fixed; left: 30px; top: 30px">
-<button onclick="window.location.href='/prodidows'" id="back" style="background: linear-gradient(rgb(255, 115, 115), rgb(206, 24, 24)); border: 1px solid rgb(147, 35, 35); border-radius: 11px; padding: 20px 30px; color: rgb(255, 255, 255); display: inline-block; font: 26px / 1 &quot;Open Sans&quot;, sans-serif; text-align: center; text-shadow: rgb(0, 0, 0) 1px 1px;">Go Back</button>
-</div>
-
-<div align="center" style="position: fixed; right: 30px; top: 30px">
-<button onclick="window.location.href='/prodidows/versions/mods/create'" id="create" style="background: linear-gradient(rgb(126, 157, 255), rgb(30, 84, 133)); border: 1px solid rgb(85, 102, 153); border-radius: 11px; padding: 20px 30px; color: rgb(255, 255, 255); display: inline-block; font: 25px / 1 &quot;Open Sans&quot;, sans-serif; text-align: center; text-shadow: rgb(0, 0, 0) 1px 1px;">Create your own mod!</button>
-</div>
-
-<div align="center" style="position: relative; top: 40px">
-<button onclick="window.location.href='/prodidows/1-50-0/?mods=WalkSpeed,FastGameSpeed,RebalancedBattles,ClassicFaces'" id="1500" style="background: linear-gradient(rgb(85, 186, 151), rgb(69, 143, 130)); border: 1px solid rgb(65, 141, 168); border-radius: 11px; padding: 20px 30px; color: rgb(255, 255, 255); display: inline-block; font: 26px / 1 &quot;Open Sans&quot;, sans-serif; text-align: center; text-shadow: rgb(0, 0, 0) 1px 1px;">Prodidows 1.50.0 with all 4 modpacks</button>
-</div>
-
 </html>

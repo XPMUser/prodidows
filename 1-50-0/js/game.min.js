@@ -55896,7 +55896,7 @@ var Screen = function() {
 				size: 16,
 				width: 160,
 				align: "center"
-			}), t.setClickable(this.game.prodigy.network.openWebsite.bind(this.game.prodigy.network, "discord.gg/cBNvJEVWCw")), (t = this.game.prodigy.create.panel(this.background, 280, 660, 3, 1, "lb")).alpha = .25, this.game.prodigy.create.font(this.background, t.x, t.y + 8, "Go Back", {
+			}), t.setClickable(this.game.prodigy.network.openWebsite.bind(this.game.prodigy.network, "discord.gg/6VDXHXScYk")), (t = this.game.prodigy.create.panel(this.background, 280, 660, 3, 1, "lb")).alpha = .25, this.game.prodigy.create.font(this.background, t.x, t.y + 8, "Go Back", {
 				size: 16,
 				width: 120,
 				align: "center"

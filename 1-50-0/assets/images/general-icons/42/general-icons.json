@@ -15695,6 +15695,30 @@
                 "x": 0.5,
                 "y": 0.5
             }
+    },
+    "pets/130": {
+      "frame": {
+        "x": 1037,
+        "y": 1932,
+        "w": 75,
+        "h": 75
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 3,
+        "w": 75,
+        "h": 75
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 80
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
         },
         "play": {
             "frame": {

@@ -17,7 +17,7 @@ Don't play the versions until they work.
 
 # Credits:
 
-Prodidows: XPMUser
+Prodidows: XPMUser a.k.a HealingMunch
 
 Peddler's Corner: Daboss7173
 

@@ -7,7 +7,7 @@ https://healingmunch.github.io/prodidows
 
 https://www.reddit.com/r/Prodidows/rising/
 
-Don't play the versions until they work.
+Don't play the versions that won't work until they work.
 
 # Available Modpacks:
 
@@ -15,6 +15,8 @@ Don't play the versions until they work.
 2. FastGameSpeed
 3. RebalancedBattles
 4. ImitationTitan
+5. ClassicFaces
+6. CoyBlush
 
 # Credits:
 

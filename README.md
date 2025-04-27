@@ -1,6 +1,7 @@
 # healingmunch.github.io
-Prodidows
+Prodidows:
 https://healingmunch.github.io/prodidows
+
 ?mods=Anything or ?mods=Anything,Anything
 'Anything' above means the mod name for example: /?mods=WalkSpeed,FastGameSpeed
 

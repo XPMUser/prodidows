@@ -6,6 +6,8 @@ https://healingmunch.github.io/prodidows
 
 https://www.reddit.com/r/Prodidows/rising/
 
+Don't play the versions until they work.
+
 # Available Modpacks:
 
 1. WalkSpeed

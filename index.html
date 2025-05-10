@@ -1,135 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prodidows Homepage</title>
-    <style>
-        /* General Styles */
-        body {
-            font-family: BrianneTod, PipeDream;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7fc;
-            color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prodidows Homepage</title>
+  <style>
+    :root {
+      --primary-color: #0066cc;
+      --hover-color: #004b8d;
+      --text-color: #333;
+      --light-bg: #f4f7fc;
+      --footer-bg: #333;
+      --footer-text: #fff;
+    }
 
-        h1, p {
-            margin: 0;
-            padding: 10px 20px;
-            text-align: center;
-        }
+    body {
+      font-family: "BrianneTod", "PipeDream", Arial, sans-serif;
+      margin: 0;
+      background-color: var(--light-bg);
+      color: var(--text-color);
+    }
 
-        /* Toolbar styles */
-        .toolbar {
-            background-color: #0066cc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 15px 0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    /* Toolbar Navigation */
+    nav {
+      background-color: var(--primary-color);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
 
-        .toolbar button {
-            color: white;
-            text-align: center;
-            padding: 12px 20px;
-            border: none;
-            background-color: #0066cc;
-            cursor: pointer;
-            margin: 0 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.2s;
-        }
+    nav button {
+      background: none;
+      border: none;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s;
+    }
 
-        .toolbar button:hover {
-            background-color: #004b8d;
-            transform: scale(1.1);
-        }
+    nav button:hover {
+      background-color: var(--hover-color);
+      transform: scale(1.05);
+    }
 
-        .toolbar button:focus {
-            outline: none;
-        }
+    nav button:focus {
+      outline: 2px solid #fff;
+    }
 
-        /* Layout Improvements for Main Section */
-        main {
-            padding: 20px;
-            max-width: 1200px;
-            margin: 30px auto;
-        }
+    /* Main Content */
+    main {
+      padding: 40px 20px;
+      max-width: 960px;
+      margin: auto;
+      text-align: center;
+    }
 
-        .intro-section {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    main h1 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
 
-        .intro-section h1 {
-            font-size: 36px;
-            color: #0066cc;
-        }
+    main p {
+      font-size: 1.2rem;
+      color: #555;
+      line-height: 1.6;
+    }
 
-        .intro-section p {
-            font-size: 18px;
-            color: #555;
-        }
+    /* Footer */
+    footer {
+      background-color: var(--footer-bg);
+      color: var(--footer-text);
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 60px;
+    }
 
-        /* Footer Section */
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
+    footer a {
+      color: var(--footer-text);
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
 
-        footer a {
-            color: #ffffff;
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: bold;
-        }
+    footer a:hover {
+      text-decoration: underline;
+    }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
 
-        /* Media Query for Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .toolbar {
-                flex-direction: column;
-            }
-            .toolbar button {
-                margin: 10px 0;
-            }
-        }
-    </style>
+      nav button {
+        width: 90%;
+        max-width: 300px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Toolbar Section -->
-    <div class="toolbar">
-        <button onclick="window.location.href='https://healingmunch.github.io/XPMUser.github.io'">Home</button>
-        <button onclick="window.location.href='https://healingmunch.github.io/prodidows/ProdidowsOnline/'">Prodidows Online</button>
-        <button onclick="window.location.href='https://healingmunch.github.io/prodidows/versions/'">Versions</button>
-        <button onclick="window.location.href='https://www.youtube.com/@ProdidowsBusiness'">Subscribe to YouTube</button>
-        <button onclick="window.location.href='https://x.com/ProdidowsD/'">Follow on Twitter</button>
-        <button onclick="window.location.href='https://discord.gg/CW2PYHDuwr'">Join Discord</button>
-    </div>
+  <nav>
+    <button onclick="location.href='https://healingmunch.github.io/XPMUser.github.io'">Home</button>
+    <button onclick="location.href='https://healingmunch.github.io/prodidows/ProdidowsOnline/'">Prodidows Online</button>
+    <button onclick="location.href='https://healingmunch.github.io/prodidows/versions/'">Versions</button>
+    <button onclick="location.href='https://www.youtube.com/@ProdidowsBusiness'">Subscribe to YouTube</button>
+    <button onclick="location.href='https://x.com/ProdidowsD/'">Follow on Twitter</button>
+    <button onclick="location.href='https://discord.gg/CW2PYHDuwr'">Join Discord</button>
+  </nav>
 
-    <!-- Main Section with Introduction -->
-    <main>
-        <div class="intro-section">
-            <h1>Welcome to Prodidows!</h1>
-            <p>Explore exciting features and play the most up-to-date versions of Prodidows and Prodigy right here! Stay connected, get early access, and join the community.</p>
-        </div>
-    </main>
+  <main>
+    <h1>Welcome to Prodidows!</h1>
+    <p>
+      Explore exciting features and play the most up-to-date versions of Prodidows and Prodigy right here! Stay connected, get early access, and join the community.
+    </p>
+  </main>
 
-    <!-- Footer Section -->
-    <footer>
-        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
-    </footer>
+  <footer>
+    <p>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Service</a>
+    </p>
+  </footer>
 
 </body>
 </html>

@@ -21408,6 +21408,30 @@
                 "y": 0.5
             }
         },
+        "weapon/93": {
+            "frame": {
+                "x": 686,
+                "y": 5,
+                "w": 92,
+                "h": 95
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 4,
+                "y": 3,
+                "w": 92,
+                "h": 95
+            },
+            "sourceSize": {
+                "w": 100,
+                "h": 100
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
         "wizard": {
             "frame": {
                 "x": 1312,

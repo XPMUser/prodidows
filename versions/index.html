@@ -1,132 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prodidows</title>
-    <meta name="description" content="The legendary math game Prodidows is now legendary!"/>
-    <link rel="icon" type="image/png" href="https://xpmuser.github.io/prodidows/images/favicon.png">
-    <style>
-        /* Global Body and Layout */
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url("https://healingmunch.github.io/XPMUser.github.io/oldprodigy/select/images/Background-4.png");
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            margin: 0;
-            padding: 0;
-            color: #fff;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prodidows Versions</title>
+  <meta name="description" content="The legendary math game Prodidows is now legendary!"/>
+  <link rel="icon" type="image/png" href="https://xpmuser.github.io/prodidows/images/favicon.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
 
-        /* Heading Style */
-        h1 {
-            font-size: 50px;
-            font-family: 'BrianneTod', 'Pipe Dream', sans-serif;
-            margin-top: 20px;
-            text-align: center;
-        }
+    body {
+      font-family: 'Outfit', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      background: url("https://XPMUser.github.io/oldprodigy/select/images/Background-4.png") center center / cover no-repeat fixed;
+      min-height: 100vh;
+    }
 
-        /* Button Styles */
-        .button {
-            background: linear-gradient(to right, #55BA97, #459082);
-            border: none;
-            border-radius: 11px;
-            padding: 20px 30px;
-            color: #fff;
-            font-size: 20px;
-            cursor: pointer;
-            text-align: center;
-            margin: 10px 0;
-            display: inline-block;
-            box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    h1 {
+      font-size: 3rem;
+      margin-top: 100px;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
 
-        .button:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 6px 12px rgba(0,0,0,0.4);
-        }
+    .button {
+      background: linear-gradient(to right, #55BA97, #3e7f6d);
+      border: none;
+      border-radius: 12px;
+      padding: 16px 30px;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 10px;
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-        .button:focus {
-            outline: none;
-        }
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+    }
 
-        /* Container for Buttons */
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: absolute;
-            top: 30%;
-            width: 100%;
-            text-align: center;
-        }
+    .button:focus {
+      outline: 2px solid #fff;
+    }
 
-        .button-container a {
-            width: 80%;
-        }
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
 
-        /* Fixed Buttons Layout */
-        .fixed-buttons {
-            display: flex;
-            justify-content: space-between;
-            position: fixed;
-            top: 20px;
-            width: 100%;
-            padding: 0 30px;
-            z-index: 100;
-        }
+    .fixed-buttons {
+      position: fixed;
+      top: 20px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      z-index: 100;
+      flex-wrap: wrap;
+    }
 
-        .fixed-buttons a {
-            width: 30%;
-            text-align: center;
-        }
+    .fixed-buttons a {
+      flex: 1 1 auto;
+      max-width: 200px;
+      text-align: center;
+    }
 
-        /* Media Queries for Responsiveness */
-        @media screen and (max-width: 768px) {
-            .button-container {
-                top: 20%;
-            }
-            .fixed-buttons {
-                flex-direction: column;
-                justify-content: center;
-            }
-            .fixed-buttons a {
-                width: 100%;
-                margin-bottom: 15px;
-            }
-        }
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+        margin-top: 140px;
+      }
 
-    </style>
+      .button {
+        width: 90%;
+        max-width: 350px;
+      }
+
+      .fixed-buttons {
+        top: 10px;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .fixed-buttons a {
+        width: 90%;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="fixed-buttons">
-        <a href="/prodidows/" class="button">Go Back</a>
-        <a href="/prodidows/versions/mods/" class="button">Mods</a>
-        <a href="/prodidows/versions/beta" class="button">Beta</a>
-    </div>
+  <div class="fixed-buttons">
+    <a href="/prodidows/" class="button">Go Back</a>
+    <a href="/prodidows/versions/mods/" class="button">Mods</a>
+    <a href="/prodidows/versions/beta" class="button">Beta</a>
+  </div>
 
-    <h1>Prodidows Versions</h1>
+  <h1>Prodidows Versions</h1>
 
-    <div class="button-container">
-        <a href="/prodidows/1-10-0" class="button">Prodidows 1.10.0</a>
-        <a href="/prodidows/1-11-0" class="button">Prodidows 1.11.0</a>
-        <a href="/prodidows/1-16-5" class="button">Prodidows 1.16.5</a>
-        <a href="/prodidows/1-17-0" class="button">Prodidows 1.17.0</a>
-        <a href="/prodidows/1-22-1" class="button">Prodidows 1.22.1</a>
-        <a href="/prodidows/1-24-0" class="button">Prodidows 1.24.0</a>
-        <a href="/prodidows/1-30-0" class="button">Prodidows 1.30.0</a>
-        <a href="/prodidows/1-37-0" class="button">Prodidows 1.37.0</a>
-        <a href="/prodidows/1-39-0" class="button">Prodidows 1.39.0</a>
-        <a href="/prodidows/1-50-0" class="button">Prodidows 1.50.0</a>
-        <a href="/prodidows/1-60-0" class="button">Prodidows 1.60.0</a>
-        <a href="/prodidows/1-70-0" class="button">Prodidows 1.70.0</a>
-        <a href="/prodidows/1-80-0" class="button">Prodidows 1.80.0</a>
-        <a href="/prodidows/1-90-0" class="button">Prodidows 1.90.0</a>
-    </div>
+  <div class="button-container">
+    <a href="/prodidows/1-10-0" class="button">Prodidows 1.10.0</a>
+    <a href="/prodidows/1-11-0" class="button">Prodidows 1.11.0</a>
+    <a href="/prodidows/1-16-5" class="button">Prodidows 1.16.5</a>
+    <a href="/prodidows/1-17-0" class="button">Prodidows 1.17.0</a>
+    <a href="/prodidows/1-22-1" class="button">Prodidows 1.22.1</a>
+    <a href="/prodidows/1-24-0" class="button">Prodidows 1.24.0</a>
+    <a href="/prodidows/1-30-0" class="button">Prodidows 1.30.0</a>
+    <a href="/prodidows/1-37-0" class="button">Prodidows 1.37.0</a>
+    <a href="/prodidows/1-39-0" class="button">Prodidows 1.39.0</a>
+    <a href="/prodidows/1-50-0" class="button">Prodidows 1.50.0</a>
+    <a href="/prodidows/1-60-0" class="button">Prodidows 1.60.0</a>
+    <a href="/prodidows/1-70-0" class="button">Prodidows 1.70.0</a>
+    <a href="/prodidows/1-80-0" class="button">Prodidows 1.80.0</a>
+    <a href="/prodidows/1-90-0" class="button">Prodidows 1.90.0</a>
+  </div>
 
 </body>
 </html>

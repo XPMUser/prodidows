@@ -2,97 +2,102 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Prodidows Homepage</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap');
+
     :root {
-      --primary-color: #0066cc;
-      --hover-color: #004b8d;
-      --text-color: #333;
-      --light-bg: #f4f7fc;
-      --footer-bg: #333;
-      --footer-text: #fff;
+      --primary-color: #0072ff;
+      --primary-dark: #004b8d;
+      --text-color: #1a1a1a;
+      --light-bg: #f2f6fc;
+      --footer-bg: #20232a;
+      --footer-text: #f1f1f1;
+      --button-radius: 8px;
     }
 
     body {
-      font-family: "BrianneTod", "PipeDream", Arial, sans-serif;
       margin: 0;
+      font-family: 'Outfit', 'Arial', sans-serif;
       background-color: var(--light-bg);
       color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
-    /* Toolbar Navigation */
     nav {
-      background-color: var(--primary-color);
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
-      padding: 15px;
+      gap: 12px;
+      padding: 18px;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
 
     nav button {
-      background: none;
+      background: white;
+      color: var(--primary-dark);
       border: none;
-      background-color: var(--primary-color);
-      color: white;
-      padding: 12px 20px;
-      border-radius: 5px;
+      padding: 12px 22px;
       font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--button-radius);
       cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     }
 
     nav button:hover {
-      background-color: var(--hover-color);
-      transform: scale(1.05);
+      background-color: var(--primary-dark);
+      color: #fff;
+      transform: translateY(-2px);
     }
 
-    nav button:focus {
-      outline: 2px solid #fff;
-    }
-
-    /* Main Content */
     main {
-      padding: 40px 20px;
-      max-width: 960px;
+      flex: 1;
+      padding: 60px 20px 40px;
+      max-width: 900px;
       margin: auto;
       text-align: center;
     }
 
     main h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       color: var(--primary-color);
       margin-bottom: 20px;
     }
 
     main p {
       font-size: 1.2rem;
-      color: #555;
+      color: #444;
+      max-width: 700px;
+      margin: auto;
       line-height: 1.6;
     }
 
-    /* Footer */
     footer {
       background-color: var(--footer-bg);
       color: var(--footer-text);
       text-align: center;
-      padding: 20px 10px;
-      margin-top: 60px;
+      padding: 25px 15px;
+      font-size: 0.95rem;
     }
 
     footer a {
       color: var(--footer-text);
       text-decoration: none;
-      margin: 0 10px;
-      font-weight: bold;
+      margin: 0 12px;
+      font-weight: 600;
     }
 
     footer a:hover {
+      color: #aad4ff;
       text-decoration: underline;
     }
 
@@ -104,7 +109,11 @@
 
       nav button {
         width: 90%;
-        max-width: 300px;
+        max-width: 320px;
+      }
+
+      main h1 {
+        font-size: 2.2rem;
       }
     }
   </style>
@@ -112,9 +121,9 @@
 <body>
 
   <nav>
-    <button onclick="location.href='https://healingmunch.github.io/XPMUser.github.io'">Home</button>
-    <button onclick="location.href='https://healingmunch.github.io/prodidows/ProdidowsOnline/'">Prodidows Online</button>
-    <button onclick="location.href='https://healingmunch.github.io/prodidows/versions/'">Versions</button>
+    <button onclick="location.href='https://XPMUser.github.io'">Home</button>
+    <button onclick="location.href='https://XPMUser.github.io/prodidows/ProdidowsOnline/'">Prodidows Online</button>
+    <button onclick="location.href='https://XPMUser.github.io/prodidows/versions/'">Versions</button>
     <button onclick="location.href='https://www.youtube.com/@ProdidowsGame?sub_confirmation=1'">Subscribe to YouTube</button>
     <button onclick="location.href='https://x.com/ProdidowsD/'">Follow on Twitter</button>
     <button onclick="location.href='https://discord.gg/CW2PYHDuwr'">Join Discord</button>
@@ -123,14 +132,15 @@
   <main>
     <h1>Welcome to Prodidows!</h1>
     <p>
-      Explore exciting features and play the most up-to-date versions of Prodidows and Prodigy right here! Stay connected, get early access, and join the community.
+      Discover everything Prodidows has to offer — from the latest features to classic favorites. Join our growing community, play online, and stay updated with new versions.
     </p>
   </main>
 
   <footer>
     <p>
       <a href="privacy.html">Privacy Policy</a> |
-      <a href="terms.html">Terms of Service</a>
+      <a href="terms.html">Terms of Service</a><br/>
+      &copy; 2025 Prodidows by <a href="https://github.com/XPMUser" target="_blank">XPMUser</a>
     </p>
   </footer>
 
